@@ -13,7 +13,12 @@
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, alejandra, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    alejandra,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
       main = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -22,9 +27,9 @@
           ./hosts/main/configuration.nix
           inputs.home-manager.nixosModules.default
 
-	  {
-	    environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
-	  }
+          {
+            environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
+          }
         ];
       };
 

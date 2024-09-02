@@ -1,13 +1,15 @@
-{ lib, config, pkgs, ... }:
-
-let
-  cfg = config.main-user;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.main-user;
+in {
   options.main-user = {
-    enable
-      = lib.mkEnableOption "enable user module";
-    
+    enable =
+      lib.mkEnableOption "enable user module";
+
     userName = lib.mkOption {
       default = "mainuser";
       description = ''
@@ -21,7 +23,7 @@ in
       isNormalUser = true;
       initialPassword = "12345";
       description = "main user";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.nushell;
     };
   };
