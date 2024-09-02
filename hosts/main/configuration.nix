@@ -46,6 +46,8 @@
     };
   };
 
+  virtualisation.docker.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

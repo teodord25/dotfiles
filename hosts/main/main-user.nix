@@ -23,7 +23,7 @@ in {
       isNormalUser = true;
       initialPassword = "12345";
       description = "main user";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "docker"];
       shell = pkgs.nushell;
     };
   };
