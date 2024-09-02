@@ -11,12 +11,16 @@
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
+
+    inputs.nix-ld.url = "github:Mic92/nix-ld";
+    inputs.nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     alejandra,
+    nix-ld,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -30,6 +34,10 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
           }
+
+          nix-ld.nixosModules.nix-ld
+
+          {programs.nix-ld.dev.enable = true;}
         ];
       };
 
