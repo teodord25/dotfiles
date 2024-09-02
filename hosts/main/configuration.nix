@@ -53,22 +53,17 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  # On NixOS 24.05 or older, this option must be set:
+  sound.enable = false;
 
-  services.blueman.enable = true;
-  hardware.pulseaudio = {
+  # rtkit is optional but recommended
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
-    package = pkgs.pulseaudioFull;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
-
-  hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-    };
-  };
-
-  #programs.nix-ld.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -82,7 +77,17 @@
     firefox
     bitwarden
     python3Full
+
+    eww
+
+    mako
+    libnotify
+    swww
+
+    rofi-wayland
   ];
+
+  xdg.portal.
 
   programs.hyprland.enable = true;
   # uncomment to enable running x apps
