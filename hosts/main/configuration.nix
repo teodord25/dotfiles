@@ -49,7 +49,11 @@
   virtualisation.docker.enable = true;
 
   services.kanata.enable = true;
-  services.kanata.keyboards.default.configFile = "~/.config/kanata/config.kbd";
+  services.kanata.keyboards.default.config = ''
+    (defsrc caps)
+    (defalias escctrl (tap-hold 100 100 esc lctrl))
+    (deflayer base @escctrl)
+  '';
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
