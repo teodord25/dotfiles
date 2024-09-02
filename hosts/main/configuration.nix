@@ -63,6 +63,7 @@
     enable = true;
     package = pkgs.pulseaudioFull;
   };
+
   hardware.bluetooth.settings = {
     General = {
       Enable = "Source,Sink,Media,Socket";
