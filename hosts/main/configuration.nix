@@ -66,7 +66,7 @@
     };
   };
 
-  programs.nix-ld.enable = true;
+  #programs.nix-ld.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
