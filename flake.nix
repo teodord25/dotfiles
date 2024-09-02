@@ -8,17 +8,26 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+    alejandra.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, alejandra, ... }@inputs: {
     nixosConfigurations = {
       main = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
+
         modules = [
           ./hosts/main/configuration.nix
           inputs.home-manager.nixosModules.default
+
+	  {
+	    environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
+	  }
         ];
       };
+
       work = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [

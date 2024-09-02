@@ -77,6 +77,7 @@
       nushell
       kitty
       firefox
+      bitwarden
   ];
 
   programs.hyprland.enable = true;
