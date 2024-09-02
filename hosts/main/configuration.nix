@@ -49,6 +49,7 @@
   virtualisation.docker.enable = true;
 
   services.kanata.enable = true;
+  services.kanata.keyboards.default.configFile = "~/.config/kanata/config.kbd";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
