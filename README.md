@@ -1,1 +1,1 @@
-# My NixOS config stuff
+# NixOS and other config stuff
