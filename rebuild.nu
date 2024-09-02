@@ -5,14 +5,15 @@ cd ~/nixos/
 
 nvim .
 
-# fmt and discard command output
+# fmt
 alejandra .
 
 # git diff with no context lines
 git diff -U0 ~/nixos/.
 
 print "NixOS Rebuilding..."
-# redirect stdout and stderr to nixos-switch.log
+
+# if something errors cat log file
 sudo nixos-rebuild switch --flake /home/bane/nixos/#main | lines | each { |it| 
     if $it =~ "err" { cat nixos-switch.log }
 }
