@@ -48,6 +48,8 @@
 
   virtualisation.docker.enable = true;
 
+  services.kanata.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
