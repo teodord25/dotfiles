@@ -86,7 +86,7 @@
 
   programs.hyprland.enable = true;
   # uncomment to enable running x apps
-  # programs.xwayland.enable = true;
+  programs.xwayland.enable = true;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
