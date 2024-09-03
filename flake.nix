@@ -11,6 +11,8 @@
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
+
+    templ.url = "github:a-h/templ";
   };
 
   outputs = {
@@ -30,6 +32,15 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
           }
+
+          ({pkgs, ...}: {
+            nixpkgs.overlays = [
+              templ.overlay.default
+            ];
+            environment.systemPackages = with pkgs; [
+              templ
+            ];
+          })
         ];
       };
 
