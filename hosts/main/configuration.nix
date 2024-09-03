@@ -85,6 +85,7 @@
     bitwarden
     python3Full
     go
+    pavucontrol
 
     eww
 
