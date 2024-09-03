@@ -36,7 +36,7 @@
 
           ({pkgs, ...}: {
             nixpkgs.overlays = [
-              inputs.templ.overlay.default
+              inputs.templ.overlays.default
             ];
             environment.systemPackages = with pkgs; [
               templ
