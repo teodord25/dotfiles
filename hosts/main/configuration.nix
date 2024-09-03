@@ -84,6 +84,7 @@
     firefox
     bitwarden
     python3Full
+    go
 
     eww
 
