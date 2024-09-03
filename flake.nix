@@ -19,6 +19,7 @@
     self,
     nixpkgs,
     alejandra,
+    templ,
     ...
   } @ inputs: {
     nixosConfigurations = {
