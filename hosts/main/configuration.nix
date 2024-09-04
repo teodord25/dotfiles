@@ -89,6 +89,7 @@
     python3Full
     go
     pavucontrol
+    act
 
     eww
 
