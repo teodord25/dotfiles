@@ -73,6 +73,8 @@
   };
 
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
   users.extraGroups.vboxusers.members = ["bane"];
 
   # List packages installed in system profile. To search, run:
