@@ -81,6 +81,12 @@
     };
   };
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  services.blueman.enable = true;
+  hardware.pulseaudio.enable = true;
+
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.draganddrop = true;
