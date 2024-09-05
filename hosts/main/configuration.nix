@@ -94,6 +94,8 @@
     nushell
     nushellPlugins.gstat
 
+    rustup
+
     kitty
     firefox
     bitwarden
