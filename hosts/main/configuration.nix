@@ -92,6 +92,8 @@
     vim
     wget
     nushell
+    nushellPlugins.gstat
+
     kitty
     firefox
     bitwarden
