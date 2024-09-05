@@ -137,7 +137,6 @@
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   # uncomment to enable running x apps
   programs.xwayland.enable = true;
 
