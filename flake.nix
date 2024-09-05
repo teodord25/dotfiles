@@ -13,6 +13,8 @@
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
     templ.url = "github:a-h/templ";
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
