@@ -8,6 +8,13 @@
 
   home.stateVersion = "24.05"; # dont change this unless you know what youre doing
 
+  wayland.windowManager.hyprland.settings = {
+    general = with config.colorScheme.colors; {
+      "col.active_border" = "rgba(000000) rgba(ffffff) 60deg";
+      "col.inactive_border" = "rgba(000000)";
+    };
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
