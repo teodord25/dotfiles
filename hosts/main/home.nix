@@ -40,43 +40,45 @@ in {
 
       bind = [
         "$mod, Q, killactive"
-        "$mod, D, exec, pkill -x rofi || rofi -show drun"
-        "$mod, S, togglefloating,"
-        "Alt, Return, fullscreen,"
-        "Ctrl+Alt, E, exec, killall waybar || waybar"
-
         "$mod, T, exec, $term"
-        "$mod, E, exec, $file"
-        "$mod, C, exec, $editor"
-        "$mod, F, exec, $browser"
-        "Ctrl+Shift, Escape, exec, btm"
-
-        "$mod, Tab, exec, pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher"
-        "$mod+Shift, E, exec, pkill -x rofi || $scrPath/rofilaunch.sh f # launch file explorer"
-
-        "$mod, P, exec, $scrPath/screenshot.sh s # partial screenshot capture"
-        "$mod+Ctrl, P, exec, $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen)"
-        "$mod+Alt, P, exec, $scrPath/screenshot.sh m # monitor screenshot capture"
-        ", Print, exec, $scrPath/screenshot.sh p # all monitors screenshot capture"
-
-        # Custom scripts
-        "$mod+Alt, Right, exec, $scrPath/swwwallpaper.sh -n # next wallpaper"
-        "$mod+Alt, Left, exec, $scrPath/swwwallpaper.sh -p # previous wallpaper"
-        "$mod, V, exec, pkill -x rofi || $scrPath/cliphist.sh c # launch clipboard"
-        "Alt, K, exec, $scrPath/keyboardswitch.sh # switch keyboard layout"
-
-        "Alt, J, togglesplit"
-
-        "$mod, h, movefocus, l"
-        "$mod, j, movefocus, d"
-        "$mod, k, movefocus, u"
-        "$mod, l, movefocus, r"
-
-        "$mod+Shift, h, movewindow, l"
-        "$mod+Shift, j, movewindow, d"
-        "$mod+Shift, k, movewindow, u"
-        "$mod+Shift, l, movewindow, r"
       ];
+      #
+      #        "$mod, D, exec, pkill -x rofi || rofi -show drun"
+      #        "$mod, S, togglefloating,"
+      #        "Alt, Return, fullscreen,"
+      #        "Ctrl+Alt, E, exec, killall waybar || waybar"
+      #
+      #        "$mod, E, exec, $file"
+      #        "$mod, C, exec, $editor"
+      #        "$mod, F, exec, $browser"
+      #        "Ctrl+Shift, Escape, exec, btm"
+      #
+      #        "$mod, Tab, exec, pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher"
+      #        "$mod+Shift, E, exec, pkill -x rofi || $scrPath/rofilaunch.sh f # launch file explorer"
+      #
+      #        "$mod, P, exec, $scrPath/screenshot.sh s # partial screenshot capture"
+      #        "$mod+Ctrl, P, exec, $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen)"
+      #        "$mod+Alt, P, exec, $scrPath/screenshot.sh m # monitor screenshot capture"
+      #        ", Print, exec, $scrPath/screenshot.sh p # all monitors screenshot capture"
+      #
+      #        # Custom scripts
+      #        "$mod+Alt, Right, exec, $scrPath/swwwallpaper.sh -n # next wallpaper"
+      #        "$mod+Alt, Left, exec, $scrPath/swwwallpaper.sh -p # previous wallpaper"
+      #        "$mod, V, exec, pkill -x rofi || $scrPath/cliphist.sh c # launch clipboard"
+      #        "Alt, K, exec, $scrPath/keyboardswitch.sh # switch keyboard layout"
+      #
+      #        "Alt, J, togglesplit"
+      #
+      #        "$mod, h, movefocus, l"
+      #        "$mod, j, movefocus, d"
+      #        "$mod, k, movefocus, u"
+      #        "$mod, l, movefocus, r"
+      #
+      #        "$mod+Shift, h, movewindow, l"
+      #        "$mod+Shift, j, movewindow, d"
+      #        "$mod+Shift, k, movewindow, u"
+      #        "$mod+Shift, l, movewindow, r"
+      #      ];
 
       #   ++ (
       #     let
