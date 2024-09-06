@@ -7,6 +7,8 @@
   programs.kitty.enable = true;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  wayland.windowManager.hyprland.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
