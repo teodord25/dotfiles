@@ -11,13 +11,6 @@
     enable = true;
 
     settings = {
-      general = {
-        "sensitivity" = "1.0";
-        "layout" = "dwindle";
-        "col.active_border" = "rgba(000000ff) rgba(ffffffff) 60deg";
-        "col.inactive_border" = "rgba(000000ff)";
-      };
-
       monitor = ",preferred,auto,1";
     };
   };
