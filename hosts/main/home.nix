@@ -3,7 +3,7 @@ in {
   home.username = "bane";
   home.homeDirectory = "/home/bane";
 
-  home.stateVersion = "24-unstable"; # dont change this unless you know what youre doing
+  home.stateVersion = "unstable"; # dont change this unless you know what youre doing
 
   programs.kitty.enable = true;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
