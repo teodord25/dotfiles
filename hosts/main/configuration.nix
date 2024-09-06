@@ -44,6 +44,8 @@
     users = {
       "bane" = import ./home.nix;
     };
+
+    backFileExtension = "backup";
   };
 
   virtualisation.docker.enable = true;
