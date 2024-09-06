@@ -64,7 +64,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # On NixOS 24.05 or older, this option must be set:
-  sound.enable = false;
+  # sound.enable = false;
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
