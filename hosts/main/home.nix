@@ -8,10 +8,16 @@
 
   home.stateVersion = "24.05"; # dont change this unless you know what youre doing
 
-  wayland.windowManager.hyprland.settings = {
-    general = with config.colorScheme.colors; {
-      "col.active_border" = "rgba(000000) rgba(ffffff) 60deg";
-      "col.inactive_border" = "rgba(000000)";
+  programs.kitty.enable = true;
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      general = with config.colorScheme.colors; {
+        "col.active_border" = "rgba(000000) rgba(ffffff) 60deg";
+        "col.inactive_border" = "rgba(000000)";
+      };
     };
   };
 

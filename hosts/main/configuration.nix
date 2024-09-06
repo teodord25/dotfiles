@@ -96,7 +96,6 @@
 
     cargo
 
-    kitty
     firefox
     bitwarden
     python3Full
