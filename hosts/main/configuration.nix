@@ -128,7 +128,7 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
 
   programs.xwayland.enable = true;
 
