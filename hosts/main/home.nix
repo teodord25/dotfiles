@@ -17,28 +17,29 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  programs.kitty.enable = true;
   # TODO: figure out why enabling this makes home manager fail to start (removing programs.hyperland.enable = true; in configuration.nix does not work)
   # wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.settings = {
-    "$mod" = "SUPER";
+  # wayland.windowManager.hyprland.settings = {
+  #   "$mod" = "SUPER";
 
-    bind =
-      [
-        "$mod, F exec, firefox"
-        "$mod, T exec, kitty"
-      ]
-      ++ (
-        builtins.concatLists (builtins.genList (
-            i: let
-              ws = i + 1;
-            in [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            ]
-          )
-          9)
-      );
-  };
+  #   bind =
+  #     [
+  #       "$mod, F exec, firefox"
+  #       "$mod, T exec, kitty"
+  #     ]
+  #     ++ (
+  #       builtins.concatLists (builtins.genList (
+  #           i: let
+  #             ws = i + 1;
+  #           in [
+  #             "$mod, code:1${toString i}, workspace, ${toString ws}"
+  #             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+  #           ]
+  #         )
+  #         9)
+  #     );
+  # };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
