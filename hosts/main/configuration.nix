@@ -127,11 +127,11 @@
     # proggyfonts
   ];
 
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
-  # programs.hyprland.enable = true;
-  # # uncomment to enable running x apps
+  programs.hyprland.enable = true;
+  # uncomment to enable running x apps
   programs.xwayland.enable = true;
 
   environment.sessionVariables = {
