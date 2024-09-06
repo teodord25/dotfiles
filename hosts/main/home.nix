@@ -13,8 +13,8 @@ in {
 
     settings = {
       general = {
-        "col.active_border" = "rgba(000000) rgba(ffffff) 60deg";
-        "col.inactive_border" = "rgba(000000)";
+        "col.active_border" = "rgba(000000ff) rgba(ffffffff) 60deg";
+        "col.inactive_border" = "rgba(000000ff)";
       };
 
       # monitor = ,preferred,auto,1
