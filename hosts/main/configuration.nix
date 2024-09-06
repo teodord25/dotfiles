@@ -45,7 +45,7 @@
       "bane" = import ./home.nix;
     };
 
-    backFileExtension = "backup";
+    backupFileExtension = "backup";
   };
 
   virtualisation.docker.enable = true;
