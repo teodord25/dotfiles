@@ -47,6 +47,10 @@
         ];
       };
 
+      homeManager = nixpkgs.lib.homeManagerConfiguration {
+        modules = [./hosts/work/home.nix];
+      };
+
       work = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
