@@ -77,10 +77,6 @@
   services.blueman.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.draganddrop = true;
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
   users.extraGroups.vboxusers.members = ["bane"];
 
   environment.systemPackages = with pkgs; [
