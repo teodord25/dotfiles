@@ -17,6 +17,7 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  # TODO: figure out why enabling this makes home manager fail to start (removing programs.hyperland.enable = true; in configuration.nix does not work)
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
