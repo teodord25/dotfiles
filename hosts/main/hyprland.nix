@@ -29,44 +29,34 @@
 
   bind =
     [
-      "$mod, Q, killactive"
-      "$mod, T, exec, kitty tmux new-session"
-
-      "$mod, D, exec, pkill -x rofi || rofi -show drun"
-      "$mod, S, togglefloating,"
-      "Alt, Return, fullscreen,"
-      "Ctrl+Alt, E, exec, killall waybar || waybar"
-
-      "$mod, E, exec, kitty tmux new-session yazi"
-      "$mod, N, exec, kitty tmux new-session nvim"
-      "$mod, R, exec, kitty tmux new-session nu /home/bane/nixos/rebuild.nu; input 'Press any key to close...'"
-      "$mod, F, exec, firefox"
-      "Ctrl+Shift, Escape, exec, btm"
-
-      "$mod, Tab, exec, pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher"
-      "$mod+Shift, E, exec, pkill -x rofi || $scrPath/rofilaunch.sh f # launch file explorer"
-
-      "$mod, P, exec, $scrPath/screenshot.sh s # partial screenshot capture"
-      "$mod+Ctrl, P, exec, $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen)"
-      "$mod+Alt, P, exec, $scrPath/screenshot.sh m # monitor screenshot capture"
-      ", Print, exec, $scrPath/screenshot.sh p # all monitors screenshot capture"
-
-      "$mod+Alt, Right, exec, $scrPath/swwwallpaper.sh -n # next wallpaper"
-      "$mod+Alt, Left, exec, $scrPath/swwwallpaper.sh -p # previous wallpaper"
-      "$mod, V, exec, pkill -x rofi || $scrPath/cliphist.sh c # launch clipboard"
-      "Alt, K, exec, $scrPath/keyboardswitch.sh # switch keyboard layout"
-
-      "Alt, J, togglesplit"
-
-      "$mod, h, movefocus, l"
-      "$mod, j, movefocus, d"
-      "$mod, k, movefocus, u"
-      "$mod, l, movefocus, r"
-
-      "$mod+Shift, h, movewindow, l"
-      "$mod+Shift, j, movewindow, d"
-      "$mod+Shift, k, movewindow, u"
-      "$mod+Shift, l, movewindow, r"
+      "$mod       , T      , exec           , kitty tmux new-session                                                 "
+      "$mod       , D      , exec           , pkill -x rofi || rofi -show drun                                       "
+      "$mod       , E      , exec           , kitty tmux new-session yazi                                            "
+      "$mod       , N      , exec           , kitty tmux new-session nvim                                            "
+      "$mod       , R      , exec           , kitty tmux new-session nu /home/bane/nixos/rebuild.nu                  "
+      "$mod       , F      , exec           , firefox                                                                "
+      "$mod       , Tab    , exec           , pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher     "
+      "$mod+Shift , E      , exec           , pkill -x rofi || $scrPath/rofilaunch.sh f # launch file explorer       "
+      "$mod       , P      , exec           , $scrPath/screenshot.sh s # partial screenshot capture                  "
+      "$mod+Ctrl  , P      , exec           , $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen) "
+      "$mod+Alt   , P      , exec           , $scrPath/screenshot.sh m # monitor screenshot capture                  "
+      "$mod+Alt   , Right  , exec           , $scrPath/swwwallpaper.sh -n # next wallpaper                           "
+      "$mod+Alt   , Left   , exec           , $scrPath/swwwallpaper.sh -p # previous wallpaper                       "
+      "$mod       , V      , exec           , pkill -x rofi || $scrPath/cliphist.sh c # launch clipboard             "
+      "Alt        , K      , exec           , $scrPath/keyboardswitch.sh # switch keyboard layout                    "
+      "Ctrl+Alt   , E      , exec           , killall waybar || waybar                                               "
+      "Ctrl+Shift , Escape , exec           , btm                                                                    "
+      "$mod       , h      , movefocus      , l                                                                      "
+      "$mod       , j      , movefocus      , d                                                                      "
+      "$mod       , k      , movefocus      , u                                                                      "
+      "$mod       , l      , movefocus      , r                                                                      "
+      "$mod+Shift , h      , movewindow     , l                                                                      "
+      "$mod+Shift , j      , movewindow     , d                                                                      "
+      "$mod+Shift , k      , movewindow     , u                                                                      "
+      "$mod+Shift , l      , movewindow     , r                                                                      "
+      "$mod       , S      , togglefloating                                                                          "
+      "$mod       , Q      , killactive                                                                              "
+      "Alt        , Return , fullscreen                                                                              "
     ]
     ++ (
       builtins.concatLists (builtins.genList (
