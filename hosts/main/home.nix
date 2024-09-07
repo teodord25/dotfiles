@@ -86,7 +86,7 @@
               "$mod ALT, ${toString i}, movetoworkspacesilent, ${toString i}"
             ]
           )
-          9)
+          10)
       );
 
     bindm = [
