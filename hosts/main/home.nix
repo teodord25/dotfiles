@@ -47,7 +47,7 @@
 
         "$mod, E, exec, kitty tmux new-session yazi"
         "$mod, N, exec, kitty tmux new-session nvim"
-        "$mod, R, exec, kitty tmux new-session nu /home/bane/nixos/rebuild.nu"
+        "$mod, R, exec, kitty tmux new-session nu /home/bane/nixos/rebuild.nu; input 'Press any key to close..."
         "$mod, F, exec, firefox"
         "Ctrl+Shift, Escape, exec, btm"
 
