@@ -23,11 +23,6 @@
 
     "$mod" = "SUPER";
 
-    "$term" = "kitty";
-    "$editor" = "nvim";
-    "$file" = "dolphin";
-    "$browser" = "firefox";
-
     # NOTE: bind[flags]:
     # l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is active.
     # r -> release, will trigger on release of a key.
@@ -43,16 +38,16 @@
     bind =
       [
         "$mod, Q, killactive"
-        "$mod, T, exec, $term"
+        "$mod, T, exec, kitty"
 
         "$mod, D, exec, pkill -x rofi || rofi -show drun"
         "$mod, S, togglefloating,"
         "Alt, Return, fullscreen,"
         "Ctrl+Alt, E, exec, killall waybar || waybar"
 
-        "$mod, E, exec, $file"
-        "$mod, C, exec, $editor"
-        "$mod, F, exec, $browser"
+        "$mod, E, exec, kitty tmux new-session yazi"
+        "$mod, N, exec, kitty tmux new-session nvim"
+        "$mod, F, exec, firefox"
         "Ctrl+Shift, Escape, exec, btm"
 
         "$mod, Tab, exec, pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher"
