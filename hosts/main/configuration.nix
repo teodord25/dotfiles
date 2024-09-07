@@ -84,6 +84,7 @@
     wget
     nushell
     nushellPlugins.gstat
+    starship
 
     yazi
 
