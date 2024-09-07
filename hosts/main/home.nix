@@ -24,8 +24,8 @@
 
     bind =
       [
-        "$mod, F exec, firefox"
-        "$mod, T exec, kitty"
+        "$mod, F, exec, firefox"
+        "$mod, T, exec, kitty"
       ]
       ++ (
         builtins.concatLists (builtins.genList (
