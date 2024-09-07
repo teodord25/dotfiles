@@ -38,7 +38,7 @@
     bind =
       [
         "$mod, Q, killactive"
-        "$mod, T, exec, kitty"
+        "$mod, T, exec, kitty tmux new-session"
 
         "$mod, D, exec, pkill -x rofi || rofi -show drun"
         "$mod, S, togglefloating,"
@@ -59,7 +59,6 @@
         "$mod+Alt, P, exec, $scrPath/screenshot.sh m # monitor screenshot capture"
         ", Print, exec, $scrPath/screenshot.sh p # all monitors screenshot capture"
 
-        # Custom scripts
         "$mod+Alt, Right, exec, $scrPath/swwwallpaper.sh -n # next wallpaper"
         "$mod+Alt, Left, exec, $scrPath/swwwallpaper.sh -p # previous wallpaper"
         "$mod, V, exec, pkill -x rofi || $scrPath/cliphist.sh c # launch clipboard"
@@ -82,9 +81,9 @@
             i: let
               ws = i + 1;
             in [
-              "$mod, ${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, ${toString i}, movetoworkspace, ${toString ws}"
-              "$mod ALT, ${toString i}, movetoworkspacesilent, ${toString ws}"
+              "$mod, ${toString i}, workspace, ${toString i}"
+              "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}"
+              "$mod ALT, ${toString i}, movetoworkspacesilent, ${toString i}"
             ]
           )
           9)
