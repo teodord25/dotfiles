@@ -97,6 +97,7 @@
     pavucontrol
     act
 
+    fastfetch
     eww
 
     mako
