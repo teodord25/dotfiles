@@ -85,6 +85,8 @@
     nushell
     nushellPlugins.gstat
 
+    yazi
+
     cargo
 
     firefox

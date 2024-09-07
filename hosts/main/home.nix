@@ -47,6 +47,7 @@
 
         "$mod, E, exec, kitty tmux new-session yazi"
         "$mod, N, exec, kitty tmux new-session nvim"
+        "$mod, R, exec, kitty tmux new-session rebuild"
         "$mod, F, exec, firefox"
         "Ctrl+Shift, Escape, exec, btm"
 
