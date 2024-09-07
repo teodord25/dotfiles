@@ -78,9 +78,7 @@
       ]
       ++ (
         builtins.concatLists (builtins.genList (
-            i: let
-              ws = i + 1;
-            in [
+            i: [
               "$mod, ${toString i}, workspace, ${toString i}"
               "$mod SHIFT, ${toString i}, movetoworkspace, ${toString i}"
               "$mod ALT, ${toString i}, movetoworkspacesilent, ${toString i}"
@@ -180,17 +178,18 @@
       vim = "hx";
       nano = "hx";
     };
-  };
-  carapace.enable = true;
-  carapace.enableNushellIntegration = true;
 
-  starship = {
-    enable = true;
-    settings = {
-      add_newline = true;
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
+    carapace.enable = true;
+    carapace.enableNushellIntegration = true;
+
+    starship = {
+      enable = true;
+      settings = {
+        add_newline = true;
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+        };
       };
     };
   };
