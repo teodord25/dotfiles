@@ -14,7 +14,7 @@
       "col.inactive_border" = "rgba(000000ff)";
     };
 
-    monitor = ",preferred,auto,1";
+    monitor = ",hires,auto,1";
 
     input = {
       "kb_layout" = "us";
