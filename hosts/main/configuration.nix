@@ -73,9 +73,6 @@
 
   services.blueman.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = ["bane"];
-
   environment.systemPackages = with pkgs; [
     git
     neovim
@@ -83,6 +80,7 @@
     wget
     nushell
     starship
+    qemu
 
     yazi
 
