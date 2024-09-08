@@ -41,15 +41,12 @@
         )
 
         def hyprtest [] {
-          ls ~/.config/hypr/
           mv /home/bane/.config/hypr/hyprland.conf ~/.config/hypr/tmpHypr
-          ls ~/.config/hypr/
           cp ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
-          ls ~/.config/hypr/
+          chmod 777 hyprland.conf
+          nvim ~/.config/hypr/hyprland.conf
           rm ~/.config/hypr/hyprland.conf
-          ls ~/.config/hypr/
           mv ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
-          ls ~/.config/hypr/
         }
         alias hyprtest = hyprtest
 
