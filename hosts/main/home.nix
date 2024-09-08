@@ -39,11 +39,24 @@
         prepend /home/myuser/.apps |
         append /usr/bin/env
         )
+
+        def hyprtest [] {
+          ls /home/bane/.config/hypr/
+          mv /home/bane/.config/hypr/hyprland.conf ~/.config/hypr/tmpHypr
+          cp ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
+          nvim ~/.config/hypr/hyprland.conf
+          rm ~/.config/hypr/hyprland.conf
+          mv ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
+        }
+        alias hyprtest = hyprtest
+
       '';
       shellAliases = {
-        vi = "hx";
-        vim = "hx";
-        nano = "hx";
+        rebuild = "~/nixos/rebuild.nu";
+        ga = "git add";
+        gc = "git commit";
+        gs = "git status";
+        gp = "git push";
       };
     };
     carapace.enable = true;
@@ -60,26 +73,6 @@
       };
     };
   };
-
-  #       alias rebuild = ~/nixos/rebuild.nu
-  #       alias reload = home-manager switch
-  #       alias ga = git add
-  #       alias gc = git commit
-  #       alias gs = git status
-  #       alias gp = git push
-  #
-  #       def hyprtest [] {
-  #         ls /home/bane/.config/hypr/
-  #         mv /home/bane/.config/hypr/hyprland.conf ~/.config/hypr/tmpHypr
-  #         cp ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
-  #         nvim ~/.config/hypr/hyprland.conf
-  #         rm ~/.config/hypr/hyprland.conf
-  #         mv ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
-  #       }
-  #       alias hyprtest = hyprtest
-  #
-  #       plugin add /run/current-system/sw/bin/nu_plugin_gstat
-  #
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -83,7 +82,6 @@
     vim
     wget
     nushell
-    nushellPlugins.gstat
     starship
 
     yazi
