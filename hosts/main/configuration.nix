@@ -81,6 +81,7 @@
     nushell
     starship
     qemu
+    quickemu
 
     yazi
 
