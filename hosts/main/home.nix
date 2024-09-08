@@ -43,7 +43,7 @@
         def hyprtest [] {
           mv /home/bane/.config/hypr/hyprland.conf ~/.config/hypr/tmpHypr
           cp ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
-          chmod 777 hyprland.conf
+          chmod 777 ~/.config/hypr/hyprland.conf
           nvim ~/.config/hypr/hyprland.conf
           rm ~/.config/hypr/hyprland.conf
           mv ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
