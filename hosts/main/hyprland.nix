@@ -102,7 +102,7 @@
     ];
 
     exec-once = [
-      "notify-send test"
+      "bash ~/test.sh"
     ];
   };
 }
