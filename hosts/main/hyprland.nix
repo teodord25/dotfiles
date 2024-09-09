@@ -8,6 +8,8 @@
 
   monitor = ",highres,auto,1";
 
+  exec-once = "swww img ~/Downloads/gods-in-his-heaven.png";
+
   input = {
     "kb_layout" = "us";
     "kb_model" = "pc105";
