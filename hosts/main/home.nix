@@ -6,9 +6,7 @@
 
   programs.kitty.enable = true;
 
-  imports = [
-    ./hyprland.nix
-  ];
+  wayland.windowManager.hyprland = import ./hyprland.nix;
 
   programs = {
     nushell = {
