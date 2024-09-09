@@ -103,8 +103,8 @@
   };
 
   extraCofig = ''
-    notify-send test
-    bash swww-daemon &
-    bash swww img ~/Downloads/gods-in-his-heaven.png &
+    exec-once = notify-send test
+    exec-once = bash swww-daemon &
+    exec-once = bash swww img ~/Downloads/gods-in-his-heaven.png &
   '';
 }
