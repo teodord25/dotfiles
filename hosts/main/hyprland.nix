@@ -100,12 +100,11 @@
       "$mod+Alt, k, resizeactive, 0 -30"
       "$mod+Alt, l, resizeactive, 30 0"
     ];
-
-    exec-once = [
-      "notify-send balls"
-    ];
-
-    #   "bash swww-daemon &"
-    #   "bash swww img ~/Downloads/gods-in-his-heaven.png"
   };
+
+  extraCofig = ''
+    notify-send test
+    bash swww-daemon &
+    bash swww img ~/Downloads/gods-in-his-heaven.png &
+  '';
 }
