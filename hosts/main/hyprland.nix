@@ -100,7 +100,10 @@
   ];
 
   exec-once = [
-    "bash swww-daemon &"
-    "bash swww img ~/Downloads/gods-in-his-heaven.png"
+    "notify-send balls"
   ];
+
+  #
+  #   "bash swww-daemon &"
+  #   "bash swww img ~/Downloads/gods-in-his-heaven.png"
 }
