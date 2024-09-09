@@ -8,10 +8,6 @@
 
   monitor = ",highres,auto,1";
 
-  extraConfig = ''
-    exec-once = "swww img ~/Downloads/gods-in-his-heaven.png"
-  '';
-
   input = {
     "kb_layout" = "us";
     "kb_model" = "pc105";
@@ -102,4 +98,6 @@
     "$mod+Alt, k, resizeactive, 0 -30"
     "$mod+Alt, l, resizeactive, 30 0"
   ];
+
+  exec-once = "bash swww img ~/Downloads/gods-in-his-heaven.png";
 }
