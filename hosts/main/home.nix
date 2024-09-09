@@ -5,8 +5,10 @@
   home.stateVersion = "24.05"; # NO TOUCHING
 
   programs.kitty.enable = true;
-  wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.settings = import ./hyprland.nix;
+
+  imports = [
+    ./hyprland.nix
+  ];
 
   programs = {
     nushell = {
