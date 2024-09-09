@@ -103,6 +103,8 @@
 
     exec-once = [
       "bash ~/test.sh"
+      "bash swww-daemon &"
+      "bash swww img ~/Downloads/gods-in-his-heaven.png &"
     ];
   };
 }
