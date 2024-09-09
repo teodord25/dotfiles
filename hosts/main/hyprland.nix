@@ -99,5 +99,8 @@
     "$mod+Alt, l, resizeactive, 30 0"
   ];
 
-  exec-once = "bash swww img ~/Downloads/gods-in-his-heaven.png";
+  exec-once = [
+    "bash swww-daemon &"
+    "bash swww img ~/Downloads/gods-in-his-heaven.png"
+  ];
 }
