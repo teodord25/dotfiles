@@ -100,11 +100,9 @@
       "$mod+Alt, k, resizeactive, 0 -30"
       "$mod+Alt, l, resizeactive, 30 0"
     ];
-  };
 
-  extraCofig = ''
-    exec-once = notify-send test
-    exec-once = bash swww-daemon &
-    exec-once = bash swww img ~/Downloads/gods-in-his-heaven.png &
-  '';
+    exec-once = [
+      "notify-send test"
+    ];
+  };
 }
