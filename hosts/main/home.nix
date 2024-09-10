@@ -33,53 +33,53 @@
     vimdiffAlias = true;
 
     extraLuaConfig = ''
-      ${builtins.readFile ./nvim/options.lua}
+      ${builtins.readFile ./nvim/init.lua}
     '';
 
-    plugins = with pkgs.vimPlugins; [
-      {
-        plugin = nvim-lspconfig;
-        type = "lua";
-        config = "${builtins.readFile ./nvim/plugin/lsp.lua}";
-      }
+    # plugins = with pkgs.vimPlugins; [
+    #   {
+    #     plugin = nvim-lspconfig;
+    #     type = "lua";
+    #     config = "${builtins.readFile ./nvim/plugin/lsp.lua}";
+    #   }
 
-      {
-        plugin = comment-nvim;
-        type = "lua";
-        config = "require('Comment').setup()";
-      }
+    #   {
+    #     plugin = comment-nvim;
+    #     type = "lua";
+    #     config = "require('Comment').setup()";
+    #   }
 
-      {
-        plugin = gruvbox-nvim;
-        config = "colorscheme gruvbox";
-      }
+    #   {
+    #     plugin = gruvbox-nvim;
+    #     config = "colorscheme gruvbox";
+    #   }
 
-      mason
-      mason-lspconfig
+    #   mason
+    #   mason-lspconfig
 
-      neodev-nvim
+    #   neodev-nvim
 
-      nvim-cmp
-      telescope-nvim
-      telescope-fzf-native-nvim
-      cmp_luasnip
-      cmp-nvim-lsp
-      luasnip
-      friendly-snippets
-      lualine-nvim
-      nvim-web-devicons
+    #   nvim-cmp
+    #   telescope-nvim
+    #   telescope-fzf-native-nvim
+    #   cmp_luasnip
+    #   cmp-nvim-lsp
+    #   luasnip
+    #   friendly-snippets
+    #   lualine-nvim
+    #   nvim-web-devicons
 
-      vim-nix
+    #   vim-nix
 
-      (nvim-treesitter.withPlugins (p: [
-        p.tree-sitter-nix
-        p.tree-sitter-vim
-        p.tree-sitter-bash
-        p.tree-sitter-lua
-        p.tree-sitter-python
-        p.tree-sitter-json
-      ]))
-    ];
+    #   (nvim-treesitter.withPlugins (p: [
+    #     p.tree-sitter-nix
+    #     p.tree-sitter-vim
+    #     p.tree-sitter-bash
+    #     p.tree-sitter-lua
+    #     p.tree-sitter-python
+    #     p.tree-sitter-json
+    #   ]))
+    # ];
   };
 
   # The home.packages option allows you to install Nix packages into your
