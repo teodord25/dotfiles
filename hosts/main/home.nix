@@ -24,18 +24,19 @@
     };
   };
 
-  programs.neovim = {
-    enable = true;
-
-    # redirects vi/vim/vimdiff calls to nvim
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    extraLuaConfig = ''
-      ${builtins.readFile ./nvim/init.lua}
-    '';
-
+# TODO: might move nvim configs here but seems like a pain rn
+#   programs.neovim = {
+#     enable = true;
+# 
+#     # redirects vi/vim/vimdiff calls to nvim
+#     viAlias = true;
+#     vimAlias = true;
+#     vimdiffAlias = true;
+# 
+#     extraLuaConfig = ''
+#       ${builtins.readFile ./nvim/init.lua}
+#     '';
+# 
     # plugins = with pkgs.vimPlugins; [
     #   {
     #     plugin = nvim-lspconfig;
