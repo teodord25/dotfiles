@@ -54,15 +54,8 @@
         config = "colorscheme gruvbox";
       }
 
-      {
-        plugin = mason;
-        type = "lua";
-      }
-
-      {
-        plugin = mason-lspconfig;
-        type = "lua";
-      }
+      mason
+      mason-lspconfig
 
       neodev-nvim
 
