@@ -45,7 +45,11 @@
         config = "require('Comment').setup()";
       }
 
-      gruvbox-nvim
+      {
+        plugin = gruvbox-nvim;
+        config = "coloscheme gruvbox";
+      }
+
       neodev-nvim
 
       nvim-cmp
