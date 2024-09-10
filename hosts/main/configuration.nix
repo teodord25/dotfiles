@@ -113,6 +113,9 @@
     nerdfonts
 
     tmux
+
+    # lsps
+    lua-language-server
   ];
 
   fonts.packages = with pkgs; [
