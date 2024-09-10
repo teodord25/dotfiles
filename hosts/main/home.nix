@@ -47,7 +47,7 @@
 
       {
         plugin = gruvbox-nvim;
-        config = "coloscheme gruvbox";
+        config = "colorscheme gruvbox";
       }
 
       neodev-nvim
