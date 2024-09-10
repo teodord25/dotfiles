@@ -24,6 +24,53 @@
     };
   };
 
+  programs.neovim = {
+    enable = true;
+
+    # redirects vi/vim/vimdiff calls to nvim
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
+    extraLuaConfig = ''
+      ${builtins.readFile ./nvim/options.lua}
+    '';
+
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+
+      {
+        plugin = comment-nvim;
+        type = "lua";
+        config = "require('Comment').setup()";
+      }
+
+      gruvbox-nvim
+      neodev-nvim
+
+      nvim-cmp
+      telescope-nvim
+      telescope-fzf-native-nvim
+      cmp_luasnip
+      cmp-nvim-lsp
+      luasnip
+      friendly-snippets
+      lualine-nvim
+      nvim-web-devicons
+
+      vim-nix
+
+      (nvim-treesitter.withPlugins (p: [
+        p.tree-sitter-nix
+        p.tree-sitter-vim
+        p.tree-sitter-bash
+        p.tree-sitter-lua
+        p.tree-sitter-python
+        p.tree-sitter-json
+      ]))
+    ];
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
