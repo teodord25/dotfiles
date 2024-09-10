@@ -37,7 +37,11 @@
     '';
 
     plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = "${builtins.readFile ./nvim/plugin/lsp.lua}";
+      }
 
       {
         plugin = comment-nvim;
