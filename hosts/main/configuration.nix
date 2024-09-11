@@ -86,6 +86,7 @@
     yazi
 
     cargo
+    cliphist
 
     firefox
     bitwarden
