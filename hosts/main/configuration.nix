@@ -115,6 +115,8 @@
 
     tmux
 
+    ripgrep
+
     # lsps
     lua-language-server
   ];
