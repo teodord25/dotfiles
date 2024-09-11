@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 
 let old_dir = $env.PWD
-cd ~/nixos/
+cd ~/dotfiles/nixos/
 
 nvim .
 
@@ -9,12 +9,12 @@ nvim .
 alejandra .
 
 # git diff with no context lines
-git diff -U0 ~/nixos/.
+git diff -U0 ~/dotfiles/nixos/.
 
 print "NixOS Rebuilding..."
 
 # if something errors cat log file
-sudo nixos-rebuild switch --flake /home/bane/nixos/#main | lines | each { |it| 
+sudo nixos-rebuild switch --flake /home/bane/dotfiles/nixos/#main | lines | each { |it| 
     if $it =~ "err" { cat nixos-switch.log }
 }
 

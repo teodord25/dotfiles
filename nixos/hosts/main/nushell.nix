@@ -39,7 +39,7 @@
 
   '';
   shellAliases = {
-    rebuild = "~/nixos/rebuild.nu";
+    rebuild = "~/dotfiles/nixos/rebuild.nu";
     ga = "git add";
     gc = "git commit";
     gs = "git status";
