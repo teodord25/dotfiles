@@ -23,21 +23,13 @@ while ($file_ready == false) {
         cat output.txt
         exit 1
 
-    } else if (open output.txt | lines | any { |line| $line =~ "evaluating" }) {
-        print "Evaluating..."
-
-    } else if (open output.txt | lines | any { |line| $line =~ "building" }) {
-        print "Config is fine."
-        print "Building..."
-
     } else if (open output.txt | lines | any { |line| $line =~ "restarting sysinit" }) {
-        print "Built."
-        print "Restarting stuff..."
+        print "Finishing."
         $file_ready = true
         rm output.txt
 
     } else {
-        print "Doing other stuff..."
+        cat output.txt
         sleep 1sec
     }
 }
