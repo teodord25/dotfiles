@@ -12,7 +12,7 @@ alejandra .
 git diff -U0 ~/dotfiles/nixos/.
 
 print "NixOS Rebuilding..."
-sudo tmux new-session -d -s nixos-rebuild "nixos-rebuild switch --flake /home/bane/dotfiles/nixos/#main &> output.txt"
+sudo tmux new-session -d -s nixos-rebuild "nixos-rebuild switch --flake /home/bane/dotfiles/nixos/#main --option eval-cache false &> output.txt"
 
 mut file_ready = false
 while ($file_ready == false) {
@@ -22,7 +22,9 @@ while ($file_ready == false) {
         rm output.txt
 
     } else if (open output.txt | lines | any { |line| $line =~ "error" }) {
+        print "----------------------"
         print "Config invalid, error:"
+        print "----------------------"
         cat output.txt
         exit 1
 
