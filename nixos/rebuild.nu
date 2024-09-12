@@ -14,10 +14,7 @@ git diff -U0 ~/dotfiles/nixos/.
 print "NixOS Rebuilding..."
 
 # if something errors cat log file
-sudo nixos-rebuild switch --flake /home/bane/dotfiles/nixos/#main | lines | each { |it| 
-    if $it =~ "err" { cat nixos-switch.log; echo "testing"; input "something went wrong innit" }
-}
-
+sudo nixos-rebuild switch --flake /home/bane/dotfiles/nixos/#main
 let gen = PAGER=cat nixos-rebuild list-generations 
 	| lines
 	| where $it =~ "\\d+\\scurrent"
