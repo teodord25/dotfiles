@@ -117,6 +117,8 @@
 
     ripgrep
 
+    ags
+
     # lsps
     lua-language-server
   ];
