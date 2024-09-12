@@ -19,25 +19,16 @@ while ($file_ready == false) {
     if (open output.txt | lines | any { |line| $line =~ "restarting" }) {
         print "Config is fine, rebuilding..."
         $file_ready = true
+        rm output.txt
 
     } else if (open output.txt | lines | any { |line| $line =~ "error" }) {
         print "Config invalid, error:"
-        $file_ready = true
         cat output.txt
+        exit 1
 
     } else {
         print "Waiting..."
         sleep 1sec
-    }
-}
-
-open output.txt | lines | each { |line|
-    if $line =~ "err" {
-        cat nixos-switch.log
-        print "Error detected: $line"
-        input "error innit"
-        rm output.txt
-        exit 1
     }
 }
 
