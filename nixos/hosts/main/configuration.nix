@@ -88,6 +88,7 @@
     qbittorrent
 
     yazi
+    mpv
 
     cargo
     cliphist
