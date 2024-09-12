@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script creates symlinks in .config/ for all subdirs of this dir so as to
 # keep all relevant configuration in one place, effectively imitating home
