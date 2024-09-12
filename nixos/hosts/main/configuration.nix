@@ -83,6 +83,8 @@
     qemu
     quickemu
 
+    qbittorrent
+
     yazi
 
     cargo
