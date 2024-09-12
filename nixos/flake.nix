@@ -15,6 +15,8 @@
     templ.url = "github:a-h/templ";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = {

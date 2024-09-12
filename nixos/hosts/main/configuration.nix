@@ -119,7 +119,6 @@
 
     ripgrep
 
-    ags
     grim
     slurp
 
