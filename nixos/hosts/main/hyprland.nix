@@ -35,7 +35,7 @@
         "$mod       , D      , exec           , pkill -x rofi || rofi -show drun                                       "
         "$mod       , E      , exec           , kitty tmux new-session yazi                                            "
         "$mod       , N      , exec           , kitty tmux new-session nvim                                            "
-        "$mod       , R      , exec           , kitty tmux new-session nu /home/bane/nixos/rebuild.nu                  "
+        "$mod       , R      , exec           , kitty tmux new-session nu /home/bane/dotfiles/nixos/rebuild.nu         "
         "$mod       , F      , exec           , firefox                                                                "
         "$mod       , Tab    , exec           , pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher     "
         "$mod+Shift , E      , exec           , pkill -x rofi || $scrPath/rofilaunch.sh f # launch file explorer       "
