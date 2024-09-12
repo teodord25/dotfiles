@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.username = "bane";
+  home.joebamium = "bane";
   home.homeDirectory = "/home/bane";
 
   home.stateVersion = "24.05"; # NO TOUCHING
