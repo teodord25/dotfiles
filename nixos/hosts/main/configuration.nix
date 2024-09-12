@@ -118,6 +118,8 @@
     ripgrep
 
     ags
+    grim
+    slurp
 
     # lsps
     lua-language-server
