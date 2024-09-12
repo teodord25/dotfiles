@@ -17,7 +17,8 @@ sudo tmux new-session -d -s nixos-rebuild "nixos-rebuild switch --flake /home/ba
 mut file_ready = false
 while ($file_ready == false) {
     if (open output.txt | lines | any { |line| $line =~ "restarting" }) {
-        print "Config is fine, rebuilding..."
+        print "Config is fine, system rebuilt."
+        print "Restarting..."
         $file_ready = true
         rm output.txt
 
