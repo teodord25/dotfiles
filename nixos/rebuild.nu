@@ -1,15 +1,15 @@
 #!/usr/bin/env nu
 
 let old_dir = $env.PWD
-cd ~/dotfiles/nixos/
+cd ~/dotfiles/
 
 nvim .
 
 # fmt
-alejandra .
+alejandra nixos/
 
 # git diff with no context lines
-git diff -U0 ~/dotfiles/nixos/.
+git diff -U0 ~/dotfiles/.
 
 print "NixOS Rebuilding..."
 sudo tmux new-session -d -s nixos-rebuild "nixos-rebuild switch --flake /home/bane/dotfiles/nixos/#main --option eval-cache false &> output.txt"
