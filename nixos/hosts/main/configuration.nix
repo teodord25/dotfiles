@@ -127,6 +127,7 @@
     slurp
 
     steam-run
+    p7zip
 
     # lsps
     lua-language-server
