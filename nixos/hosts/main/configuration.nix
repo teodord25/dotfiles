@@ -129,6 +129,7 @@
     # lsps
     lua-language-server
     nodePackages.typescript-language-server
+    gopls
   ];
 
   fonts.packages = with pkgs; [
