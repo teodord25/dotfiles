@@ -102,9 +102,7 @@
     ];
 
     exec-once = [
-      "bash ~/test.sh"
-      "bash swww-daemon &"
-      "bash swww img ~/Downloads/gods-in-his-heaven.png &"
+      "bash /home/bane/dotfiles/nixos/scripts/sh/inithypr.sh"
     ];
   };
 }
