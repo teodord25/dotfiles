@@ -126,6 +126,8 @@
     grim
     slurp
 
+    steam-run
+
     # lsps
     lua-language-server
     nodePackages.typescript-language-server
