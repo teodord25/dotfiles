@@ -122,6 +122,7 @@
 
     ripgrep
 
+    wl-clipboard
     grim
     slurp
 
