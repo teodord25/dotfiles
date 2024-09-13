@@ -43,3 +43,5 @@ require 'lspconfig'.ts_ls.setup{
     "typescript",
   },
 }
+
+require 'lspconfig'.gopls.setup{}
