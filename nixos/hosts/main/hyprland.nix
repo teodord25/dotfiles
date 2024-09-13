@@ -1,6 +1,11 @@
 {
   enable = true;
   settings = {
+    misc = {
+      disable_splash_rendering = true;
+      disable_hyprland_logo = true;
+    };
+
     general = {
       "sensitivity" = "1.0";
       "layout" = "dwindle";
