@@ -44,7 +44,7 @@
         "$mod       , F      , exec           , firefox                                                                "
         "$mod       , Tab    , exec           , pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher     "
         "$mod+Shift , E      , exec           , pkill -x rofi || $scrPath/rofilaunch.sh f # launch file explorer       "
-        "$mod       , P      , exec           , $scrPath/screenshot.sh s # partial screenshot capture                  "
+        "$mod       , P      , exec           , ~/dotfiles/nixos/scripts/screenshot.sh s # partial screenshot capture  "
         "$mod+Ctrl  , P      , exec           , $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen) "
         "$mod+Alt   , P      , exec           , $scrPath/screenshot.sh m # monitor screenshot capture                  "
         "$mod+Alt   , Right  , exec           , $scrPath/swwwallpaper.sh -n # next wallpaper                           "
