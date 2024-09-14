@@ -140,12 +140,12 @@ function End() {
                 spacing: 8,
                 children: [
                     Volume(),
-                    Battery(),
+                    // Battery(),
                 ],
             }),
-            SysTray(),
-            Clock(),
-            Date(),
+            // SysTray(),
+            // Clock(),
+            // Date(),
         ],
     })
 }
