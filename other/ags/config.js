@@ -78,7 +78,6 @@ function Volume() {
     return Widget.Box({
         vertical: true,
         class_name: "volume",
-        css: "min-width: 180px",
         children: [slider, icon],
     })
 }
@@ -140,14 +139,23 @@ function End() {
                 spacing: 8,
                 children: [
                     Volume(),
-                    // Battery(),
+                    Battery(),
                 ],
             }),
-            // SysTray(),
-            // Clock(),
-            // Date(),
+            SysTray(),
+            Clock(),
+            Date(),
         ],
     })
+}
+
+function Content() {
+        return Widget.CenterBox({
+            class_name: "content",
+            vertical: true,
+            start_widget: Start(),
+            end_widget: End(),
+        })
 }
 
 function Bar(monitor = 0) {
@@ -157,11 +165,12 @@ function Bar(monitor = 0) {
         monitor,
         anchor: ["top", "bottom", "right"],
         exclusivity: "exclusive",
-        child: Widget.CenterBox({
-            vertical: true,
-            start_widget: Start(),
-            end_widget: End(),
-        }),
+        child: Widget.Box({
+            class_name: "content",
+            children: [
+                Content()
+            ],
+        })
     })
 }
 
@@ -182,10 +191,6 @@ App.config({
     style: "./style/style.css",
     windows: [
         Bar(),
-
-        // you can call it, for each monitor
-        // Bar(0),
-        // Bar(1)
     ],
 })
 

@@ -129,6 +129,8 @@
     steam-run
     p7zip
 
+    hyprpicker
+
     android-studio
     lua-language-server
     nodePackages.typescript-language-server
