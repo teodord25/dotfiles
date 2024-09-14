@@ -1,13 +1,32 @@
-window.bar {
-    background: transparent;
+@font-face {
+    font-family: 'Eva';
+    src: url('assets/fonts/EVA-Matisse_Classic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
+/* Apply the font to the relevant elements */
 .content {
     background: #151515;
     color: #9d0911;
     padding: 0.5em;
     margin: 0.5em;
     border-radius: 1em;
+    font-family: 'Evangelion', sans-serif; /* Use the custom font */
+}
+
+label {
+    font-family: 'Evangelion', sans-serif; /* Apply to labels as well */
+    font-weight: bold;
+}
+
+.notification {
+    color: yellow;
+    font-family: 'Evangelion', sans-serif;
+}
+
+window.bar {
+    background: transparent;
 }
 
 button {
@@ -23,14 +42,6 @@ button:active {
 
 button:hover {
     border-bottom: 3px solid @theme_fg_color;
-}
-
-label {
-    font-weight: bold;
-}
-
-.notification {
-    color: yellow;
 }
 
 levelbar block,
