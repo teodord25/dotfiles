@@ -3,18 +3,29 @@ const audio = await Service.import("audio")
 const battery = await Service.import("battery")
 const systemtray = await Service.import("systemtray")
 
-const time = Variable("", {
-    poll: [1000, 'date "+%H:%M:%S"'],
+const hours = Variable("", {
+    poll: [1000, 'date "+%H"'],
+})
+
+const minutes = Variable("", {
+    poll: [1000, 'date "+%M"'],
 })
 
 const date = Variable("", {
     poll: [1000, 'date "+%b %e."'],
 })
 
-function Clock() {
+function Hours() {
     return Widget.Label({
-        class_name: "clock",
-        label: time.bind(),
+        class_names: ["clock", "hours"],
+        label: hours.bind(),
+    })
+}
+
+function Minutes() {
+    return Widget.Label({
+        class_names: ["clock", "minutes"],
+        label: minutes.bind(),
     })
 }
 
@@ -142,9 +153,9 @@ function End() {
                     Battery(),
                 ],
             }),
-            SysTray(),
-            Clock(),
-            Date(),
+            // SysTray(),
+            Hours(),
+            Minutes(),
         ],
     })
 }

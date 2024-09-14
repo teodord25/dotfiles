@@ -1,13 +1,10 @@
 window.bar {
     background: transparent;
-    color: #eeeeee;
-    margin: 80px;
-    padding: 80px;
-    min-width: 300px;
 }
 
 .content {
-    background: #292e39;
+    background: #151515;
+    color: #9d0911;
     padding: 0.5em;
     margin: 0.5em;
     border-radius: 1em;

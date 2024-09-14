@@ -90,6 +90,8 @@
     yazi
     mpv
 
+    file
+
     cargo
     cliphist
 
