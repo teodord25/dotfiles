@@ -120,7 +120,7 @@
     noto-fonts-emoji
     nerdfonts
 
-    fontforge
+    fontforge-gtk
 
     binwalk
 
