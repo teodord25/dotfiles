@@ -131,6 +131,7 @@
     steam-run
     p7zip
 
+    kotlin-language-server
     lua-language-server
     nodePackages.typescript-language-server
     gopls
