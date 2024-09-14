@@ -25,7 +25,7 @@ function Hours() {
 function Minutes() {
     return Widget.Label({
         class_names: ["clock", "minutes"],
-        label: minutes.bind(),
+        label: "ASDF",
     })
 }
 

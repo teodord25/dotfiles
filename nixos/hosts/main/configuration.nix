@@ -120,6 +120,8 @@
     noto-fonts-emoji
     nerdfonts
 
+    fontforge
+
     binwalk
 
     tmux

@@ -1,10 +1,3 @@
-@font-face {
-    font-family: 'Eva';
-    src: url('assets/fonts/EVA-Matisse_Classic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* Apply the font to the relevant elements */
 .content {
     background: #151515;
@@ -12,17 +5,15 @@
     padding: 0.5em;
     margin: 0.5em;
     border-radius: 1em;
-    font-family: 'Evangelion', sans-serif; /* Use the custom font */
+    font-family: 'EVA-Matisse_Classic';
 }
 
-label {
-    font-family: 'Evangelion', sans-serif; /* Apply to labels as well */
-    font-weight: bold;
+.clock {
+    font-size: 3.5em;
 }
 
 .notification {
     color: yellow;
-    font-family: 'Evangelion', sans-serif;
 }
 
 window.bar {
