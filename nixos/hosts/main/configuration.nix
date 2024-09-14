@@ -120,6 +120,8 @@
     noto-fonts-emoji
     nerdfonts
 
+    binwalk
+
     tmux
 
     ripgrep
