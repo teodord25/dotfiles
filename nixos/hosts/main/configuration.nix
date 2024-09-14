@@ -110,6 +110,8 @@
     rofi-wayland
 
     gcc
+    kotlin
+    gradle
 
     discord
 
@@ -129,7 +131,6 @@
     steam-run
     p7zip
 
-    # lsps
     lua-language-server
     nodePackages.typescript-language-server
     gopls
