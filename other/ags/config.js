@@ -67,26 +67,28 @@ function Notification() {
 function Volume() {
     const icons = {
         101: "overamplified",
-        67: "high",
-        34: "medium",
-        1: "low",
-        0: "muted",
+        67: "volume-2",
+        34: "volume-1",
+        1: "volume",
+        0: "volume-x",
     }
 
     function getIcon() {
         const icon = audio.speaker.is_muted ? 0 : [101, 67, 34, 1, 0].find(
             threshold => threshold <= audio.speaker.volume * 100)
 
-        return `audio-volume-${icons[icon]}-symbolic`
+        return `${icons[icon]}-symbolic`
     }
 
     const icon = Widget.Icon({
         icon: Utils.watch(getIcon(), audio.speaker, getIcon),
+        class_name: "icon",
+        size: 20,
     })
 
     const slider = Widget.Slider({
         inverted: true,
-        hexpand: false,
+        hexpand: true,
         vexpand: true,
         draw_value: false,
         on_change: ({ value }) => audio.speaker.volume = value,
@@ -107,8 +109,11 @@ function Volume() {
 
 function Battery() {
     const value = battery.bind("percent").as(p => p > 0 ? p / 100 : 0)
-    const icon = battery.bind("percent").as(p =>
-        `battery-level-${Math.floor(p / 10) * 10}-symbolic`)
+    const icon = Widget.Icon({
+        icon: `battery-symbolic`,
+        size: 20,
+        class_name: "icon",
+    })
 
     return Widget.Box({
         vertical: true,
@@ -122,7 +127,7 @@ function Battery() {
                 vexpand: true,
                 value,
             }),
-            Widget.Icon({ icon }),
+            icon,
         ],
     })
 }
@@ -213,5 +218,7 @@ App.config({
         Bar(),
     ],
 })
+
+App.addIcons(`${App.configDir}/assets/svg`)
 
 export {}

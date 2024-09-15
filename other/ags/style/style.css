@@ -2,7 +2,7 @@
     background: #151515;
     color: #9d0911;
     font-family: 'EVA-Matisse_Classic';
-    padding: .5em;
+    padding: 8px;
 }
 
 trough,
@@ -10,32 +10,34 @@ highlight,
 .filled,
 .empty {
     background: #151515;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     padding: 0;
+    min-width: 25px;
 }
 
 trough {
     border: 2px solid #9d0911;
 }
 
+highlight,
 .filled {
     background: #9d0911;
-}
-.empty {
-    background: #151515;
+    border: none;
 }
 
-highlight {
-    min-width: 20px;
-    background: #9d0911;
-    border: none;
+scale {
+    padding: 0;
 }
 
 slider {
     background: none;
     box-shadow: none;
     border: none;
+}
+
+.icon {
+    padding-top: 1em;
 }
 
 .day,
