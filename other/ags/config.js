@@ -1,7 +1,6 @@
 const notifications = await Service.import("notifications")
 const audio = await Service.import("audio")
 const battery = await Service.import("battery")
-const systemtray = await Service.import("systemtray")
 
 const hours = Variable("", {
     poll: [1000, 'date "+%H"'],
@@ -9,10 +8,6 @@ const hours = Variable("", {
 
 const minutes = Variable("", {
     poll: [1000, 'date "+%M"'],
-})
-
-const year = Variable("", {
-    poll: [1000, 'date "+%Y"'],
 })
 
 const month = Variable("", {
@@ -34,13 +29,6 @@ function Minutes() {
     return Widget.Label({
         class_names: ["clock", "minutes"],
         label: minutes.bind(),
-    })
-}
-
-function Year() {
-    return Widget.Label({
-        class_names: ["date", "year"],
-        label: year.bind(),
     })
 }
 
