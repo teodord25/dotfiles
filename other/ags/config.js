@@ -11,8 +11,16 @@ const minutes = Variable("", {
     poll: [1000, 'date "+%M"'],
 })
 
-const date = Variable("", {
-    poll: [1000, 'date "+%b %e."'],
+const year = Variable("", {
+    poll: [1000, 'date "+%Y"'],
+})
+
+const month = Variable("", {
+    poll: [1000, 'date "+%b"'],
+})
+
+const day = Variable("", {
+    poll: [1000, 'date "+%d"'],
 })
 
 function Hours() {
@@ -25,14 +33,28 @@ function Hours() {
 function Minutes() {
     return Widget.Label({
         class_names: ["clock", "minutes"],
-        label: "ASDF",
+        label: minutes.bind(),
     })
 }
 
-function Date() {
+function Year() {
     return Widget.Label({
-        class_name: "clock",
-        label: date.bind(),
+        class_names: ["date", "year"],
+        label: year.bind(),
+    })
+}
+
+function Month() {
+    return Widget.Label({
+        class_names: ["date", "month"],
+        label: month.bind(),
+    })
+}
+
+function Day() {
+    return Widget.Label({
+        class_names: ["date", "day"],
+        label: day.bind(),
     })
 }
 
@@ -75,6 +97,7 @@ function Volume() {
     })
 
     const slider = Widget.Slider({
+        inverted: true,
         hexpand: false,
         vexpand: true,
         draw_value: false,
@@ -106,7 +129,8 @@ function Battery() {
         children: [
             Widget.LevelBar({
                 vertical: true,
-                widthRequest: 20,
+                inverted: true,
+                // widthRequest: 20,
                 vexpand: true,
                 value,
             }),
@@ -143,7 +167,7 @@ function End() {
     return Widget.Box({
         hpack: "end",
         vertical: true,
-        spacing: 8,
+        spacing: 6,
         children: [
             Widget.Box({
                 hpack: "center",
@@ -153,9 +177,16 @@ function End() {
                     Battery(),
                 ],
             }),
-            // SysTray(),
-            Hours(),
-            Minutes(),
+            Widget.Box({
+                hpack: "center",
+                vertical: true,
+                children: [ Hours(), Minutes(), ],
+            }),
+            Widget.Box({
+                hpack: "center",
+                spacing: 8,
+                children: [ Day(), Month() ],
+            }),
         ],
     })
 }
@@ -205,4 +236,4 @@ App.config({
     ],
 })
 
-export { }
+export {}

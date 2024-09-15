@@ -1,15 +1,30 @@
-/* Apply the font to the relevant elements */
 .content {
     background: #151515;
     color: #9d0911;
-    padding: 0.5em;
-    margin: 0.5em;
-    border-radius: 1em;
     font-family: 'EVA-Matisse_Classic';
+    padding: .5em;
+}
+
+
+.filled {
+    background-color: #9d0911;
+}
+
+levelbar {
+    background-color: yellow;
+}
+
+.date {
+    font-size: 2.5em;
+}
+
+.day,
+.month {
+    font-size: 1.6em;
 }
 
 .clock {
-    font-size: 3.5em;
+    font-size: 5em;
 }
 
 .notification {
