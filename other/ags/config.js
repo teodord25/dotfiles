@@ -139,27 +139,28 @@ function Battery() {
     })
 }
 
-
-function SysTray() {
-    const items = systemtray.bind("items")
-        .as(items => items.map(item => Widget.Button({
-            child: Widget.Icon({ icon: item.bind("icon") }),
-            on_primary_click: (_, event) => item.activate(event),
-            on_secondary_click: (_, event) => item.openMenu(event),
-            tooltip_markup: item.bind("tooltip_markup"),
-        })))
-
-    return Widget.Box({
-        children: items,
-    })
-}
-
 function Start() {
     return Widget.Box({
         spacing: 8,
         children: [
             Notification(),
         ],
+    })
+}
+
+function Clock() {
+    return Widget.Box({
+        hpack: "center",
+        vertical: true,
+        children: [ Hours(), Minutes(), ],
+    })
+}
+
+function Date() {
+    return Widget.Box({
+        hpack: "center",
+        spacing: 8,
+        children: [ Day(), Month() ],
     })
 }
 
@@ -172,21 +173,10 @@ function End() {
             Widget.Box({
                 hpack: "center",
                 spacing: 8,
-                children: [
-                    Volume(),
-                    Battery(),
-                ],
+                children: [ Volume(), Battery(), ],
             }),
-            Widget.Box({
-                hpack: "center",
-                vertical: true,
-                children: [ Hours(), Minutes(), ],
-            }),
-            Widget.Box({
-                hpack: "center",
-                spacing: 8,
-                children: [ Day(), Month() ],
-            }),
+            Clock(),
+            Date(),
         ],
     })
 }
