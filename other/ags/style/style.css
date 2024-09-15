@@ -5,17 +5,8 @@
     padding: .5em;
 }
 
-
 .filled {
     background-color: #9d0911;
-}
-
-levelbar {
-    background-color: yellow;
-}
-
-.date {
-    font-size: 2.5em;
 }
 
 .day,
@@ -27,30 +18,6 @@ levelbar {
     font-size: 5em;
 }
 
-.notification {
-    color: yellow;
-}
-
 window.bar {
     background: transparent;
-}
-
-button {
-    min-width: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    background-color: transparent;
-}
-
-button:active {
-    background-color: @theme_selected_bg_color;
-}
-
-button:hover {
-    border-bottom: 3px solid @theme_fg_color;
-}
-
-levelbar block,
-highlight {
-    min-height: 10px;
 }
