@@ -118,7 +118,7 @@ function Battery() {
             Widget.LevelBar({
                 vertical: true,
                 inverted: true,
-                // widthRequest: 20,
+                widthRequest: 20,
                 vexpand: true,
                 value,
             }),

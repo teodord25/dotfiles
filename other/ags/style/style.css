@@ -5,8 +5,19 @@
     padding: .5em;
 }
 
+trough,
+.filled,
+.empty {
+    border: 1px solid #9d0911;
+    border-radius: 10px;
+    padding: 0;
+}
+
 .filled {
-    background-color: #9d0911;
+    background: #9d0911;
+}
+.empty {
+    background: #151515;
 }
 
 .day,
@@ -16,8 +27,4 @@
 
 .clock {
     font-size: 5em;
-}
-
-window.bar {
-    background: transparent;
 }
