@@ -28,14 +28,17 @@
     )
 
     def tcfg [file] {
-      mv $"~/.config/($file)" $"~/.config/tmp($file)"
-      cp $"~/.config/tmp($file)" $"~/.config/($file)"
-      chmod 777 $"~/.config/($file)"
-      nvim $"~/.config/($file)"
-      rm $"~/.config/($file)"
-      mv $"~/.config/tmp($file)" $"~/.config/($file)"
+      let org = "~/.config/" + $file
+      let tmp = "~/.config/tmp" + $file
+
+      mv $org $tmp
+      cp $tmp $org
+      chmod 777 $org
+      nvim $org
+      rm $org
+      mv $tmp $org
     }
-    alias tcfg = tcfg
+    alias tcfg = hyprtest
 
   '';
   shellAliases = {
