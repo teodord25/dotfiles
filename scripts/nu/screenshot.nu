@@ -2,7 +2,11 @@
 
 def main [type: string] {
     let datetime = date now | format date "%Y-%m-%d-%H-%m-%S"
-    let filename = "/home/bane/Pictures/" + $"($datetime).png"
+    let filename = "/home/bane/Pictures/Screenshots/" + $"($datetime).png"
+
+    if not ("/home/bane/pictures/Screenshots" | path exists) {
+        mkdir "/home/bane/pictures/Screenshots"
+    }
 
     if $type == "p" {
         grimblast --freeze copysave area $filename
