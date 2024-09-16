@@ -85,6 +85,7 @@
     qemu
     quickemu
 
+    nheko
     qbittorrent
 
     yazi
@@ -143,6 +144,10 @@
     lua-language-server
     nodePackages.typescript-language-server
     gopls
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
   ];
 
   fonts.packages = with pkgs; [

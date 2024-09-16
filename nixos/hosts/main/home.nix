@@ -8,7 +8,18 @@
 
   home.stateVersion = "24.05"; # NO TOUCHING
 
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    font = {
+        name = "Times New Roman";
+    package = pkgs.fira-code;
+    size = 12;
+    };
+    settings = {
+    enable_audio_bell = false;
+    };
+    theme = "Everforest Dark Medium";
+  };
 
   wayland.windowManager.hyprland = import ./hyprland.nix;
 
