@@ -21,6 +21,7 @@
     };
 
     "$mod" = "SUPER";
+    "$scripts" = "/home/bane/dotfiles/scripts/";
 
     # NOTE: bind[flags]:
     # l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is active.
@@ -40,17 +41,17 @@
         "$mod       , D      , exec           , pkill -x rofi || rofi -show drun                                       "
         "$mod       , E      , exec           , kitty tmux new-session yazi                                            "
         "$mod       , N      , exec           , kitty tmux new-session nvim                                            "
-        "$mod       , R      , exec           , kitty tmux new-session nu /home/bane/dotfiles/nixos/rebuild.nu         "
+        "$mod       , R      , exec           , kitty tmux new-session $scripts/nu/rebuild.nu                       "
         "$mod       , F      , exec           , firefox                                                                "
-        "$mod       , Tab    , exec           , pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher     "
-        "$mod+Shift , E      , exec           , pkill -x rofi || $scrPath/rofilaunch.sh f # launch file explorer       "
-        "$mod       , P      , exec           , bash /home/bane/dotfiles/nixos/scripts/sh/screenshot.sh # partial      "
-        "$mod+Ctrl  , P      , exec           , $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen) "
-        "$mod+Alt   , P      , exec           , $scrPath/screenshot.sh m # monitor screenshot capture                  "
-        "$mod+Alt   , Right  , exec           , $scrPath/swwwallpaper.sh -n # next wallpaper                           "
-        "$mod+Alt   , Left   , exec           , $scrPath/swwwallpaper.sh -p # previous wallpaper                       "
-        "$mod       , V      , exec           , pkill -x rofi || $scrPath/cliphist.sh c # launch clipboard             "
-        "Alt        , K      , exec           , $scrPath/keyboardswitch.sh # switch keyboard layout                    "
+        "$mod       , Tab    , exec           , pkill -x rofi || $scripts/rofilaunch.sh w # launch window switcher     "
+        "$mod+Shift , E      , exec           , pkill -x rofi || $scripts/rofilaunch.sh f # launch file explorer       "
+        "$mod       , P      , exec           , $scripts/sh/screenshot.sh                          # partial      "
+        # "$mod+Ctrl  , P      , exec           , $scripts/screenshot.sh sf # partial screenshot capture (frozen screen) "
+        # "$mod+Alt   , P      , exec           , $scripts/screenshot.sh m # monitor screenshot capture                  "
+        # "$mod+Alt   , Right  , exec           , $scripts/swwwallpaper.sh -n # next wallpaper                           "
+        # "$mod+Alt   , Left   , exec           , $scripts/swwwallpaper.sh -p # previous wallpaper                       "
+        "$mod       , V      , exec           , pkill -x rofi || $scripts/cliphist.sh c # launch clipboard             "
+        "Alt        , K      , exec           , $scripts/keyboardswitch.sh # switch keyboard layout                    "
         "Ctrl+Alt   , E      , exec           , killall waybar || waybar                                               "
         "Ctrl+Shift , Escape , exec           , btm                                                                    "
         "$mod       , h      , movefocus      , l                                                                      "
@@ -107,7 +108,7 @@
     ];
 
     exec-once = [
-      "bash /home/bane/dotfiles/nixos/scripts/sh/inithypr.sh"
+      "$scripts/sh/inithypr.sh"
     ];
   };
 }

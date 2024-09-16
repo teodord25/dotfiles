@@ -130,8 +130,7 @@
     ripgrep
 
     wl-clipboard
-    grim
-    slurp
+    grimblast
 
     steam-run
     p7zip
