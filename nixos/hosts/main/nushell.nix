@@ -27,15 +27,15 @@
     append /usr/bin/env
     )
 
-    def hyprtest [] {
-      mv /home/bane/.config/hypr/hyprland.conf ~/.config/hypr/tmpHypr
-      cp ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
-      chmod 777 ~/.config/hypr/hyprland.conf
-      nvim ~/.config/hypr/hyprland.conf
-      rm ~/.config/hypr/hyprland.conf
-      mv ~/.config/hypr/tmpHypr ~/.config/hypr/hyprland.conf
+    def tcfg [file] {
+      mv $"~/.config/($file)" $"~/.config/tmp($file)"
+      cp $"~/.config/tmp($file)" $"~/.config/($file)"
+      chmod 777 $"~/.config/($file)"
+      nvim $"~/.config/($file)"
+      rm $"~/.config/($file)"
+      mv $"~/.config/tmp($file)" $"~/.config/($file)"
     }
-    alias hyprtest = hyprtest
+    alias tcfg = tcfg
 
   '';
   shellAliases = {
