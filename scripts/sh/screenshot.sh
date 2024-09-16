@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-grim -g "$(slurp)" - | wl-copy
+grimblast --freeze copysave area ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png
