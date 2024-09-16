@@ -42,7 +42,7 @@
 
   '';
   shellAliases = {
-    rebuild = "/home/bane/scripts/nu/rebuild.nu";
+    rebuild = "/home/bane/dotfiles/scripts/nu/rebuild.nu";
     ga = "git add";
     gc = "git commit";
     gs = "git status";
