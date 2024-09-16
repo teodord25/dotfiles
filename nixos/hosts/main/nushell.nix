@@ -28,8 +28,8 @@
     )
 
     def tcfg [file] {
-      let org = "~/.config/" + $file
-      let tmp = "~/.config/tmp" + $file
+      let org = "/home/bane/.config/" + $file
+      let tmp = "/home/bane/.config/tmp" + $file
 
       mv $org $tmp
       cp $tmp $org
