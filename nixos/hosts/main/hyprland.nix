@@ -46,7 +46,7 @@
         "$mod       , Tab    , exec           , pkill -x rofi || $scripts/rofilaunch.sh w # launch window switcher     "
         "$mod+Shift , E      , exec           , pkill -x rofi || $scripts/rofilaunch.sh f # launch file explorer       "
         "$mod       , P      , exec           , $scripts/nu/screenshot.nu p # partial                                  "
-        "$mod+Ctrl  , P      , exec           , $scripts/nu/screenshot.sh m # monitor                                  "
+        "$mod+Shift , P      , exec           , $scripts/nu/screenshot.sh m # monitor                                  "
         "Ctrl+Shift , Escape , exec           , btm                                                                    "
         "$mod       , h      , movefocus      , l                                                                      "
         "$mod       , j      , movefocus      , d                                                                      "
