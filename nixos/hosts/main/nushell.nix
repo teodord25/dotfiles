@@ -29,9 +29,7 @@
 
     def tcfg [file] {
       let org = "/home/bane/.config/" + $file
-      print $org
-      let tmp = "/home/bane/.config/tmp" + $file
-      print $tmp
+      let tmp = "/home/bane/.config/" + $file + "tmp"
 
       mv $org $tmp
       cp $tmp $org
