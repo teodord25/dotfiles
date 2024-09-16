@@ -11,9 +11,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Times New Roman";
-      package = pkgs.fira-code;
-      size = 12;
+      name = "DejaVu Sans";
     };
     settings = {
       enable_audio_bell = false;
