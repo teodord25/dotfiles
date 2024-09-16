@@ -137,6 +137,8 @@
 
     hyprpicker
 
+    nodejs_22
+
     android-studio
     lua-language-server
     nodePackages.typescript-language-server

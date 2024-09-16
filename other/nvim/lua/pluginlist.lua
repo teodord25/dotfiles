@@ -25,6 +25,8 @@ return {
 		end
 	},
 
+	"github/copilot.vim",
+
 	"neovim/nvim-lspconfig",
 
 	-- detect tabstop and shiftwidth automatically
