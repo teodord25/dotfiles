@@ -139,6 +139,7 @@
     hyprpicker
 
     nodejs_22
+    kdePackages.kwallet
 
     android-studio
     lua-language-server

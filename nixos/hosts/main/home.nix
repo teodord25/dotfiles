@@ -11,12 +11,12 @@
   programs.kitty = {
     enable = true;
     font = {
-        name = "Times New Roman";
-    package = pkgs.fira-code;
-    size = 12;
+      name = "Times New Roman";
+      package = pkgs.fira-code;
+      size = 12;
     };
     settings = {
-    enable_audio_bell = false;
+      enable_audio_bell = false;
     };
     theme = "Everforest Dark Medium";
   };
