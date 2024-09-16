@@ -38,7 +38,7 @@
       rm $org
       mv $tmp $org
     }
-    alias tcfg = hyprtest
+    alias tcfg = tcfg
 
   '';
   shellAliases = {
