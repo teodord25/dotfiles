@@ -140,6 +140,7 @@
     nodejs_22
     kdePackages.kwallet
 
+    pyright
     android-studio
     lua-language-server
     nodePackages.typescript-language-server
