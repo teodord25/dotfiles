@@ -16,6 +16,10 @@ highlight,
     min-width: 25px;
 }
 
+separator {
+    background: none;
+}
+
 trough {
     border: 2px solid #9d0911;
 }
