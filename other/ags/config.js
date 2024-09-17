@@ -135,6 +135,7 @@ function Battery() {
 function Start() {
     return Widget.Box({
         spacing: 8,
+        height_request: 550,
         children: [
             Notification(),
         ],
@@ -179,10 +180,6 @@ function Content() {
             class_name: "content",
             vertical: true,
             start_widget: Start(),
-            center_widget: Widget.Separator({
-                vertical: true,
-                heightRequest: 350,
-            }),
             end_widget: End(),
         })
 }
