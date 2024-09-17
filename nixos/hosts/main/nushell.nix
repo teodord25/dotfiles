@@ -40,6 +40,25 @@
     }
     alias tcfg = tcfg
 
+    def smartserve [] {
+      cd /home/bane/git/smartserve-table/
+      tmux new-window -n docker 'docker compose up'
+      sleep 150ms
+
+      tmux select-window -t 1
+      tmux split-window -h -l 50
+      sleep 150ms
+
+      tmux send-keys "cd e2e" Enter "nix develop" Enter
+      tmux split-window -v
+      sleep 150ms
+
+      tmux send-keys "git status" Enter
+      tmux select-pane -L
+
+      nvim .
+    }
+    alias ss = smartserve
   '';
   shellAliases = {
     rebuild = "/home/bane/dotfiles/scripts/nu/rebuild.nu";
