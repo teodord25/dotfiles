@@ -9,8 +9,12 @@
     general = {
       "sensitivity" = "1.0";
       "layout" = "dwindle";
-      "col.active_border" = "rgba(000000ff) rgba(ffffffff) 60deg";
-      "col.inactive_border" = "rgba(000000ff)";
+      # "col.active_border" = "rgba(000000ff) rgba(ffffffff) 60deg";
+      # "col.inactive_border" = "rgba(000000ff)";
+    };
+
+    decoration = {
+      rounding = "8";
     };
 
     monitor = ",highres,auto,1";
