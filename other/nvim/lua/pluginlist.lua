@@ -88,8 +88,7 @@ return {
 	{ 'mbbill/undotree' },
 	{ 'airblade/vim-gitgutter' },
 	{
-		'christoomey/vim-tmux-navigator',
-		lazy = false,
+		"christoomey/vim-tmux-navigator",
 	},
 
 	{
