@@ -9,7 +9,7 @@
     general = {
       "sensitivity" = "1.0";
       "layout" = "dwindle";
-      # "col.active_border" = "rgba(000000ff) rgba(ffffffff) 60deg";
+      "col.active_border" = "rgba(ffffffff)";
       # "col.inactive_border" = "rgba(000000ff)";
     };
 
