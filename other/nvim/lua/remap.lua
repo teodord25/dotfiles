@@ -14,6 +14,12 @@ map('n', '<C-k>'    , '<C-w><C-k>'             , { desc = 'Move focus to the upp
 map('x', "<leader>p", [["_dP]]                 , { desc = 'Paste from clipboard'                })
 map('n', "<leader>Y", [["+Y]]                  , { desc = 'Yank to clipboard'                   })
 
+
+nmap('n', '<c-h>', '<cmd>TmuxNavigateLeft<cr>' , {})
+nmap('n', '<c-l>', '<cmd>TmuxNavigateRight<cr>', {})
+nmap('n', '<c-j>', '<cmd>TmuxNavigateDown<cr>' , {})
+nmap('n', '<c-k>', '<cmd>TmuxNavigateUp<cr>'   , {})
+
 map({'n', 'v'}, "<leader>y", [["+y]])
 
 nmap('n', '<C-n>', ':cnext<CR>', {
