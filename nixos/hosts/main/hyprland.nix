@@ -19,6 +19,10 @@
 
     monitor = ",highres,auto,1";
 
+    windowrule = [
+      "opacity 0.9, kitty"
+    ];
+
     input = {
       "kb_layout" = "us";
       "kb_model" = "pc105";
