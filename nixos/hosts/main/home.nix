@@ -16,7 +16,7 @@
     settings = {
       enable_audio_bell = false;
     };
-    theme = "Everforest Dark Medium";
+    theme = "Tokyo Night";
   };
 
   wayland.windowManager.hyprland = import ./hyprland.nix;
