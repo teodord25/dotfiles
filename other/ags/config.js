@@ -197,6 +197,8 @@ function Date() {
     })
 }
 
+const bluetooth = await Service.import('bluetooth')
+
 function End() {
     return Widget.Box({
         hpack: "end",
