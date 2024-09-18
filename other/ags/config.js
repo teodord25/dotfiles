@@ -93,7 +93,8 @@ function Notification() {
         visible: popups.as(p => p.length > 0),
         children: [
             Widget.Icon({
-                icon: "preferences-system-notifications-symbolic",
+                icon: popups.as(p => p[0]?.image || "battery-symbolic"),
+                size: 90,
             }),
             Widget.Label({
                 label: popups.as(p => p[0]?.summary || ""),
