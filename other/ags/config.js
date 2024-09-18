@@ -203,8 +203,24 @@ function End() {
     return Widget.Box({
         hpack: "end",
         vertical: true,
-        spacing: 6,
+        spacing: 16,
         children: [
+            Widget.Box({
+                hpack: "center",
+                spacing: 8,
+                children: [
+                    WifiIndicator(),
+                    Widget.Icon({
+                        size: 27,
+                        icon: bluetooth.bind('enabled').as(on => on ? 'bluetooth-symbolic' : 'loader-symbolic'),
+                    }),
+                ],
+            }),
+            Widget.Label({
+                label: network.wifi.bind('ssid')
+                    .as(ssid => ssid || 'Unknown'),
+                visible: showSSID.bind(),
+            }),
             Widget.Box({
                 hpack: "center",
                 spacing: 8,
