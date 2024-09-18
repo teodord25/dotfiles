@@ -2,6 +2,44 @@ const notifications = await Service.import("notifications")
 const audio = await Service.import("audio")
 const battery = await Service.import("battery")
 
+const network = await Service.import('network')
+
+
+const showSSID = Variable(false, {})
+
+const toggleSSID = () => {
+    showSSID.value = true
+    setTimeout(() => showSSID.value = false, 1000)
+}
+
+const WifiIndicator = () => Widget.Box({
+    class_name: 'wifi',
+    hpack: 'end',
+    children: [
+        Widget.Button({
+            class_name: 'wifi-btn',
+            onHover: () => toggleSSID(),
+            child: Widget.Icon({
+                size: 27,
+                icon: network
+                .wifi
+                .bind('internet')
+                .as(
+                    internet => { switch (internet) {
+                        case 'connected':
+                            return 'wifi-symbolic';
+                        case 'connecting':
+                            return 'loader-symbolic';
+                        case 'disconnected':
+                            return 'wifi-off-symbolic';
+                        }
+                    }
+                ),
+            }),
+        })
+    ],
+})
+
 const hours = Variable("", {
     poll: [1000, 'date "+%H"'],
 })
