@@ -20,7 +20,7 @@ const WifiIndicator = () => Widget.Box({
             class_name: 'wifi-btn',
             onHover: () => toggleSSID(),
             child: Widget.Icon({
-                size: 27,
+                size: 22,
                 icon: network
                 .wifi
                 .bind('internet')
@@ -207,11 +207,11 @@ function End() {
         children: [
             Widget.Box({
                 hpack: "center",
-                spacing: 8,
+                spacing: 16,
                 children: [
                     WifiIndicator(),
                     Widget.Icon({
-                        size: 27,
+                        size: 22,
                         icon: bluetooth.bind('enabled').as(on => on ? 'bluetooth-symbolic' : 'loader-symbolic'),
                     }),
                 ],
