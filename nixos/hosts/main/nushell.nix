@@ -66,5 +66,6 @@
     gc = "git commit";
     gs = "git status";
     gp = "git push";
+    gl = "git log";
   };
 }
