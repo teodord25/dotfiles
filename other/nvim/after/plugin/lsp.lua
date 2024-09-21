@@ -44,5 +44,11 @@ require 'lspconfig'.ts_ls.setup{
   },
 }
 
-require 'lspconfig'.gopls.setup{}
-require 'lspconfig'.pyright.setup{}
+require 'lspconfig'.gopls.setup{
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
+require 'lspconfig'.pyright.setup{
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
