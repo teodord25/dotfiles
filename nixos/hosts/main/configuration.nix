@@ -163,6 +163,7 @@
     lua-language-server
     nodePackages.typescript-language-server
     gopls
+    nil
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
