@@ -72,102 +72,20 @@
 
   services.blueman.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    git
-    neovim
-    vim
-    wget
-    nushell
-    starship
-    qemu
-    quickemu
-
-    nheko
-    qbittorrent
-
-    yazi
-    mpv
-
-    bat
-    difftastic
-    zoxide
-    xcp
-    dysk
-    dust
-    erdtree
-    fd
-    procs
-    rm-improved
-    sd
-    tailspin
-    spacer
-    csvlens
-    dog
-    fselect
-    htmlq
-    inlyne
-    html-tidy
-    xh
-
-    file
-
-    cargo
-    cliphist
-
-    firefox
-    bitwarden
-    python3Full
-    go
-    pavucontrol
-    act
-
-    fastfetch
-    eww
-
-    mako
-    libnotify
-    swww
-
-    rofi-wayland
-
-    gcc
-
-    discord
-
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    nerdfonts
-
-    fontforge-gtk
-
-    binwalk
-
-    tmux
-
-    ripgrep
-
-    wl-clipboard
-    grimblast
-
-    steam-run
-    p7zip
-
-    hyprpicker
-
-    nodejs_22
-    kdePackages.kwallet
-
-    pyright
-    android-studio
-    lua-language-server
-    nodePackages.typescript-language-server
-    gopls
-    nil
-  ];
+  environment.systemPackages = let
+    apps = import ../../pkgs/apps.nix {inherit pkgs;};
+    cli-qol = import ../../pkgs/cli-qol.nix {inherit pkgs;};
+    fonts = import ../../pkgs/fonts.nix {inherit pkgs;};
+    hypr = import ../../pkgs/hypr.nix {inherit pkgs;};
+    lang = import ../../pkgs/lang.nix {inherit pkgs;};
+    ls = import ../../pkgs/ls.nix {inherit pkgs;};
+    tools = import ../../pkgs/tools.nix {inherit pkgs;};
+  in (
+    apps ++ cli-qol ++ fonts ++ hypr ++ lang ++ ls ++ tools
+  );
 
   nixpkgs.config.permittedInsecurePackages = [
-    "olm-3.2.16"
+    "olm-3.2.16" # for nheko
   ];
 
   fonts.packages = with pkgs; [

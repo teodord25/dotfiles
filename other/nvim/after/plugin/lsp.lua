@@ -52,7 +52,7 @@ require 'lspconfig'.pyright.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-require 'lspconfig'."nil".setup{
+require 'lspconfig'.nil_ls.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
