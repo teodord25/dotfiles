@@ -107,7 +107,6 @@
     htmlq
     inlyne
     html-tidy
-    zet
     xh
 
     file
