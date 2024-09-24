@@ -17,4 +17,5 @@ with pkgs; [
   ripgrep
   tmux
   p7zip
+  steam-run
 ]
