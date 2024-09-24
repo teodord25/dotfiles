@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  unrar
   vulkan-tools
   vulkan-loader
   mesa
