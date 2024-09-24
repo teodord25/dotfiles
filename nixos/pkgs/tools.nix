@@ -1,5 +1,9 @@
 {pkgs}:
 with pkgs; [
+  vulkan-tools
+  vulkan-loader
+  mesa
+
   trunk
   git
   act
