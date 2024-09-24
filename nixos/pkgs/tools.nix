@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  trunk
   git
   act
   neovim
