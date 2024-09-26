@@ -31,6 +31,8 @@
     variant = "";
   };
 
+  programs.gnupg.agent.enable = true;
+
   main-user.enable = true;
   main-user.userName = "bane";
 
