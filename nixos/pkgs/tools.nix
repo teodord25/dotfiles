@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  gnupg
   bottom
   unrar
   vulkan-tools
