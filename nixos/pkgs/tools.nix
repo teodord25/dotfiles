@@ -1,6 +1,7 @@
 {pkgs}:
 with pkgs; [
   gnupg
+  pinentry
   bottom
   unrar
   vulkan-tools
