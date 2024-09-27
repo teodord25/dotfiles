@@ -1,6 +1,6 @@
 {pkgs}:
 with pkgs; [
-  wineWowPackages.waylandFull
+  wineWow64Packages.waylandFull
 
   android-studio
   firefox
