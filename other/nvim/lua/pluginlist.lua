@@ -47,18 +47,18 @@ return {
 					color = "error",
 					alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
 				},
-				TODO = { icon = " ", color = "info"                                                  },
-				HACK = { icon = " ", color = "warning", alt = { "BLACKMAGIC" }                       },
-				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" }                   },
+				TODO = { icon = " ", color = "info" },
+				HACK = { icon = " ", color = "warning", alt = { "BLACKMAGIC" } },
+				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
 				PERF = { icon = " ", color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-				NOTE = { icon = " ", color = "hint",    alt = { "INFO" }                             },
-				TEST = { icon = "⏲ ", color = "test",    alt = { "TESTING", "PASSED", "FAILED" }      },
+				NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+				TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 			},
 			gui_style = {
-				fg = "NONE", -- The gui style to use for the fg highlight group.
-				bg = "BOLD", -- The gui style to use for the bg highlight group.
+				fg = "NONE",         -- The gui style to use for the fg highlight group.
+				bg = "BOLD",         -- The gui style to use for the bg highlight group.
 			},
-			merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+			merge_keywords = true,   -- when true, custom keywords will be merged with the defaults
 			highlight = {
 				multiline = true,    -- enable multine todo comments
 				multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
@@ -170,8 +170,12 @@ return {
 		config = true,
 		opts = {},
 	},
+
 	{
-		'lervag/vimtex',
-		ft = { 'tex' },
-	},
+		"lervag/vimtex",
+		lazy = false, -- we don't want to lazy load VimTeX
+		init = function()
+			vim.g.vimtex_view_method = "zathura"
+		end
+	}
 }

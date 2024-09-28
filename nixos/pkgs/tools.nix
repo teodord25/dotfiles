@@ -5,6 +5,7 @@ with pkgs; [
   vulkan-tools
   vulkan-loader
   mesa
+  zathura
 
   trunk
   git
