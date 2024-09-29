@@ -67,5 +67,6 @@
     gs = "git status";
     gp = "git push";
     gl = "git log";
+    vi = "nvim";
   };
 }
