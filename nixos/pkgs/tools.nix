@@ -6,6 +6,7 @@ with pkgs; [
   vulkan-loader
   mesa
   zathura
+  texlive.combined.scheme-full
 
   trunk
   git
