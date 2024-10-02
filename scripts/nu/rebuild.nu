@@ -12,6 +12,8 @@ alejandra nixos/
 git diff -U0 ~/dotfiles/.
 
 print "NixOS Rebuilding..."
+rm output.txt
+touch output.txt
 sudo tmux new-session -d -s nixos-rebuild "nixos-rebuild switch --flake /home/bane/dotfiles/nixos/#main --option eval-cache false &> output.txt"
 
 mut file_ready = false
@@ -26,7 +28,6 @@ while ($file_ready == false) {
     } else if (open output.txt | lines | any { |line| $line =~ "restarting sysinit" }) {
         print "Finishing."
         $file_ready = true
-        rm output.txt
 
     } else {
         cat output.txt
