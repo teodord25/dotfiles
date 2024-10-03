@@ -4,6 +4,7 @@ with pkgs; [
 
   android-studio
   firefox
+  chromium
   bitwarden
   qbittorrent
   discord
