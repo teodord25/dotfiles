@@ -1,7 +1,6 @@
 {pkgs}:
 with pkgs; [
-  wineWowPackages.stable
-
+  obsidian
   android-studio
   firefox
   chromium
