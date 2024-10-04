@@ -7,6 +7,8 @@ with pkgs; [
   mesa
   zathura
   texlive.combined.scheme-full
+  imagemagick
+  ghostscript
 
   trunk
   git
