@@ -4,7 +4,7 @@ local on_attach = function(_, buffer)
 	end
 
 	bufmap('<leader>r', vim.lsp.buf.rename)
-	bufmap('<leader>a', vim.lsp.buf.code_action)
+	bufmap('<leader>ca', vim.lsp.buf.code_action)
 
 	bufmap('gd', vim.lsp.buf.definition)
 	bufmap('gD', vim.lsp.buf.declaration)
