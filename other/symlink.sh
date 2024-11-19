@@ -3,7 +3,9 @@
 # This script creates symlinks in .config/ for all subdirs of this dir so as to
 # keep all relevant configuration in one place, effectively imitating home
 # manager without the overhead of actually using home manager and having to
-# rebuild for minor frequent changes
+# rebuild for minor frequent changes.
+#
+# It also installs tpm for tmux
 
 # Get the directory where the script itself is located
 SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -18,3 +20,7 @@ for config in $(find "$SOURCE_DIR" -mindepth 1 -maxdepth 1 -type d -exec basenam
 done
 
 echo "All symlinks have been created successfully."
+
+git clone https://github.com/tmux-plugins/tpm ~/dotfiles/other/tmux/plugins/tpm
+
+echo "Installed Tmux Plugin Manager, use prefix + I to install plugins"
