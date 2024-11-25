@@ -95,7 +95,7 @@
     ls = import ../../pkgs/ls.nix {inherit pkgs;};
     tools = import ../../pkgs/tools.nix {inherit pkgs;};
   in (
-    apps ++ cli-qol ++ fonts ++ hypr ++ lang ++ ls ++ tools
+    apps ++ cli-qol ++ fonts ++ hypr ++ lang ++ ls ++ tools ++ [pkgs.nodejs_22]
   );
 
   nixpkgs.config.permittedInsecurePackages = [
