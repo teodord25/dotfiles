@@ -5,4 +5,6 @@ with pkgs; [
   nodePackages.typescript-language-server
   gopls
   nil
+
+  vue-language-server
 ]
