@@ -6,5 +6,6 @@ with pkgs; [
   gopls
   nil
 
+  llvmPackages_19.clang-unwrapped
   vue-language-server
 ]
