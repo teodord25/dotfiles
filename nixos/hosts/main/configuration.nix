@@ -89,31 +89,25 @@
   environment.systemPackages = let
     apps = import ../../pkgs/apps.nix {inherit pkgs;};
     cli-qol = import ../../pkgs/cli-qol.nix {inherit pkgs;};
-    fonts = import ../../pkgs/fonts.nix {inherit pkgs;};
     hypr = import ../../pkgs/hypr.nix {inherit pkgs;};
     lang = import ../../pkgs/lang.nix {inherit pkgs;};
     ls = import ../../pkgs/ls.nix {inherit pkgs;};
     tools = import ../../pkgs/tools.nix {inherit pkgs;};
   in (
-    apps ++ cli-qol ++ fonts ++ hypr ++ lang ++ ls ++ tools ++ [pkgs.nodejs_22]
+    apps ++ cli-qol ++ hypr ++ lang ++ ls ++ tools ++ [pkgs.nodejs_22]
   );
 
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16" # for nheko
   ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    nerdfonts
-    # liberation_ttf
-    # fira-code
-    # fira-code-symbols
-    # mplus-outline-fonts.githubRelease
-    # dina-font
-    # proggyfonts
-  ];
+  fonts.packages = with pkgs;
+    [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts);
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];

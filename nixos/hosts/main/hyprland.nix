@@ -7,7 +7,6 @@
     };
 
     general = {
-      "sensitivity" = "1.0";
       "layout" = "dwindle";
       "col.active_border" = "rgba(000000ff)";
       # "col.inactive_border" = "rgba(000000ff)";
