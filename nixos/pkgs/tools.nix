@@ -23,5 +23,6 @@ with pkgs; [
   ripgrep
   tmux
   p7zip
+  gnumake42
   steam-run
 ]
