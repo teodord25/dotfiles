@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  steam-run
   spotify
   obsidian
   android-studio
