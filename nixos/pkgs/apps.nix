@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  krita
   steam-run
   spotify
   obsidian
