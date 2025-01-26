@@ -6,13 +6,11 @@ with pkgs; [
   vulkan-loader
   mesa
   zathura
-  texlive.combined.scheme-full
+  #  texlive.combined.scheme-full
   imagemagick
   ghostscript
 
-  trunk
   git
-  act
   neovim
   wget
   nushell
@@ -23,6 +21,5 @@ with pkgs; [
   ripgrep
   tmux
   p7zip
-  gnumake42
   steam-run
 ]

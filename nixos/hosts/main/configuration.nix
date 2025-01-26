@@ -62,13 +62,9 @@
     (deflayer base @escctrl)
   '';
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # On NixOS 24.05 or older, this option must be set:
-  # sound.enable = false;
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
@@ -98,10 +94,6 @@
   in (
     apps ++ cli-qol ++ hypr ++ lang ++ ls ++ tools ++ [pkgs.nodejs_22]
   );
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "olm-3.2.16" # for nheko
-  ];
 
   fonts.packages = with pkgs;
     [
