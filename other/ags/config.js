@@ -183,6 +183,7 @@ function Start() {
 
 function Clock() {
     return Widget.Box({
+        class_name: "content-clock",
         hpack: "center",
         vertical: true,
         children: [ Hours(), Minutes(), ],
