@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 swww-daemon &
-swww img ~/Pictures/gods-in-his-heaven.png &
+swww img ~/dotfiles/wallpapers/gods-in-his-heaven.png &
 
 ags &
 kwalletd6 &
