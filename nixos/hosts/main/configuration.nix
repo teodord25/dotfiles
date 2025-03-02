@@ -84,6 +84,42 @@
 
   services.blueman.enable = true;
 
+
+
+
+
+
+
+  # Enable X11
+  services.xserver.enable = true;
+
+  # Use i3 window manager
+  services.xserver.windowManager.i3.enable = true;
+
+  # Set display manager (you can use SDDM, LightDM, etc.)
+  services.xserver.displayManager.sddm.enable = true;
+
+  # Ensure video drivers are set (adjust for your GPU)
+  services.xserver.videoDrivers = [ "amdgpu" ]; # or "intel", "amdgpu"
+
+  # Input support
+  services.libinput.enable = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   environment.systemPackages = let
     apps = import ../../pkgs/apps.nix {inherit pkgs;};
     cli-qol = import ../../pkgs/cli-qol.nix {inherit pkgs;};

@@ -6,6 +6,8 @@ with pkgs; [
   vulkan-loader
   mesa
   zathura
+
+  texlivePackages.latexmk
   #  texlive.combined.scheme-full
   imagemagick
   ghostscript
