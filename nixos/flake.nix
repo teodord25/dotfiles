@@ -17,6 +17,8 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     ags.url = "github:aylur/ags/v1";
+
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs = {
@@ -24,6 +26,7 @@
     nixpkgs,
     alejandra,
     templ,
+    ghostty,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -34,16 +37,15 @@
           ./hosts/main/configuration.nix
           inputs.home-manager.nixosModules.default
 
-          {
-            environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
-          }
-
           ({pkgs, ...}: {
             nixpkgs.overlays = [
               inputs.templ.overlays.default
             ];
+
             environment.systemPackages = with pkgs; [
               templ
+              alejandra
+              ghostty
             ];
           })
         ];
