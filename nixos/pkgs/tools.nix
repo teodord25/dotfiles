@@ -7,8 +7,8 @@ with pkgs; [
   mesa
   zathura
 
-  texlivePackages.latexmk
-  #  texlive.combined.scheme-full
+  # texlivePackages.latexmk
+  texlive.combined.scheme-basic
   imagemagick
   ghostscript
 
