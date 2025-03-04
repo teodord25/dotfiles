@@ -40,12 +40,14 @@
           ({pkgs, ...}: {
             nixpkgs.overlays = [
               inputs.templ.overlays.default
+              inputs.ghostty.overlays.default  # Ghostty overlay
             ];
 
             environment.systemPackages = with pkgs; [
               templ
-              alejandra
-              ghostty
+              ghostty  # From overlay
+            ] ++ [
+              inputs.alejandra.defaultPackage.${pkgs.system}  # From input
             ];
           })
         ];
