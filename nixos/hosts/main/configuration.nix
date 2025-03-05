@@ -23,7 +23,7 @@
 
   time.timeZone = "Europe/Belgrade";
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   # Configure keymap in X11
   services.xserver.xkb = {

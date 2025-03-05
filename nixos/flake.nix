@@ -18,27 +18,33 @@
     ghostty.url = "github:ghostty-org/ghostty";
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: {
     nixosConfigurations.main = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";  # Explicit system architecture
-      specialArgs = { inherit inputs; };
+      system = "x86_64-linux"; # Explicit system architecture
+      specialArgs = {inherit inputs;};
 
       modules = [
         ./hosts/main/configuration.nix
         inputs.home-manager.nixosModules.default
 
-        ({ pkgs, ... }: {
+        ({pkgs, ...}: {
           nixpkgs.overlays = [
             inputs.templ.overlays.default
             inputs.ghostty.overlays.default
           ];
 
-          environment.systemPackages = with pkgs; [
-            templ
-            ghostty
-          ] ++ [
-            inputs.alejandra.defaultPackage.${pkgs.system}
-          ];
+          environment.systemPackages = with pkgs;
+            [
+              templ
+              ghostty
+            ]
+            ++ [
+              inputs.alejandra.defaultPackage.${pkgs.system}
+            ];
         })
       ];
     };
