@@ -21,14 +21,31 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-    };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+
+    wireplumber.enable = true;
+  };
+
+  # Bluetooth audio configuration for Wireplumber
+  environment.etc = {
+    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+      bluez_monitor.properties = {
+        ["bluez5.enable-sbc-xq"] = true,
+        ["bluez5.enable-msbc"] = true,
+        ["bluez5.codecs"] = "[sbc sbc_xq]",
+        ["bluez5.auto-connect"] = "[hfp_hf hsp_hs a2dp_sink]"
+      }
+    '';
   };
 
   time.timeZone = "Europe/Belgrade";
@@ -78,12 +95,6 @@
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   services.upower.enable = true;
 
