@@ -21,6 +21,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   time.timeZone = "Europe/Belgrade";
 
   i18n.defaultLocale = "en_GB.UTF-8";
