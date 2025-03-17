@@ -19,7 +19,7 @@
     monitor = ",highres,auto,1";
 
     windowrule = [
-      "opacity 0.9, kitty"
+      "opacity 0.9, ghostty"
     ];
 
     input = {
@@ -44,11 +44,11 @@
 
     bind =
       [
-        "$mod       , T      , exec           , kitty tmux new-session                                                 "
+        "$mod       , T      , exec           , ghostty tmux new-session                                                 "
         "$mod       , D      , exec           , pkill -x rofi || rofi -show drun                                       "
-        "$mod       , E      , exec           , kitty tmux new-session yazi                                            "
-        "$mod       , N      , exec           , kitty tmux new-session nvim                                            "
-        "$mod       , R      , exec           , kitty tmux new-session $scripts/nu/rebuild.nu                          "
+        "$mod       , E      , exec           , ghostty tmux new-session yazi                                            "
+        "$mod       , N      , exec           , ghostty tmux new-session nvim                                            "
+        "$mod       , R      , exec           , ghostty tmux new-session $scripts/nu/rebuild.nu                          "
         "$mod       , F      , exec           , firefox                                                                "
         "$mod       , Tab    , exec           , pkill -x rofi || $scripts/rofilaunch.sh w # launch window switcher     "
         "$mod+Shift , E      , exec           , pkill -x rofi || $scripts/rofilaunch.sh f # launch file explorer       "
