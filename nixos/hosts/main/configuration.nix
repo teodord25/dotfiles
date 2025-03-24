@@ -15,6 +15,9 @@
 
   boot.initrd.kernelModules = ["amdgpu"];
 
+  services.printing.enable = true; # Enables CUPS printing service
+  services.printing.drivers = [pkgs.hplip]; # Optional: Add drivers like HPLIP for HP printers
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
