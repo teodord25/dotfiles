@@ -1,5 +1,7 @@
 {pkgs}:
 with pkgs; [
+  qemu
+  virt-manager
   bottom
   unrar
   vulkan-tools
