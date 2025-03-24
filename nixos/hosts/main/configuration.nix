@@ -18,6 +18,12 @@
   services.printing.enable = true; # Enables CUPS printing service
   services.printing.drivers = [pkgs.hplip]; # Optional: Add drivers like HPLIP for HP printers
 
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
