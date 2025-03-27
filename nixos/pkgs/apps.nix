@@ -9,5 +9,6 @@ with pkgs; [
   discord
   kdePackages.kwallet
   pavucontrol
+  lutris
   wtype
 ]
