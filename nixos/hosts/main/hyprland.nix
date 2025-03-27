@@ -66,6 +66,8 @@
         "$mod       , S      , togglefloating                                                                          "
         "$mod       , Q      , killactive                                                                              "
         "Alt        , Return , fullscreen                                                                              "
+        "Ctrl       , 1      , exec           , wtype 'Teodor Đurić'                                                   "
+        "Ctrl       , 2      , exec           , wtype 'djuric.teodor25@gmail.com'                                      "
       ]
       ++ (
         builtins.concatLists (builtins.genList (
