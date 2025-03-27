@@ -66,8 +66,8 @@
         "$mod       , S      , togglefloating                                                                          "
         "$mod       , Q      , killactive                                                                              "
         "Alt        , Return , fullscreen                                                                              "
-        "Ctrl       , 1      , exec           , $scripts/sh/type_name.sh                                               "
-        "Ctrl       , 2      , exec           , $scripts/sh/type_email.sh                                              "
+        "Ctrl       , 1      , exec           , sh -c 'echo \"Teodor Đurić\" | wl-copy'                                "
+        "Ctrl       , 2      , exec           , sh -c 'echo \"djuric.teodor25@gmail.com\" | wl-copy'                   "
       ]
       ++ (
         builtins.concatLists (builtins.genList (
