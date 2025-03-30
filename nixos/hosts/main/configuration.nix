@@ -24,6 +24,16 @@
     openFirewall = true;
   };
 
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+      # Add other libraries as needed
+    ];
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
