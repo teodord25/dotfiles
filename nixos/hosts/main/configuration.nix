@@ -157,9 +157,12 @@
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   xdg.portal.config.common.default = "*";
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
-  # programs.xwayland.enable = true;
+  programs.xwayland.enable = true;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
