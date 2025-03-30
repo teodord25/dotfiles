@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  zulu23
   qemu
   virt-manager
   bottom
