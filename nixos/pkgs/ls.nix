@@ -8,4 +8,5 @@ with pkgs; [
 
   llvmPackages_19.clang-unwrapped
   vue-language-server
+  jdt-language-server
 ]
