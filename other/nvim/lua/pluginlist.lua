@@ -1,5 +1,23 @@
 return {
 	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java", -- Load this plugin for Java files
+		config = function()
+			local jdtls = require("jdtls")
+			local root_dir = jdtls.setup.find_root({ ".git", "pom.xml", "build.gradle" })
+			local config = {
+				cmd = { "jdtls", "-data", "/path/to/your/workspace" },
+				root_dir = root_dir,
+				settings = {
+					java = {
+						-- Add your Java settings here
+					}
+				}
+			}
+			jdtls.start_or_attach(config)
+		end
+	},
+	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
 			"nvim-tree/nvim-web-devicons"
