@@ -1,8 +1,7 @@
 {pkgs}:
 with pkgs; [
   zulu23
-  zulu17
-  zulu11
+  zulu21
   qemu
   virt-manager
   bottom

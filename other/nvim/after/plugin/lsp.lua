@@ -66,11 +66,6 @@ require 'lspconfig'.clangd.setup{
 	capabilities = capabilities,
 }
 
-require('lspconfig').jdtls.setup{
-	on_attach = on_attach,
-	capabilities = capabilities,
-	require('ls/jdtls').default_config
-}
 require('lspconfig').vuels.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
