@@ -1,6 +1,5 @@
 {pkgs}:
 with pkgs; [
-  glas
   pyright
   lua-language-server
   nodePackages.typescript-language-server

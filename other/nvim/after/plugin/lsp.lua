@@ -44,7 +44,7 @@ require 'lspconfig'.ts_ls.setup{
   },
 }
 
-require 'lspconfig'.glas.setup{
+require 'lspconfig'.gleam.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
