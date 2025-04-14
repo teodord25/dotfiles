@@ -1,4 +1,5 @@
 local on_attach = function(_, buffer)
+	vim.print("Attached :DDD")
 	local bufmap = function(keys, func)
 		vim.keymap.set('n', keys, func, { buffer = buffer })
 	end
