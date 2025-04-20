@@ -9,8 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      follows = "nixpkgs";
+    };
 
     templ.url = "github:a-h/templ";
     hyprland.url = "github:hyprwm/Hyprland";
