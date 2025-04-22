@@ -8,17 +8,17 @@
 
   home.stateVersion = "24.05"; # NO TOUCHING
 
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "DejaVu Sans";
-    };
-    settings = {
-      enable_audio_bell = false;
-    };
-    theme = "Tokyo Night";
-  };
-
+  # programs.kitty = {
+  #   enable = true;
+  #   font = {
+  #     name = "DejaVu Sans";
+  #   };
+  #   settings = {
+  #     enable_audio_bell = false;
+  #   };
+  #   theme = "Tokyo Night";
+  # };
+  #
   wayland.windowManager.hyprland = import ./hyprland.nix;
 
   programs.nushell = import ./nushell.nix;

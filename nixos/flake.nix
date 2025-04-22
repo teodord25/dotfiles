@@ -11,7 +11,7 @@
 
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     templ.url = "github:a-h/templ";
@@ -39,14 +39,11 @@
             inputs.ghostty.overlays.default
           ];
 
-          environment.systemPackages = with pkgs;
-            [
-              templ
-              ghostty
-            ]
-            ++ [
-              inputs.alejandra.defaultPackage.${pkgs.system}
-            ];
+          environment.systemPackages = with pkgs; [
+            templ
+            ghostty
+            inputs.alejandra.packages.${pkgs.system}.default
+          ];
         })
       ];
     };

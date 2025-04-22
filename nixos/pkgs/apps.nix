@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  sc-im
   steam-run
   spotify
   obsidian
