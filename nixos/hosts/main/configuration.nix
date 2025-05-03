@@ -128,7 +128,7 @@
   services.xserver.windowManager.i3.enable = true;
 
   # Set display manager (you can use SDDM, LightDM, etc.)
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
 
   # Ensure video drivers are set (adjust for your GPU)
   services.xserver.videoDrivers = ["amdgpu"]; # or "intel", "amdgpu"
