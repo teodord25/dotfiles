@@ -71,6 +71,11 @@ require 'lspconfig'.clangd.setup{
 	capabilities = capabilities,
 }
 
+require 'lspconfig'.wgsl_analyzer.setup{
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
+
 require('lspconfig').vuels.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,

@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     templ.url = "github:a-h/templ";
     hyprland.url = "github:hyprwm/Hyprland";
     ags.url = "github:aylur/ags/v1";
@@ -37,9 +42,11 @@
           nixpkgs.overlays = [
             inputs.templ.overlays.default
             inputs.ghostty.overlays.default
+            inputs.rust-overlay.overlays.default
           ];
 
           environment.systemPackages = with pkgs; [
+            rust-bin.stable.latest.default
             templ
             ghostty
             inputs.alejandra.packages.${pkgs.system}.default
