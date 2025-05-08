@@ -27,6 +27,8 @@
     append /usr/bin/env
     )
 
+    $env.path ++= ["~/.cargo/bin"]
+
     def tcfg [file] {
       let org = "/home/bane/.config/" + $file
       let tmp = "/home/bane/.config/" + $file + "tmp"
