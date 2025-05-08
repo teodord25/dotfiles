@@ -52,6 +52,8 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
+	"neoclide/coc.nvim",
+
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
