@@ -81,7 +81,7 @@
       }
     }
 
-    $env.DIRENV_WARN_TIMEOUT = "100y"
+    $env.DIRENV_WARN_TIMEOUT = "999999s"
   '';
   shellAliases = {
     rebuild = "/home/bane/dotfiles/scripts/nu/rebuild.nu";
