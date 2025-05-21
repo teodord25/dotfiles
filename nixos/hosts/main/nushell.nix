@@ -60,7 +60,8 @@
 
       nvim .
     }
-    alias ss = smartserve
+
+    eval "$(direnv hook zsh)"
   '';
   shellAliases = {
     rebuild = "/home/bane/dotfiles/scripts/nu/rebuild.nu";
