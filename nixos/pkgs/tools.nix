@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  direnv
   ntfs3g
   zulu23
   zulu21
