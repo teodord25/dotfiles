@@ -80,6 +80,8 @@
         }]
       }
     }
+
+    $env.DIRENV_WARN_TIMEOUT = "0s"
   '';
   shellAliases = {
     rebuild = "/home/bane/dotfiles/scripts/nu/rebuild.nu";
