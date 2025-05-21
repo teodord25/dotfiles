@@ -1,5 +1,5 @@
-local on_attach = function(_, buffer)
-	vim.print("Attached :DDD")
+local on_attach = function(client, buffer)
+	print("attached " .. client.name)
 	local bufmap = function(keys, func)
 		vim.keymap.set('n', keys, func, { buffer = buffer })
 	end
@@ -71,10 +71,12 @@ require 'lspconfig'.clangd.setup{
 	capabilities = capabilities,
 }
 
-require 'lspconfig'.wgsl_analyzer.setup{
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
+require 'lspconfig'.wgsl_analyzer.setup({
+  cmd = { vim.fn.expand("~/.cargo/bin/wgsl-analyzer") },
+  filetypes = { "wgsl" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 
 require('lspconfig').vuels.setup{
 	on_attach = on_attach,

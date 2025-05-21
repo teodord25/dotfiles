@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  ntfs3g
   zulu23
   zulu21
   qemu
