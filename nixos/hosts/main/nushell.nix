@@ -61,7 +61,25 @@
       nvim .
     }
 
-    eval "$(direnv hook zsh)"
+    # in config.nu
+    $env.config = {
+      hooks: {
+        pre_prompt: [{ ||
+          # Bail out if direnv isn't on PATH
+          if (which direnv | is-empty) {
+            return
+          }
+
+          # Export env via JSON and load it
+          direnv export json | from json | default {} | load-env
+
+          # Handle PATH conversions if needed
+          if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
+            $env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
+          }
+        }]
+      }
+    }
   '';
   shellAliases = {
     rebuild = "/home/bane/dotfiles/scripts/nu/rebuild.nu";
