@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  flyctl
   direnv
   ntfs3g
   zulu23
