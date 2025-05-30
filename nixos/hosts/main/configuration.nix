@@ -136,6 +136,8 @@
   # Enable hardware graphics support
   hardware.graphics.enable = true;
 
+  environment.variables.VK_ICD_FILENAMES = "/etc/vulkan/icd.d/radeon_icd.x86_64.json";
+
   # Input support
   services.libinput.enable = true;
 
