@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  chromium
   sc-im
   steam-run
   spotify
