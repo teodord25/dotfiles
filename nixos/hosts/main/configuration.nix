@@ -131,10 +131,6 @@
   services.displayManager.sddm.enable = true;
 
   # Ensure video drivers are set (adjust for your GPU)
-  services.xserver.videoDrivers = ["amdgpu"]; # or "intel", "amdgpu"
-
-  # Enable hardware graphics support
-  hardware.graphics.enable = true;
 
   environment.variables.VK_ICD_FILENAMES = "/etc/vulkan/icd.d/radeon_icd.x86_64.json";
 
@@ -151,6 +147,14 @@
   in (
     apps ++ cli-qol ++ hypr ++ lang ++ ls ++ tools ++ [pkgs.nodejs_22]
   );
+
+  # Enable hardware graphics support
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  services.xserver.videoDrivers = ["amdgpu"];
 
   fonts.packages = with pkgs;
     [
