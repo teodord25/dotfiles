@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "NixOS config flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -16,6 +16,11 @@
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    firefox = {
+      url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,6 +55,7 @@
             templ
             ghostty
             inputs.alejandra.packages.${pkgs.system}.default
+            inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
           ];
         })
       ];
