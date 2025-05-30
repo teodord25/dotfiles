@@ -77,10 +77,10 @@
   i18n.defaultLocale = "en_GB.UTF-8";
 
   # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "us";
-  #   variant = "";
-  # };
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 
   programs.gnupg.agent.enable = true;
 
@@ -119,19 +119,19 @@
 
   services.upower.enable = true;
 
-  # hardware.opentabletdriver.enable = true;
-  #
-  # # Enable X11
-  # services.xserver.enable = true;
-  #
-  # # Use i3 window manager
+  hardware.opentabletdriver.enable = true;
+
+  # Enable X11
+  services.xserver.enable = true;
+
+  # Use i3 window manager
   # services.xserver.windowManager.i3.enable = true;
-  #
-  # # Set display manager (you can use SDDM, LightDM, etc.)
-  # services.displayManager.sddm.enable = true;
+
+  # Set display manager (you can use SDDM, LightDM, etc.)
+  services.displayManager.sddm.enable = true;
 
   # Ensure video drivers are set (adjust for your GPU)
-  services.xserver.videoDrivers = ["modesetting"]; # or "intel", "amdgpu"
+  services.xserver.videoDrivers = ["amdgpu"]; # or "intel", "amdgpu"
 
   # Enable hardware graphics support
   hardware.graphics.enable = true;
