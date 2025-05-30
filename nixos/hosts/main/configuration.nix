@@ -20,7 +20,7 @@
 
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
 
@@ -153,6 +153,8 @@
   };
 
   services.xserver.videoDrivers = ["amdgpu"];
+
+  environment.variables.VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
 
   fonts.packages = with pkgs;
     [
