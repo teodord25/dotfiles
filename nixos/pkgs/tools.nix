@@ -11,7 +11,7 @@ with pkgs; [
   unrar
   vulkan-tools
   vulkan-loader
-  mesa
+  mesa.drivers
   zathura
 
   texlivePackages.latexmk

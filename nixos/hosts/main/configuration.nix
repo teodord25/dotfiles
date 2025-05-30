@@ -131,7 +131,10 @@
   services.displayManager.sddm.enable = true;
 
   # Ensure video drivers are set (adjust for your GPU)
-  services.xserver.videoDrivers = ["amdgpu"]; # or "intel", "amdgpu"
+  services.xserver.videoDrivers = ["modesetting"]; # or "intel", "amdgpu"
+
+  # Enable hardware graphics support
+  hardware.graphics.enable = true;
 
   # Input support
   services.libinput.enable = true;
