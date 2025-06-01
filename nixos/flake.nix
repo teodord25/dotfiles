@@ -19,10 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox = {
-      url = "github:nix-community/flake-firefox-nightly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # firefox = {
+    #   url = "github:nix-community/flake-firefox-nightly";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     templ.url = "github:a-h/templ";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -55,7 +55,7 @@
             templ
             ghostty
             inputs.alejandra.packages.${pkgs.system}.default
-            inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
+            # inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
           ];
         })
       ];
