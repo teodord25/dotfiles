@@ -1,6 +1,7 @@
 {pkgs}:
 with pkgs; [
-  #   bat
+  tree
+  bat
   #   difftastic
   #   zoxide
   #   xcp
