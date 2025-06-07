@@ -29,59 +29,6 @@
 
     $env.path ++= ["~/.cargo/bin"]
 
-    def tcfg [file] {
-      let org = "/home/bane/.config/" + $file
-      let tmp = "/home/bane/.config/" + $file + "tmp"
-
-      mv $org $tmp
-      cp $tmp $org
-      chmod 777 $org
-      nvim $org
-      rm $org
-      mv $tmp $org
-    }
-    alias tcfg = tcfg
-
-    def smartserve [] {
-      cd /home/bane/git/smartserve-table/
-      tmux new-window -n docker 'docker compose up'
-      sleep 150ms
-
-      tmux select-window -t 1
-      tmux split-window -h -l 50
-      sleep 150ms
-
-      tmux send-keys "cd e2e" Enter "nix develop" Enter
-      tmux split-window -v
-      sleep 150ms
-
-      tmux send-keys "git status" Enter
-      tmux select-pane -L
-
-      nvim .
-    }
-
-    # in config.nu
-    $env.config = {
-      hooks: {
-        pre_prompt: [{ ||
-          # Bail out if direnv isn't on PATH
-          if (which direnv | is-empty) {
-            return
-          }
-
-          # Export env via JSON and load it
-          direnv export json | from json | default {} | load-env
-
-          # Handle PATH conversions if needed
-          if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
-            $env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
-          }
-        }]
-      }
-    }
-
-    $env.DIRENV_WARN_TIMEOUT = "999999s"
   '';
   shellAliases = {
     rebuild = "/home/bane/dotfiles/scripts/nu/rebuild.nu";
