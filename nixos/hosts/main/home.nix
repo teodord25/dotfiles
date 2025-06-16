@@ -30,34 +30,29 @@
     enable = true;
 
     settings = {
-      add_newline = true;
-
+      # modules you already had ...
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
       };
 
-      # ---------- 1. define the custom module ----------
-      custom = {
-        todo = {
-          # Count TODO matches, then print the number
-          command = ''
-            count=$(rg --hidden -I -g '!{.git,node_modules,target}' -e TODO | wc -l)
-            echo $count
-          '';
-          # Only render when at least one TODO exists
-          when = ''rg --hidden -I -g '!{.git,node_modules,target}' -q -e TODO'';
-          symbol = "󰛨 "; # pick any Nerd-Font icon you like
-          style = "bold yellow";
-          format = "[$symbol$output]($style)"; # → 󰛨 12
-          shell = ["bash" "-cu"]; # fast non-interactive bash
-        };
+      custom.todo = {
+        command = ''
+          count=$(rg --hidden -I -g '!{.git,node_modules,target}' -e TODO | wc -l)
+          echo $count
+        '';
+        when = ''rg --hidden -I -g '!{.git,node_modules,target}' -q -e TODO'';
+        symbol = "󰛨 ";
+        style = "bold yellow";
+        format = "[$symbol$output]($style)";
+        shell = ["bash" "-cu"];
       };
 
-      # ---------- 2. insert it into the prompt ----------
-      # $all = every built-in module already enabled
-      format = "$all$custom.todo$character";
-      #              ↑↑↑ THIS is the key bit
+      # ✨  ESCAPED  ✨
+      format = "$all\${custom.todo}$character";
+      #         ▲     ▲
+      #         |     back-slash escapes the ${ for Nix
+      #     plain $all from Starship’s built-ins
     };
   };
 
