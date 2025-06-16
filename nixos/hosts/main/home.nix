@@ -48,11 +48,9 @@
         shell = ["bash" "-cu"];
       };
 
-      # ✨  ESCAPED  ✨
-      format = "$all\${custom.todo}$character";
-      #         ▲     ▲
-      #         |     back-slash escapes the ${ for Nix
-      #     plain $all from Starship’s built-ins
+      format = ''
+        $all''${custom.todo}$character
+      '';
     };
   };
 
