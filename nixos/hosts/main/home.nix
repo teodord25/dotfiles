@@ -28,57 +28,36 @@
 
   programs.starship = {
     enable = true;
+
     settings = {
-      # show an empty line above the prompt
       add_newline = true;
 
-      # base prompt symbols
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
       };
 
-      #
-      # 1️⃣  Custom “TODO counter” module
-      #
-      # It will:
-      #   • search the current repo/work-dir for the literal string “TODO”
-      #   • count the matches
-      #   • hide itself if the count is zero (keeps the prompt clean)
-      #
+      # ---------- 1. define the custom module ----------
       custom = {
         todo = {
-          # Fast recursive grep; ignore binary files & git dir
+          # Count TODO matches, then print the number
           command = ''
             count=$(rg --hidden -I -g '!{.git,node_modules,target}' -e TODO | wc -l)
             echo $count
           '';
-
-          # Only show when the count is > 0
-          when = ''
-            rg --hidden -I -g '!{.git,node_modules,target}' -q -e TODO
-          '';
-
-          # How it looks:  12
-          symbol = "󰛨 "; # nerd-font “checklist” glyph – pick whatever you like
+          # Only render when at least one TODO exists
+          when = ''rg --hidden -I -g '!{.git,node_modules,target}' -q -e TODO'';
+          symbol = "󰛨 "; # pick any Nerd-Font icon you like
           style = "bold yellow";
           format = "[$symbol$output]($style)"; # → 󰛨 12
-
-          # run in a non-interactive, fast shell
-          shell = ["bash" "-cu"];
+          shell = ["bash" "-cu"]; # fast non-interactive bash
         };
       };
 
-      #
-      # 2️⃣  Put the module into the prompt order
-      #
-      # $all expands to Starship’s built-ins (directory, git branch, etc.)
-      # so we just inject `$todo` before the final $character
-      #
-      format = "$all$todo$character";
-      #            ▲     ▲
-      #            |     our custom module reference
-      #            built-ins
+      # ---------- 2. insert it into the prompt ----------
+      # $all = every built-in module already enabled
+      format = "$all$custom.todo$character";
+      #              ↑↑↑ THIS is the key bit
     };
   };
 
