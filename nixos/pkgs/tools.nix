@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  dnsutils
   flyctl
   direnv
   ntfs3g

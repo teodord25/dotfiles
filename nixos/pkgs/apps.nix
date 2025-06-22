@@ -13,4 +13,5 @@ with pkgs; [
   pavucontrol
   lutris
   wtype
+  thunderbird-latest-unwrapped
 ]
