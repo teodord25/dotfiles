@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  kitty
   chromium
   sc-im
   steam-run
