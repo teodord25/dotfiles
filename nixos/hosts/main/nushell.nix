@@ -28,6 +28,7 @@
     )
 
     $env.path ++= ["~/.cargo/bin"]
+    $env.path ++= ["~/.local/bin"]
 
   '';
   shellAliases = {
