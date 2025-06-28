@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  typst
   dnsutils
   flyctl
   direnv
