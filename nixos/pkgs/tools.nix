@@ -1,6 +1,8 @@
 {pkgs}:
 with pkgs; [
   typst
+  typstPackages."modern-cv"
+
   dnsutils
   flyctl
   direnv

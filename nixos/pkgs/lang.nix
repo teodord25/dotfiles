@@ -3,5 +3,5 @@ with pkgs; [
   rustup
   go
 
-  flutterPackages-source.v3_26
+  # flutterPackages-source.v3_32
 ]
