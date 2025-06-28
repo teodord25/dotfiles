@@ -161,6 +161,8 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
+      roboto
+      source-sans-pro
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts);
 

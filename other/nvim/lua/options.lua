@@ -32,7 +32,12 @@ vim.o.shiftwidth = 4
 vim.o.termguicolors = true
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '☣' }
+
+vim.cmd [[
+  highlight SpecialKey guifg=red ctermfg=red
+  highlight NonText   guifg=red ctermfg=red
+]]
 
 -- preview subsititutions as you type ?
 vim.o.inccommand = 'split'

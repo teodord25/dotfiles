@@ -15,11 +15,11 @@ with pkgs; [
   unrar
   vulkan-tools
   vulkan-loader
-  mesa.drivers
+  mesa
   zathura
 
-  texlivePackages.latexmk
-  texlive.combined.scheme-full
+  # texlivePackages.latexmk
+  # texlive.combined.scheme-full
   imagemagick
   ghostscript
 
