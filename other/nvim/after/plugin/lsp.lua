@@ -1,4 +1,9 @@
 local on_attach = function(client, buffer)
+	-- disable buggy semantic tokens for Typst (Tinymist)
+	if client.name == "tinymist" then
+		client.server_capabilities.semanticTokensProvider = nil
+	end
+
 	print("attached " .. client.name)
 	local bufmap = function(keys, func)
 		vim.keymap.set('n', keys, func, { buffer = buffer })
