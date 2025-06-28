@@ -38,47 +38,57 @@ require 'lspconfig'.lua_ls.setup {
 	settings = { Lua = {} }
 }
 
-require 'lspconfig'.ts_ls.setup{
-  filetypes = {
-    "javascript",
-    "typescript",
-  },
+require 'lspconfig'.ts_ls.setup {
+	filetypes = {
+		"javascript",
+		"typescript",
+	},
 }
 
-require 'lspconfig'.gleam.setup{
+require("lspconfig")["tinymist"].setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
+		semanticTokens = "disable"
+	}
+}
+
+require 'lspconfig'.gleam.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-require 'lspconfig'.gopls.setup{
+require 'lspconfig'.gopls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-require 'lspconfig'.pyright.setup{
+require 'lspconfig'.pyright.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-require 'lspconfig'.nil_ls.setup{
+require 'lspconfig'.nil_ls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-require 'lspconfig'.rust_analyzer.setup{
+require 'lspconfig'.rust_analyzer.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
 
-require 'lspconfig'.clangd.setup{
+require 'lspconfig'.clangd.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
 
 require 'lspconfig'.wgsl_analyzer.setup({
-  cmd = { vim.fn.expand("~/.cargo/bin/wgsl-analyzer") },
-  filetypes = { "wgsl" },
-  on_attach = on_attach,
-  capabilities = capabilities,
+	cmd = { vim.fn.expand("~/.cargo/bin/wgsl-analyzer") },
+	filetypes = { "wgsl" },
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
-require('lspconfig').vuels.setup{
+require('lspconfig').vuels.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	require('ls/vuels').default_config
