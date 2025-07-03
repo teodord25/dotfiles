@@ -26,14 +26,23 @@ touch "$output_file"
 tmux new-session -d -s nixos-rebuild \
   "nixos-rebuild switch --flake '$HOME/dotfiles/nixos#main' --option eval-cache false &> '$output_file'"
 
+echo "Waiting for rebuild logs..."
 file_ready=false
 while ! $file_ready; do
+  # Print separator and timestamp
+  echo "---- $(date '+%Y-%m-%d %H:%M:%S') ----"
+  if [[ -s "$output_file" ]]; then
+    # Show last 20 lines to keep output manageable
+    tail -n 20 "$output_file"
+  else
+    echo "No output yet..."
+  fi
+
   if grep -q "error" "$output_file"; then
     echo "----------------------"
     echo "Config invalid, error:"
     echo "----------------------"
     cat "$output_file"
-    # undo pre-rebuild commit if it exists
     if [ "$pre_committed" = true ]; then
       git reset --soft HEAD~1
     fi
@@ -42,10 +51,12 @@ while ! $file_ready; do
     echo "Finishing."
     file_ready=true
   else
-    cat "$output_file"
     sleep 1
   fi
 done
+
+echo "---- Final Logs ----"
+cat "$output_file"
 
 gen=$(nixos-rebuild list-generations | grep current | head -n1 | awk '{print $1}')
 msg="NixOS Rebuild - Generation ($gen)"
