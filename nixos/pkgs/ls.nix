@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  intelephense
   tinymist
   pyright
   lua-language-server

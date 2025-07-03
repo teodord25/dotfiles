@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  woeusb
   kitty
   chromium
   sc-im

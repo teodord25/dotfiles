@@ -43,6 +43,11 @@ require 'lspconfig'.lua_ls.setup {
 	settings = { Lua = {} }
 }
 
+require 'lspconfig'.intelephense.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
+
 require 'lspconfig'.ts_ls.setup {
 	filetypes = {
 		"javascript",

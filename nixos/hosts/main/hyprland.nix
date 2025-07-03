@@ -18,9 +18,7 @@
 
     monitor = ",highres,auto,1";
 
-    windowrule = [
-      "opacity 0.9, ghostty"
-    ];
+    windowrule = "opacity 0.8 0.8, class:kitty";
 
     input = {
       "kb_layout" = "us";
