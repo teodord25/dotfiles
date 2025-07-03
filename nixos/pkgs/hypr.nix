@@ -5,6 +5,5 @@ with pkgs; [
   wl-clipboard
   rofi-wayland
   libnotify
-  swww
   fastfetch
 ]

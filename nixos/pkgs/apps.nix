@@ -3,8 +3,6 @@ with pkgs; [
   woeusb
   kitty
   chromium
-  sc-im
-  steam-run
   spotify
   obsidian
   firefox
@@ -15,5 +13,5 @@ with pkgs; [
   pavucontrol
   lutris
   wtype
-  thunderbird-latest-unwrapped
+  thunderbird
 ]
