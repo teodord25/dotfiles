@@ -60,7 +60,7 @@ return {
 	"github/copilot.vim",
 
 	"neovim/nvim-lspconfig",
-
+	"mbbill/undotree",
 	{
 		"ThePrimeagen/harpoon",
 		dependencies = { "nvim-lua/plenary.nvim" },
