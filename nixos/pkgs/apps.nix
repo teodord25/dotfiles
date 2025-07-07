@@ -2,16 +2,16 @@
 with pkgs; [
   woeusb
   kitty
-  chromium
-  spotify
-  obsidian
+  # chromium
+  # spotify
+  # obsidian
   firefox
   bitwarden
   qbittorrent
   discord
   kdePackages.kwallet
   pavucontrol
-  lutris
+  # lutris
   wtype
   thunderbird
 ]

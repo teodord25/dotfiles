@@ -7,22 +7,9 @@
   home.homeDirectory = "/home/bane";
 
   home.stateVersion = "24.05"; # NO TOUCHING
-
-  # programs.kitty = {
-  #   enable = true;
-  #   font = {
-  #     name = "DejaVu Sans";
-  #   };
-  #   settings = {
-  #     enable_audio_bell = false;
-  #   };
-  #   theme = "Tokyo Night";
-  # };
-  #
   wayland.windowManager.hyprland = import ./hyprland.nix;
 
   programs.nushell = import ./nushell.nix;
-
   programs.carapace.enable = true;
   programs.carapace.enableNushellIntegration = true;
 
@@ -30,7 +17,6 @@
     enable = true;
 
     settings = {
-      # modules you already had ...
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
@@ -123,7 +109,7 @@
   #  /etc/profiles/per-user/bane/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "nvim";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

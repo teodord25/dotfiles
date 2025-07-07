@@ -5,9 +5,8 @@ with pkgs; [
 
   dnsutils
   flyctl
-  direnv
   ntfs3g
-  zulu23
+  # zulu23
   zulu21
   qemu
   virt-manager
@@ -18,10 +17,8 @@ with pkgs; [
   mesa
   zathura
 
-  # texlivePackages.latexmk
-  # texlive.combined.scheme-full
   imagemagick
-  ghostscript
+  # ghostscript
 
   git
   neovim
