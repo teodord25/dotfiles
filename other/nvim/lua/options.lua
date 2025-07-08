@@ -25,6 +25,8 @@ vim.o.timeoutlen = 300 -- for which key
 
 vim.o.signcolumn = 'yes'
 
+vim.o.colorcolumn = '80'
+
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 -- vim.o.expandtab = true
