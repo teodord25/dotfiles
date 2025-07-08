@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  newsboat
   woeusb
   kitty
   # chromium
