@@ -2,6 +2,7 @@
 with pkgs; [
   tree
   bat
+  stow
   #   difftastic
   #   zoxide
   #   xcp
