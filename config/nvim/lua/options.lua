@@ -11,6 +11,8 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a'
 
+vim.o.wrap = false
+
 -- don't show mode because its already in the status line
 vim.o.showmode = false
 
