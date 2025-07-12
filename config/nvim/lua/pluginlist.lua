@@ -1,4 +1,8 @@
 return {
+	{
+		'jedrzejboczar/possession.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+	},
 	"j-hui/fidget.nvim",
 	{
 		"sylvanfranklin/omni-preview.nvim",
