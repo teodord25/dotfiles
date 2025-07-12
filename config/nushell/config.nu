@@ -32,4 +32,5 @@ alias gs = git status
 alias gp = git push
 alias gl = git log
 alias vi = nvim
+alias nv = nvim
 alias nd = nix develop
