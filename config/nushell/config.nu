@@ -3,7 +3,6 @@ let carapace_completer = {|spans|
 }
 
 $env.config = {
-	case_sensitive: false
 	show_banner: false,
 	completions: {
 		quick: true
@@ -26,11 +25,11 @@ $env.PATH = ($env.PATH |
 $env.path ++= ["~/.cargo/bin"]
 $env.path ++= ["~/.local/bin"]
 
-alias rebuild="bash -c /home/bane/dotfiles/scripts/sh/rebuild.sh"
-alias ga="git add"
-alias gc="git commit"
-alias gs="git status"
-alias gp="git push"
-alias gl="git log"
-alias vi="nvim"
-alias nd="nix develop"
+alias rebuild = bash -c /home/bane/dotfiles/scripts/sh/rebuild.sh
+alias ga = git add
+alias gc = git commit
+alias gs = git status
+alias gp = git push
+alias gl = git log
+alias vi = nvim
+alias nd = nix develop
