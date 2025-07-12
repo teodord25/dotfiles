@@ -35,6 +35,6 @@ nmap('n', '<C-p>', ':cprev<CR>', {
 })
 
 -- leader + capital letter -> global mark goto
-for _, key in ipairs({ unpack(vim.split("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "")) }) do
+for _, key in ipairs({ unpack(vim.split("ASDF", "")) }) do
 	map('n', '<leader>' .. key, '`' .. key, { desc = 'Jump to mark `' .. key .. '`' })
 end
