@@ -7,9 +7,7 @@
   home.homeDirectory = "/home/bane";
 
   home.stateVersion = "24.05"; # NO TOUCHING
-  wayland.windowManager.hyprland = import ./hyprland.nix;
 
-  programs.nushell = import ./nushell.nix;
   programs.carapace.enable = true;
   programs.carapace.enableNushellIntegration = true;
 
