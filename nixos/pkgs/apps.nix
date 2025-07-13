@@ -1,8 +1,10 @@
-{pkgs}:
-with pkgs; [
+{ pkgs }:
+with pkgs;
+[
   newsboat
   woeusb
   kitty
+  ags
   # chromium
   # spotify
   # obsidian

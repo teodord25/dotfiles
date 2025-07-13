@@ -7,7 +7,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./main-user.nix
-    inputs.home-manager.nixosModules.default
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -93,13 +92,6 @@
 
   main-user.enable = true;
   main-user.userName = "bane";
-
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "bane" = import ./home.nix;
-    };
-  };
 
   virtualisation.docker.enable = true;
 
