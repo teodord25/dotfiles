@@ -4,7 +4,7 @@ with pkgs;
   newsboat
   woeusb
   kitty
-  ags
+  # ags
   # chromium
   # spotify
   # obsidian
