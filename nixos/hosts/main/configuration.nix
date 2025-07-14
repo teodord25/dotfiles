@@ -133,9 +133,10 @@
     hypr = import ../../pkgs/hypr.nix {inherit pkgs;};
     lang = import ../../pkgs/lang.nix {inherit pkgs;};
     ls = import ../../pkgs/ls.nix {inherit pkgs;};
+    grammars = import ../../pkgs/grammars.nix {inherit pkgs;};
     tools = import ../../pkgs/tools.nix {inherit pkgs;};
   in (
-    apps ++ cli-qol ++ hypr ++ lang ++ ls ++ tools ++ [pkgs.nodejs_22]
+    apps ++ cli-qol ++ hypr ++ lang ++ ls ++ grammars ++ tools ++ [pkgs.nodejs_22]
   );
 
   # Enable hardware graphics support

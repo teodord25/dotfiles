@@ -43,6 +43,12 @@ require 'lspconfig'.lua_ls.setup {
 	settings = { Lua = {} }
 }
 
+require('lspconfig')["nushell"].setup {
+	cmd       = { "nu", "--lsp" },
+	filetypes = { "nu" },
+	root_dir  = require('lspconfig.util').find_git_ancestor,
+}
+
 require 'lspconfig'.intelephense.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
