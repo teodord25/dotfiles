@@ -156,8 +156,6 @@ return {
 				pattern = [[\b(KEYWORDS):]], -- ripgrep regex
 			},
 		}
-
-		-- TODO: asdf
 	},
 
 	-- detect tabstop and shiftwidth automatically
