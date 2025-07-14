@@ -34,6 +34,7 @@ alias gl = git log
 alias vi = nvim
 alias nv = nvim
 alias nd = nix develop
+alias td = rg "TODO:"
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")

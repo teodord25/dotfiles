@@ -5,7 +5,7 @@ format = '$all$character'
 description    = "TODO counter"
 detect_folders = [".git"]
 command = '''
-let c = (git grep -I -n --no-color -e "TODO:" | lines | length)
+let c = (git grep --untracked -I -n --no-color -e "TODO:" | lines | length)
 if $c == 0 { exit 1 }       # hide module if there are no TODOs
 echo $c                     # otherwise print the count
 '''
