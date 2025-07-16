@@ -1,8 +1,10 @@
-{pkgs}:
-with pkgs; [
+{ pkgs }:
+with pkgs;
+[
   tree
   bat
   stow
+  carapace
   #   difftastic
   #   zoxide
   #   xcp
