@@ -6,7 +6,7 @@ with pkgs;
   stow
   carapace
   #   difftastic
-  #   zoxide
+  zoxide
   #   xcp
   #   dysk
   #   dust
