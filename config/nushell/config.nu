@@ -1,30 +1,19 @@
+source ~/.cache/carapace/init.nu
+
+let carapace_completer = {|spans|
+    carapace $spans.0 nushell $spans | from json
+}
+
 $env.config = {
 	show_banner: false,
 	completions: {
 		quick: true
 		partial: true
 		algorithm: "fuzzy"
+		external: {
+			enable: true
+			max_results: 100
+			completer: $carapace_completer
+		}
 	}
 }
-
-let extra_paths = [
-    ~/.apps
-    ~/.cargo/bin
-    ~/.local/bin
-]
-
-$env.path = ($env.path | prepend $extra_paths)
-
-alias rebuild = bash -c /home/bane/dotfiles/scripts/sh/rebuild.sh
-alias ga = git add
-alias gc = git commit
-alias gs = git status
-alias gp = git push
-alias gl = git log
-alias vi = nvim
-alias nv = nvim
-alias nd = nix develop
-alias td = rg "TODO:"
-
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
