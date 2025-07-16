@@ -7,14 +7,13 @@ $env.config = {
 	}
 }
 
-$env.PATH = ($env.PATH |
-	split row (char esep) |
-	prepend /home/myuser/.apps |
-	append /usr/bin/env
-)
+let extra_paths = [
+    ~/.apps
+    ~/.cargo/bin
+    ~/.local/bin
+]
 
-$env.path ++= ["~/.cargo/bin"]
-$env.path ++= ["~/.local/bin"]
+$env.path = ($env.path | prepend $extra_paths)
 
 alias rebuild = bash -c /home/bane/dotfiles/scripts/sh/rebuild.sh
 alias ga = git add
