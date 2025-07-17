@@ -13,6 +13,7 @@ alias gs = git status
 alias gp = git push
 alias gl = git log
 alias gw = git switch
+alias gm = git merge
 alias vi = nvim
 alias nv = nvim
 alias nd = nix develop
