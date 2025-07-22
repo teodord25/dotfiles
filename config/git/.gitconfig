@@ -1,0 +1,7 @@
+[user]
+	email = djuric.teodor25@gmail.com
+	name = teodord25
+[core]
+	editor = nvim
+[merge]
+	ff = false
