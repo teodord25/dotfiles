@@ -159,7 +159,7 @@ return {
 	},
 
 	-- detect tabstop and shiftwidth automatically
-	-- "tpope/vim-sleuth",
+	"tpope/vim-sleuth",
 
 	"folke/neodev.nvim",
 
