@@ -6,11 +6,19 @@ with pkgs;
 
   swww
 
+  sqlitebrowser
+
+  hyperfine
+
+  #  astal.io
+  #  astal.astal4
+  #  astal.gjs
+  #
   dnsutils
   flyctl
   ntfs3g
   # zulu23
-  zulu21
+  # zulu21
   qemu
   virt-manager
   bottom
