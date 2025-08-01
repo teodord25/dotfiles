@@ -3,5 +3,3 @@
 	name = teodord25
 [core]
 	editor = nvim
-[merge]
-	ff = false
