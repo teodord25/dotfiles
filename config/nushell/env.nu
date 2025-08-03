@@ -21,6 +21,8 @@ alias nv = nvim
 alias nd = nix develop
 alias td = rg "TODO:"
 
+alias ghst = bash -c 'GDK_BACKEND=x11 GDK_DISABLE=egl ghostty'
+
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
