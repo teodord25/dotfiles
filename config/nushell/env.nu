@@ -26,3 +26,6 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+
+# fucking nushell
+open ~/.cache/carapace/init.nu | str replace -a ' -i' ' -o' | save --force ~/.cache/carapace/init.nu
