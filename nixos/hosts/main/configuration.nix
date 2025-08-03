@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -12,10 +13,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.kernelModules = ["amdgpu"];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   services.printing.enable = true; # Enables CUPS printing service
-  services.printing.drivers = [pkgs.hplip]; # Optional: Add drivers like HPLIP for HP printers
+  services.printing.drivers = [ pkgs.hplip ]; # Optional: Add drivers like HPLIP for HP printers
 
   services.avahi = {
     enable = true;
@@ -96,7 +97,7 @@
   virtualisation.docker.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = ["bane"];
+  users.extraGroups.vboxusers.members = [ "bane" ];
 
   services.kanata.enable = true;
   services.kanata.keyboards.default.config = ''
@@ -107,7 +108,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   services.upower.enable = true;
 
@@ -127,29 +131,41 @@
   # Input support
   services.libinput.enable = true;
 
-  environment.systemPackages = let
-    apps = import ../../pkgs/apps.nix {inherit pkgs;};
-    cli-qol = import ../../pkgs/cli-qol.nix {inherit pkgs;};
-    hypr = import ../../pkgs/hypr.nix {inherit pkgs;};
-    lang = import ../../pkgs/lang.nix {inherit pkgs;};
-    ls = import ../../pkgs/ls.nix {inherit pkgs;};
-    grammars = import ../../pkgs/grammars.nix {inherit pkgs;};
-    tools = import ../../pkgs/tools.nix {inherit pkgs;};
-  in (
-    apps ++ cli-qol ++ hypr ++ lang ++ ls ++ grammars ++ tools ++ [pkgs.nodejs_22]
-  );
+  environment.systemPackages =
+    let
+      apps = import ../../pkgs/apps.nix { inherit pkgs; };
+      cli-qol = import ../../pkgs/cli-qol.nix { inherit pkgs; };
+      hypr = import ../../pkgs/hypr.nix { inherit pkgs; };
+      lang = import ../../pkgs/lang.nix { inherit pkgs; };
+      ls = import ../../pkgs/ls.nix { inherit pkgs; };
+      grammars = import ../../pkgs/grammars.nix { inherit pkgs; };
+      tools = import ../../pkgs/tools.nix { inherit pkgs; };
+    in
+    (apps ++ cli-qol ++ hypr ++ lang ++ ls ++ grammars ++ tools ++ [ pkgs.nodejs_22 ]);
 
   # Enable hardware graphics support
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      libglvnd
+    ];
   };
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  # export EGL/DRI discovery paths for Hyprland/SDDM idk
+  environment.sessionVariables = {
+    __EGL_VENDOR_LIBRARY_DIRS = "/run/opengl-driver/share/glvnd/egl_vendor.d";
+    LIBGL_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
+    # Optional, usually not needed for this case:
+    # GBM_BACKENDS_PATH         = "/run/opengl-driver/lib/gbm";
+  };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment.variables.VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
 
-  fonts.packages = with pkgs;
+  fonts.packages =
+    with pkgs;
     [
       noto-fonts
       noto-fonts-cjk-sans
@@ -160,7 +176,7 @@
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts);
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.config.common.default = "*";
 
   programs.hyprland = {
