@@ -86,8 +86,6 @@ return {
 		end
 	},
 
-	"github/copilot.vim",
-
 	"neovim/nvim-lspconfig",
 	"mbbill/undotree",
 	{
