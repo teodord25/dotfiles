@@ -21,7 +21,7 @@ with pkgs;
   #   dog
   #   fselect
   #   htmlq
-  #   inlyne
+  inlyne
   #   html-tidy
   #   xh
 ]

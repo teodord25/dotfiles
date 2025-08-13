@@ -1,7 +1,7 @@
 { pkgs }:
 with pkgs;
 [
-  # obsidian
+  obsidian
   newsboat
   woeusb
   kitty
@@ -10,6 +10,7 @@ with pkgs;
   # spotify
   # obsidian
   firefox
+  # chromium
   bitwarden
   qbittorrent
   discord
