@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    templ.url = {
+    templ = {
       url = "github:a-h/templ";
       inputs.nixpkgs.follows = "nixpkgs";
     };

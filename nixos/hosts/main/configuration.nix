@@ -147,7 +147,6 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    setLdLibraryPath = true;
     extraPackages = with pkgs; [
       vulkan-validation-layers
       libglvnd
