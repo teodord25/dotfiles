@@ -147,17 +147,21 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    setLdLibraryPath = true;
     extraPackages = with pkgs; [
+      vulkan-validation-layers
       libglvnd
     ];
   };
 
-  # export EGL/DRI discovery paths for Hyprland/SDDM idk
+  # Unify env vars (and disable Steam’s implicit layers globally)
   environment.sessionVariables = {
     __EGL_VENDOR_LIBRARY_DIRS = "/run/opengl-driver/share/glvnd/egl_vendor.d";
     LIBGL_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
-    # Optional, usually not needed for this case:
-    # GBM_BACKENDS_PATH         = "/run/opengl-driver/lib/gbm";
+    NIXOS_OZONE_WL = "1";
+
+    # Prevent Steam overlay/fossilize layers from loading into non-Steam apps
+    VK_LOADER_LAYERS_DISABLE = "VK_LAYER_VALVE_steam_overlay:VK_LAYER_VALVE_steam_fossilize";
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -185,10 +189,6 @@
   };
 
   programs.xwayland.enable = true;
-
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
