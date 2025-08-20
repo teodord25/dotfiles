@@ -14,10 +14,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    templ.url = "github:a-h/templ";
-    hyprland.url = "github:hyprwm/Hyprland";
-    ags.url = "github:aylur/ags/v1";
-    ghostty.url = "github:ghostty-org/ghostty";
+    templ.url = {
+      url = "github:a-h/templ";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ags = {
+      url = "github:aylur/ags/v1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
