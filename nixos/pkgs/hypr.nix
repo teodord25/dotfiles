@@ -3,7 +3,7 @@ with pkgs; [
   grimblast
   hyprpicker
   wl-clipboard
-  rofi-wayland
+  rofi
   libnotify
   fastfetch
 ]
