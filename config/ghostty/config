@@ -48,7 +48,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = catppuccin-mocha
+theme = Gruvbox Dark
 
 # alt + 1-5 just sends escape code for alt + 1-5
 # because for some reason it doesnt recognize
