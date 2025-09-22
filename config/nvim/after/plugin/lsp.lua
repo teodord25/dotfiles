@@ -29,6 +29,8 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+-- TODO: switch to vim.lsp.config
+
 require 'lspconfig'.lua_ls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -79,7 +81,7 @@ require 'lspconfig'.gopls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-require 'lspconfig'.pyright.setup {
+require 'lspconfig'.basedpyright.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
