@@ -2,7 +2,9 @@
 with pkgs; [
   intelephense
   tinymist
-  pyright
+
+  basedpyright
+
   lua-language-server
   nodePackages.typescript-language-server
   gopls
