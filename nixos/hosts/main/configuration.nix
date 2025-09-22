@@ -91,6 +91,17 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  programs.steam.package = pkgs.steam.override {
+    extraPkgs = pkgs: with pkgs; [
+      xorg.libXcursor
+      xorg.libXi
+      libpng
+      libpulseaudio
+      vulkan-loader
+      vulkan-validation-layers
+    ];
+  };
+
   main-user.enable = true;
   main-user.userName = "bane";
 
@@ -148,10 +159,17 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
+      amdvlk
       vulkan-validation-layers
       libglvnd
+      mesa.drivers
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
     ];
   };
+
+  programs.gamemode.enable = true;
 
   # Unify env vars (and disable Steam’s implicit layers globally)
   environment.sessionVariables = {
