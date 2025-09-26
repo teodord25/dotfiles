@@ -29,85 +29,40 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- TODO: switch to vim.lsp.config
+local lsps = {
+	{ "intelephense" },
+	{ "ts_ls",       { filetypes = { "javascript", "typescript" } } },
+	{ "gleam" },
+	{ "gopls" },
+	{ "basedpyright" },
+	{ "nil_ls" },
 
-require 'lspconfig'.lua_ls.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
+	{ "nushell", {
+		cmd = { "nu", "--lsp" },
+		filetypes = { "nu" },
+		root_markers = { ".git" },
+	} },
 
-	on_init = function(client)
-		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-			runtime = { version = 'LuaJIT' },
-			workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } }
-		})
-	end,
-
-	settings = { Lua = {} }
-}
-
-require('lspconfig')["nushell"].setup {
-	cmd       = { "nu", "--lsp" },
-	filetypes = { "nu" },
-	root_dir  = require('lspconfig.util').find_git_ancestor,
-}
-
-require 'lspconfig'.intelephense.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
+	{ "tinymist", {
+		settings = {
+			formatterMode = "typstyle",
+			exportPdf = "onType",
+			semanticTokens = "disable"
+		}
+	} },
 }
 
-require 'lspconfig'.ts_ls.setup {
-	filetypes = {
-		"javascript",
-		"typescript",
-	},
-}
+for _, lsp in pairs(lsps) do
+	local name, config = lsp[1], lsp[2]
 
-require("lspconfig")["tinymist"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		formatterMode = "typstyle",
-		exportPdf = "onType",
-		semanticTokens = "disable"
-	}
-}
+	if config then
+		vim.lsp.config(name, config)
+	end
 
-require 'lspconfig'.gleam.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-require 'lspconfig'.gopls.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-require 'lspconfig'.basedpyright.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-require 'lspconfig'.nil_ls.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-require 'lspconfig'.rust_analyzer.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
+	vim.lsp.enable(name)
+end
 
-require 'lspconfig'.clangd.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-
-require 'lspconfig'.wgsl_analyzer.setup({
-	cmd = { vim.fn.expand("~/.cargo/bin/wgsl-analyzer") },
-	filetypes = { "wgsl" },
-	on_attach = on_attach,
-	capabilities = capabilities,
+vim.lsp.config('*', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+	on_attach = on_attach
 })
-
-require('lspconfig').vuels.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	require('ls/vuels').default_config
-}
