@@ -30,6 +30,16 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lsps = {
+	{ "rust_analyzer" },
+	{ "clangd" },
+
+	{ "wgsl_analyzer", {
+		cmd = { vim.fn.expand("~/.cargo/bin/wgsl-analyzer") },
+		filetypes = { "wgsl" },
+	} },
+
+	{ "lua_ls" },
+
 	{ "intelephense" },
 	{ "ts_ls",       { filetypes = { "javascript", "typescript" } } },
 	{ "gleam" },
