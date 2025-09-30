@@ -45,3 +45,12 @@ cmp.setup {
 		{ name = 'luasnip' },
 	},
 }
+
+require('csc').setup()
+
+require('cmp').setup.filetype('gitcommit', {
+	sources = {
+		{ name = 'csc' },
+		{ name = 'luasnip' },
+	}
+})

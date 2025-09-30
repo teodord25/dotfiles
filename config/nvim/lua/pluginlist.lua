@@ -1,5 +1,16 @@
 return {
 	{
+		'hrsh7th/nvim-cmp',
+		dependencies = {
+			'L3MON4D3/LuaSnip',
+			'saadparwaiz1/cmp_luasnip',
+			'rafamadriz/friendly-snippets',
+			'hrsh7th/cmp-nvim-lsp',
+			'yus-works/csc.nvim',
+		},
+	},
+
+	{
 		'jedrzejboczar/possession.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim' },
 	},
@@ -167,17 +178,6 @@ return {
 		config = function()
 			require('which-key').setup()
 		end,
-	},
-
-	{
-		'hrsh7th/nvim-cmp',
-		dependencies = {
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
-			'rafamadriz/friendly-snippets',
-
-			'hrsh7th/cmp-nvim-lsp',
-		},
 	},
 
 	{
