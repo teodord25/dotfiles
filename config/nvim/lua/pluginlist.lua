@@ -11,6 +11,27 @@ return {
 	},
 
 	{
+		"rcarriga/nvim-notify",
+		config = function()
+			local notify = require("notify")
+			notify.setup({
+				stages = "fade_in_slide_out",
+				timeout = 3000,
+				background_colour = "#000000",
+				top_down = false,
+			})
+			vim.notify = notify
+
+			-- Override print to use notify
+			print = function(...)
+				local args = { ... }
+				local msg = table.concat(vim.tbl_map(tostring, args), " ")
+				vim.notify(msg)
+			end
+		end
+	},
+
+	{
 		'jedrzejboczar/possession.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim' },
 	},
@@ -98,6 +119,7 @@ return {
 	},
 
 	"neovim/nvim-lspconfig",
+
 	"mbbill/undotree",
 	{
 		"ThePrimeagen/harpoon",
