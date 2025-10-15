@@ -31,7 +31,7 @@ vim.o.colorcolumn = '80'
 
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
--- vim.o.expandtab = true
+vim.o.expandtab = true
 
 vim.o.termguicolors = true
 
@@ -39,8 +39,8 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '☣' }
 
 vim.cmd [[
-  highlight SpecialKey guifg=red ctermfg=red
-  highlight NonText   guifg=red ctermfg=red
+    highlight SpecialKey guifg=red ctermfg=red
+    highlight NonText   guifg=red ctermfg=red
 ]]
 
 -- preview subsititutions as you type ?
