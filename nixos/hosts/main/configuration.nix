@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -13,10 +12,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = ["amdgpu"];
 
   services.printing.enable = true; # Enables CUPS printing service
-  services.printing.drivers = [ pkgs.hplip ]; # Optional: Add drivers like HPLIP for HP printers
+  services.printing.drivers = [pkgs.hplip]; # Optional: Add drivers like HPLIP for HP printers
 
   services.avahi = {
     enable = true;
@@ -92,14 +91,15 @@
   };
 
   programs.steam.package = pkgs.steam.override {
-    extraPkgs = pkgs: with pkgs; [
-      xorg.libXcursor
-      xorg.libXi
-      libpng
-      libpulseaudio
-      vulkan-loader
-      vulkan-validation-layers
-    ];
+    extraPkgs = pkgs:
+      with pkgs; [
+        xorg.libXcursor
+        xorg.libXi
+        libpng
+        libpulseaudio
+        vulkan-loader
+        vulkan-validation-layers
+      ];
   };
 
   main-user.enable = true;
@@ -107,7 +107,7 @@
 
   virtualisation.docker.enable = true;
 
-  users.extraGroups.vboxusers.members = [ "bane" ];
+  users.extraGroups.vboxusers.members = ["bane"];
 
   services.kanata.enable = true;
   services.kanata.keyboards.default.config = ''
@@ -141,17 +141,15 @@
   # Input support
   services.libinput.enable = true;
 
-  environment.systemPackages =
-    let
-      apps = import ../../pkgs/apps.nix { inherit pkgs; };
-      cli-qol = import ../../pkgs/cli-qol.nix { inherit pkgs; };
-      hypr = import ../../pkgs/hypr.nix { inherit pkgs; };
-      lang = import ../../pkgs/lang.nix { inherit pkgs; };
-      ls = import ../../pkgs/ls.nix { inherit pkgs; };
-      grammars = import ../../pkgs/grammars.nix { inherit pkgs; };
-      tools = import ../../pkgs/tools.nix { inherit pkgs; };
-    in
-    (apps ++ cli-qol ++ hypr ++ lang ++ ls ++ grammars ++ tools ++ [ pkgs.nodejs_22 ]);
+  environment.systemPackages = let
+    apps = import ../../pkgs/apps.nix {inherit pkgs;};
+    cli-qol = import ../../pkgs/cli-qol.nix {inherit pkgs;};
+    hypr = import ../../pkgs/hypr.nix {inherit pkgs;};
+    lang = import ../../pkgs/lang.nix {inherit pkgs;};
+    ls = import ../../pkgs/ls.nix {inherit pkgs;};
+    grammars = import ../../pkgs/grammars.nix {inherit pkgs;};
+    tools = import ../../pkgs/tools.nix {inherit pkgs;};
+  in (apps ++ cli-qol ++ hypr ++ lang ++ ls ++ grammars ++ tools ++ [pkgs.nodejs_22]);
 
   # Enable hardware graphics support
   hardware.graphics = {
@@ -176,12 +174,11 @@
     VK_LOADER_LAYERS_DISABLE = "VK_LAYER_VALVE_steam_overlay:VK_LAYER_VALVE_steam_fossilize";
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   environment.variables.VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
 
-  fonts.packages =
-    with pkgs;
+  fonts.packages = with pkgs;
     [
       noto-fonts
       noto-fonts-cjk-sans
@@ -192,7 +189,7 @@
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues nerd-fonts);
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   xdg.portal.config.common.default = "*";
 
   programs.hyprland = {

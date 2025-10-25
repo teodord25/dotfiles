@@ -1,6 +1,5 @@
-{ pkgs }:
-with pkgs;
-[
+{pkgs}:
+with pkgs; [
   obsidian
   newsboat
   woeusb

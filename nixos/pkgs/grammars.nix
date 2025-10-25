@@ -1,6 +1,5 @@
-{ pkgs }:
-with pkgs.tree-sitter-grammars;
-[
+{pkgs}:
+with pkgs.tree-sitter-grammars; [
   tree-sitter-rust
   tree-sitter-go
   tree-sitter-lua
