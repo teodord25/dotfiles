@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  distrobox
   obsidian
   newsboat
   woeusb

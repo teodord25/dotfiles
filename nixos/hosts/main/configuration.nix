@@ -17,6 +17,8 @@
   services.printing.enable = true; # Enables CUPS printing service
   services.printing.drivers = [pkgs.hplip]; # Optional: Add drivers like HPLIP for HP printers
 
+  services.zerotierone.enable = true;
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -158,7 +160,7 @@
     extraPackages = with pkgs; [
       vulkan-validation-layers
       libglvnd
-      mesa.drivers
+      mesa
     ];
   };
 
