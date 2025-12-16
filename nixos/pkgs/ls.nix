@@ -1,5 +1,7 @@
 {pkgs}:
 with pkgs; [
+  roslyn-ls
+
   intelephense
   tinymist
 
