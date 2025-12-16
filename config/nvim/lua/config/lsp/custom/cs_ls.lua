@@ -1,11 +1,7 @@
-vim.lsp.config.cs_ls = {
-	cmd = { 
-		"Microsoft.CodeAnalysis.LanguageServer",
-		"--logLevel", "Information",
-		"--extensionLogDirectory", vim.fn.stdpath("cache") .. "/roslyn_logs"
-	},
+vim.lsp.config.omnisharp_roslyn = {
+	cmd = { "OmniSharp" },
 	filetypes = { "cs" },
 	root_markers = { ".git", "*.sln", "*.csproj" },
 }
 
-vim.lsp.enable("cs_ls")
+vim.lsp.enable("omnisharp_roslyn")
