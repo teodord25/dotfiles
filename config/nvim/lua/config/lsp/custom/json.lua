@@ -1,7 +1,7 @@
-vim.lsp.config.nu = {
+vim.lsp.config.json_ls = {
 	cmd = { "vscode-json-language-server" },
-	filetypes = { "nu" },
+	filetypes = { "json" },
 	root_markers = { ".git" },
 }
 
-vim.lsp.enable("jsonls")
+vim.lsp.enable("json_ls")
