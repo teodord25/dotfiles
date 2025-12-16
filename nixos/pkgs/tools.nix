@@ -1,5 +1,8 @@
 {pkgs}:
 with pkgs; [
+  vscode-langservers-extracted
+  wine64
+  mono
   typst
   typstPackages."modern-cv"
 
