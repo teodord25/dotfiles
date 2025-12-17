@@ -1,5 +1,5 @@
 vim.lsp.config.json_ls = {
-	cmd = { "vscode-json-language-server" },
+	cmd = { "vscode-json-language-server", "--stdio" },
 	filetypes = { "json" },
 	root_markers = { ".git" },
 }

@@ -1,6 +1,7 @@
 {pkgs}:
 with pkgs; [
-  roslyn-ls
+  omnisharp-roslyn
+  vimPlugins.omnisharp-extended-lsp-nvim
 
   intelephense
   tinymist
