@@ -4,6 +4,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,36 +40,40 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: {
-    nixosConfigurations.main = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux"; # Explicit system architecture
-      specialArgs = {inherit inputs;};
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.main = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux"; # Explicit system architecture
+        specialArgs = { inherit inputs; };
 
-      modules = [
-        ./hosts/main/configuration.nix
+        modules = [
+          ./hosts/main/configuration.nix
 
-        (
-          {pkgs, ...}: {
-            nixpkgs.overlays = [
-              inputs.templ.overlays.default
-              inputs.ghostty.overlays.default
-              inputs.rust-overlay.overlays.default
-            ];
+          (
+            { pkgs, ... }:
+            {
+              nixpkgs.overlays = [
+                inputs.templ.overlays.default
+                inputs.ghostty.overlays.default
+                inputs.rust-overlay.overlays.default
+              ];
 
-            environment.systemPackages = with pkgs; [
-              rust-bin.stable.latest.default
-              templ
-              ghostty
-              ags
-              inputs.alejandra.packages.${pkgs.system}.default
-            ];
-          }
-        )
-      ];
+              environment.systemPackages = with pkgs; [
+                rust-bin.stable.latest.default
+                templ
+                ghostty
+                ags
+                inputs.alejandra.packages.${pkgs.system}.default
+                inputs.zen-browser.packages."${pkgs.system}".default
+              ];
+            }
+          )
+        ];
+      };
     };
-  };
 }
