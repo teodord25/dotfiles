@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  python3Packages.pip
   cacert
   vscode-langservers-extracted
   wine64
@@ -13,15 +14,9 @@ with pkgs; [
 
   hyperfine
 
-  #  astal.io
-  #  astal.astal4
-  #  astal.gjs
-  #
   dnsutils
   flyctl
   ntfs3g
-  # zulu23
-  # zulu21
   qemu
   virt-manager
   bottom
@@ -32,7 +27,6 @@ with pkgs; [
   zathura
 
   imagemagick
-  # ghostscript
 
   git
   neovim

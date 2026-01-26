@@ -4,8 +4,13 @@ with pkgs; [
   bat
   stow
   carapace
+  inlyne
+]
+
+  #   html-tidy
+  #   xh
   #   difftastic
-  zoxide
+  # zoxide
   #   xcp
   #   dysk
   #   dust
@@ -20,7 +25,3 @@ with pkgs; [
   #   dog
   #   fselect
   #   htmlq
-  inlyne
-  #   html-tidy
-  #   xh
-]

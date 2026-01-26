@@ -1,7 +1,6 @@
 {pkgs}:
 with pkgs; [
-  grimblast
-  hyprpicker
+  grimblast  # screenshots
   wl-clipboard
   rofi
   libnotify
