@@ -42,12 +42,44 @@
       ...
     }@inputs:
     {
-      nixosConfigurations.main = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux"; # Explicit system architecture
+      # work system config
+      nixosConfigurations.work = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
 
         modules = [
-          ./hosts/main/configuration.nix
+          ./hosts/work/configuration.nix
+          ./modules/common
+          ./modules/work
+
+          (
+            { pkgs, ... }:
+            {
+              nixpkgs.overlays = [
+                inputs.ghostty.overlays.default
+                inputs.rust-overlay.overlays.default
+              ];
+
+              environment.systemPackages = with pkgs; [
+                rust-bin.stable.latest.default
+                ghostty
+                inputs.alejandra.packages.${pkgs.system}.default
+                inputs.zen-browser.packages."${pkgs.system}".default
+              ];
+            }
+          )
+        ];
+      };
+
+      # personal system config
+      nixosConfigurations.personal = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+
+        modules = [
+          ./hosts/personal/configuration.nix
+          ./modules/common
+          ./modules/personal
 
           (
             { pkgs, ... }:
