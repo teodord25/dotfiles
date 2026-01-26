@@ -6,4 +6,5 @@ with pkgs; [
   rofi
   libnotify
   fastfetch
+  ironbar
 ]

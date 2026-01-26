@@ -27,7 +27,7 @@
 
   programs.nix-ld = {
     enable = true;
-    package = pkgs.nix-ld-rs;
+    package = pkgs.nix-ld;
     libraries = with pkgs; [
       stdenv.cc.cc
       zlib
@@ -129,11 +129,8 @@
 
   hardware.opentabletdriver.enable = true;
 
-  # Enable X11
+  # enable X11
   services.xserver.enable = true;
-
-  # Use i3 window manager
-  # services.xserver.windowManager.i3.enable = true;
 
   # Set display manager (you can use SDDM, LightDM, etc.)
   services.displayManager.sddm.enable = true;
@@ -184,7 +181,7 @@
     [
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       roboto
       source-sans-pro
     ]

@@ -1,5 +1,6 @@
 {pkgs}:
 with pkgs; [
+  cacert
   vscode-langservers-extracted
   wine64
   mono

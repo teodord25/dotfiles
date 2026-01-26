@@ -11,7 +11,7 @@ with pkgs; [
   # obsidian
   firefox
   # chromium
-  bitwarden
+  bitwarden-desktop
   qbittorrent
   discord
   kdePackages.kwallet
