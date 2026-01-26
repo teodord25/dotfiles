@@ -15,7 +15,7 @@
     flyctl
     ntfs3g
     qemu
-    virt-manager
+    virt-manager # qemu wrapper
     bottom
     unrar
     vulkan-tools
