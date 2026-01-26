@@ -1,5 +1,8 @@
-{pkgs}:
-with pkgs; [
-  rustup
-  go
-]
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    rustup
+    go
+    python
+  ];
+}

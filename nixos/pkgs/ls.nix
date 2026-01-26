@@ -1,16 +1,18 @@
-{pkgs}:
-with pkgs; [
-  omnisharp-roslyn
-  vimPlugins.omnisharp-extended-lsp-nvim
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    omnisharp-roslyn
+    vimPlugins.omnisharp-extended-lsp-nvim
 
-  tinymist
+    tinymist
 
-  basedpyright
+    basedpyright
 
-  lua-language-server
-  gopls
-  nil
+    lua-language-server
+    gopls
+    nil
 
-  llvmPackages_19.clang-unwrapped
-  jdt-language-server
-]
+    llvmPackages_19.clang-unwrapped
+    jdt-language-server
+  ];
+}
