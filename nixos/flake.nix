@@ -30,10 +30,7 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags = {
-      url = "github:aylur/ags/v1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     ghostty = {
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,7 +61,6 @@
               rust-bin.stable.latest.default
               templ
               ghostty
-              ags
               inputs.alejandra.packages.${pkgs.system}.default
               inputs.zen-browser.packages."${pkgs.system}".default
             ];
