@@ -6,4 +6,5 @@ with pkgs; [
   libnotify
   fastfetch
   ironbar
+  swww
 ]

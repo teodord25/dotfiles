@@ -1,43 +1,41 @@
-{pkgs}:
-with pkgs; [
-  python3Packages.pip
-  cacert
-  vscode-langservers-extracted
-  wine64
-  mono
-  typst
-  typstPackages."modern-cv"
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    python3Packages.pip
+    cacert
+    vscode-langservers-extracted
+    wine64
+    mono
+    typst
+    typstPackages."modern-cv"
 
-  swww
+    sqlitebrowser
 
-  sqlitebrowser
+    dnsutils
+    flyctl
+    ntfs3g
+    qemu
+    virt-manager
+    bottom
+    unrar
+    vulkan-tools
+    vulkan-loader
+    mesa
+    zathura
 
-  hyperfine
+    imagemagick
 
-  dnsutils
-  flyctl
-  ntfs3g
-  qemu
-  virt-manager
-  bottom
-  unrar
-  vulkan-tools
-  vulkan-loader
-  mesa
-  zathura
-
-  imagemagick
-
-  git
-  neovim
-  wget
-  nushell
-  starship
-  mpv
-  gcc
-  yazi
-  ripgrep
-  tmux
-  p7zip
-  steam-run
-]
+    git
+    neovim
+    wget
+    nushell
+    starship
+    mpv
+    gcc
+    yazi
+    ripgrep
+    tmux
+    p7zip
+    steam-run
+  ];
+}
