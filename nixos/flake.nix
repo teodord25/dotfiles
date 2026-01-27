@@ -92,7 +92,7 @@
                 rust-bin.stable.latest.default
                 templ
                 ghostty
-                inputs.alejandra.packages.${pkgs.stdenv.hostPlatform.system}.default
+                alejandra
                 inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
               ];
             }
