@@ -44,7 +44,6 @@
     {
       # work system config
       nixosConfigurations.work = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
 
         modules = [
@@ -73,7 +72,6 @@
 
       # personal system config
       nixosConfigurations.personal = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
 
         modules = [
