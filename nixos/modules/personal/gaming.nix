@@ -23,7 +23,7 @@
 
   # AMD GPU specific settings
   boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
 
   hardware.graphics = {
     enable = true;
