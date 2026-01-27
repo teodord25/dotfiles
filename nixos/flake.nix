@@ -62,8 +62,8 @@
               environment.systemPackages = with pkgs; [
                 rust-bin.stable.latest.default
                 ghostty
-                inputs.alejandra.packages.${pkgs.system}.default
-                inputs.zen-browser.packages."${pkgs.system}".default
+                inputs.alejandra.packages.${pkgs.stdenv.hostPlatform.system}.default
+                inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
               ];
             }
           )
@@ -92,8 +92,8 @@
                 rust-bin.stable.latest.default
                 templ
                 ghostty
-                inputs.alejandra.packages.${pkgs.system}.default
-                inputs.zen-browser.packages."${pkgs.system}".default
+                inputs.alejandra.packages.${pkgs.stdenv.hostPlatform.system}.default
+                inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
               ];
             }
           )
