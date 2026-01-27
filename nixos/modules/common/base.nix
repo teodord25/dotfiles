@@ -37,4 +37,8 @@
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
   ];
+
+  # install ghostty terminfo system-wide
+  environment.etc."terminfo/x/xterm-ghostty".source =
+    "${pkgs.ghostty}/share/terminfo/x/xterm-ghostty";
 }
