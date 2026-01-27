@@ -4,7 +4,7 @@
   # where to find libs using linker
   programs.nix-ld = {
     enable = true;
-    package = pkgs.nix-ld-rs;
+    package = pkgs.nix-ld;
     libraries = with pkgs; [
       stdenv.cc.cc
       zlib
