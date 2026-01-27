@@ -34,11 +34,7 @@
     noto-fonts-color-emoji
     roboto
     source-sans-pro
-    (nerd-fonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-      ];
-    })
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 }
