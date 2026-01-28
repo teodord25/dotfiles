@@ -8,3 +8,5 @@ vim.lsp.enable("gleam")
 vim.lsp.enable("gopls")
 vim.lsp.enable("basedpyright")
 vim.lsp.enable("nil_ls")
+
+vim.lsp.enable("cssls")
