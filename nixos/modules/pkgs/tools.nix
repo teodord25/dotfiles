@@ -25,6 +25,8 @@
 
     imagemagick
 
+    prettier
+
     git
     neovim
     wget
