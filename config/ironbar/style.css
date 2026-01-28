@@ -1,0 +1,42 @@
+:root {
+    --black: #151515;
+    --red: #9D0911;
+}
+
+.background {
+    background: var(--black);
+}
+
+* {
+    font-size: 4rem;
+    font-family: "EVA-Matisse_Standard", serif;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.clock {
+    margin: 0;
+    padding: 0;
+    background: var(--black);
+    color: var(--red);
+}
+
+#time label,
+#day label {
+    font-size: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#month label {
+    font-size: 4rem;
+}
+
+.workspaces label {
+    background: var(--black);
+    color: var(--red);
+}
