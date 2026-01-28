@@ -13,7 +13,8 @@ local function set_global_keymaps(client, bufnr)
   map('n', 'grn', vim.lsp.buf.rename, "Rename symbol")
   map('n', 'gra', vim.lsp.buf.code_action, "Code actions")
   map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, "Code actions")
-  map('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, "Format")
+
+  map('n', '<leader>f', require("conform").format, "Format")
 
   map('n', '[d', function() vim.diagnostic.jump({ count = -1 }) end, "Previous diagnostic")
   map('n', ']d', function() vim.diagnostic.jump({ count = 1 }) end, "Next diagnostic")
