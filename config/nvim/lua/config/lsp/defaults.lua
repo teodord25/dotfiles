@@ -10,3 +10,4 @@ vim.lsp.enable("basedpyright")
 vim.lsp.enable("nil_ls")
 
 vim.lsp.enable("cssls")
+vim.lsp.enable("bashls")

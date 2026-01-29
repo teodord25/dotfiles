@@ -17,15 +17,17 @@ cd "$HOME/dotfiles/nixos" || exit 1
 
 nvim .
 alejandra .
-git diff -U0 "$HOME/dotfiles/nixos"
 
-read -p "Commit message (optional): " commit_msg
+git add -N .  # add untracked files to index without staging
+git diff -U0 .  # show diff with no context but including new files
+
+read -r -p "Commit message (optional): " commit_msg
 
 # create snapshot
 echo "Preparing pre-rebuild commit..."
 pre_committed=false
-if ! git diff-index --quiet HEAD --; then
-  git add -A
+if ! git diff-index --quiet HEAD -- .; then
+  git add .
   git commit -m "NixOS Rebuild: pre-rebuild snapshot"
   pre_committed=true
 fi
@@ -45,7 +47,7 @@ if ! sudo nixos-rebuild switch \
   exit 1
 fi
 
-gen=$(nixos-rebuild list-generations | grep current | head -n1 | awk '{print $1}')
+gen=$(nixos-rebuild list-generations | awk '$NF == "True" {print $1}')
 
 if [[ -n "$commit_msg" ]]; then
   msg="NixOS Generation ($gen) - $commit_msg"
