@@ -45,7 +45,7 @@ cmd="nixos-rebuild switch --flake '$HOME/dotfiles/nixos#$1' " \
 
 # -d detach
 # -s set name
-tmux new-session -d -s nixos-rebuild "$cmd"
+tmux new-session -d -s nixos-rebuild bash -c "$cmd"
 
 echo "Monitoring rebuild..."
 
