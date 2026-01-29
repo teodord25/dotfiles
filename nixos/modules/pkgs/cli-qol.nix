@@ -4,7 +4,6 @@
     bat
     stow
     carapace
-    inlyne
   ];
 }
 #   html-tidy
