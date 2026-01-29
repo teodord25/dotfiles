@@ -40,8 +40,7 @@ output_file="output.txt"
 rm -f "$output_file"
 touch "$output_file"
 
-cmd="nixos-rebuild switch --flake '$HOME/dotfiles/nixos#$1' " \
-"--option eval-cache false &> '$output_file'"
+cmd="nixos-rebuild switch --flake '$HOME/dotfiles/nixos#$1' --option eval-cache false &> '$output_file'"
 
 # -d detach
 # -s set name
