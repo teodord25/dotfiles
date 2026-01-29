@@ -3,8 +3,6 @@
     python3Packages.pip
     cacert
     vscode-langservers-extracted
-    wine64
-    mono
     typst
     typstPackages."modern-cv"
 
@@ -37,6 +35,5 @@
     ripgrep
     tmux
     p7zip
-    steam-run
   ];
 }
