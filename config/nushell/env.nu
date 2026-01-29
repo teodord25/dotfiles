@@ -6,7 +6,7 @@ let extra_paths = [
 
 $env.path = ($env.path | prepend $extra_paths)
 
-alias rebuild = bash -c /home/bane/dotfiles/scripts/sh/rebuild.sh
+alias rb = bash -c /home/bane/dotfiles/scripts/sh/rebuild.sh
 alias ga = git add
 alias gc = git commit
 alias gs = git status
