@@ -3,5 +3,5 @@
 swww-daemon &
 swww img ~/dotfiles/wallpapers/gods-in-his-heaven.png &
 
-ags &
+ironbar &
 kwalletd6 &
