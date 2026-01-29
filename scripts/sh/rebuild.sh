@@ -40,35 +40,16 @@ output_file="output.txt"
 rm -f "$output_file"
 touch "$output_file"
 
-cmd="nixos-rebuild switch --flake '$HOME/dotfiles/nixos#$1' --option eval-cache false &> '$output_file'"
-
-# -d detach
-# -s set name
-tmux new-session -d -s nixos-rebuild bash -c "$cmd"
-
-echo "Monitoring rebuild..."
-
-# tail temp file to stdout
-tail -f "$output_file" 2>/dev/null & # suppress "no file (yet) err"
-tail_pid=$! # save last background job pid
-
-while true; do
-  if grep -q "error" "$output_file" 2>/dev/null; then
-    kill $tail_pid 2>/dev/null
-    echo -e "\n----------------------"
-    echo "Build failed!"
-    [[ "$pre_committed" == true ]] && git reset --soft HEAD~1
-    exit 1
-  elif grep -q "restarting sysinit" "$output_file" 2>/dev/null; then
-    kill $tail_pid 2>/dev/null
-    echo -e "\nBuild complete!"
-    break
-  fi
-  sleep 0.5
-done
-
-echo "---- Final Logs ----"
-cat "$output_file"
+if ! sudo nixos-rebuild switch \
+    --flake "$HOME/dotfiles/nixos#$1" \
+    --option eval-cache false \
+    2>&1 | tee "$output_file"; then
+  echo "----------------------"
+  echo "Build failed!"
+  echo "----------------------"
+  [[ "$pre_committed" == true ]] && git reset --soft HEAD~1
+  exit 1
+fi
 
 gen=$(nixos-rebuild list-generations | grep current | head -n1 | awk '{print $1}')
 msg="NixOS Generation ($gen) - $2"
