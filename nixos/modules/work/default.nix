@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # work-specific configuration TBD
   # jb-specific tools, VPN, corporate settings and so on
 

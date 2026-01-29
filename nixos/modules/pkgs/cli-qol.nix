@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     tree
     bat
@@ -26,3 +25,4 @@
 #   dog
 #   fselect
 #   htmlq
+

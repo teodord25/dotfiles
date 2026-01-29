@@ -35,69 +35,65 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    {
-      # work system config
-      nixosConfigurations.work = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: {
+    # work system config
+    nixosConfigurations.work = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
 
-        modules = [
-          ./hosts/work/configuration.nix
-          ./modules/common
-          ./modules/work
+      modules = [
+        ./hosts/work/configuration.nix
+        ./modules/common
+        ./modules/work
 
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.overlays = [
-                inputs.ghostty.overlays.default
-                inputs.rust-overlay.overlays.default
-              ];
+        (
+          {pkgs, ...}: {
+            nixpkgs.overlays = [
+              inputs.ghostty.overlays.default
+              inputs.rust-overlay.overlays.default
+            ];
 
-              environment.systemPackages = with pkgs; [
-                rust-bin.stable.latest.default
-                ghostty
-                inputs.alejandra.packages.${pkgs.stdenv.hostPlatform.system}.default
-                inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-              ];
-            }
-          )
-        ];
-      };
-
-      # personal system config
-      nixosConfigurations.personal = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-
-        modules = [
-          ./hosts/personal/configuration.nix
-          ./modules/common
-          ./modules/personal
-
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.overlays = [
-                inputs.templ.overlays.default
-                inputs.ghostty.overlays.default
-                inputs.rust-overlay.overlays.default
-              ];
-
-              environment.systemPackages = with pkgs; [
-                rust-bin.stable.latest.default
-                templ
-                ghostty
-                alejandra
-                inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
-              ];
-            }
-          )
-        ];
-      };
+            environment.systemPackages = with pkgs; [
+              rust-bin.stable.latest.default
+              ghostty
+              inputs.alejandra.packages.${pkgs.stdenv.hostPlatform.system}.default
+              inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+            ];
+          }
+        )
+      ];
     };
+
+    # personal system config
+    nixosConfigurations.personal = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+
+      modules = [
+        ./hosts/personal/configuration.nix
+        ./modules/common
+        ./modules/personal
+
+        (
+          {pkgs, ...}: {
+            nixpkgs.overlays = [
+              inputs.templ.overlays.default
+              inputs.ghostty.overlays.default
+              inputs.rust-overlay.overlays.default
+            ];
+
+            environment.systemPackages = with pkgs; [
+              rust-bin.stable.latest.default
+              templ
+              ghostty
+              alejandra
+              inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+            ];
+          }
+        )
+      ];
+    };
+  };
 }

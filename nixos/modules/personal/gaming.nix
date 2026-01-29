@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -8,8 +7,8 @@
   };
 
   programs.steam.package = pkgs.steam.override {
-    extraPkgs =
-      pkgs: with pkgs; [
+    extraPkgs = pkgs:
+      with pkgs; [
         xorg.libXcursor
         xorg.libXi
         libpng
@@ -22,8 +21,8 @@
   programs.gamemode.enable = true;
 
   # AMD GPU specific settings
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.videoDrivers = [ "modesetting" ];
+  boot.initrd.kernelModules = ["amdgpu"];
+  services.xserver.videoDrivers = ["modesetting"];
 
   hardware.graphics = {
     enable = true;

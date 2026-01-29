@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     omnisharp-roslyn
     vimPlugins.omnisharp-extended-lsp-nvim
@@ -14,5 +13,6 @@
 
     llvmPackages_19.clang-unwrapped
     jdt-language-server
+    bash-language-server
   ];
 }

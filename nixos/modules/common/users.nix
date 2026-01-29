@@ -3,11 +3,9 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.main-user;
-in
-{
+in {
   options.main-user = {
     enable = lib.mkEnableOption "enable user module";
 

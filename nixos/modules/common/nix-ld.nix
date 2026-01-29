@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # tells unpatched binaries (those expecting FHS)
   # where to find libs using linker
   programs.nix-ld = {

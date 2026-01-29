@@ -1,4 +1,3 @@
-{ pkgs, ... }:
-{
-  services.printing.drivers = [ pkgs.hplip ];
+{pkgs, ...}: {
+  services.printing.drivers = [pkgs.hplip];
 }

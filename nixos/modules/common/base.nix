@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -40,6 +39,5 @@
   ];
 
   # install ghostty terminfo system-wide
-  environment.etc."terminfo/x/xterm-ghostty".source =
-    "${pkgs.ghostty}/share/terminfo/x/xterm-ghostty";
+  environment.etc."terminfo/x/xterm-ghostty".source = "${pkgs.ghostty}/share/terminfo/x/xterm-ghostty";
 }

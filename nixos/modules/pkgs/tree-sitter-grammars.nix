@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs.tree-sitter-grammars; [
     tree-sitter-rust
     tree-sitter-go
