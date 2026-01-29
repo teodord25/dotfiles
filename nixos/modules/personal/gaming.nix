@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ../pkgs/gaming-tools.nix
+  ];
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
