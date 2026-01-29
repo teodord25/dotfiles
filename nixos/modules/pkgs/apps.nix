@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     distrobox
-    obsidian
     newsboat
     woeusb # rufus
     firefox
