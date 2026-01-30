@@ -1,0 +1,36 @@
+
+    {
+      "type": "cairo",
+      "path": "/home/bane/.config/ironbar/bat.lua",
+      "frequency": 1000,
+      "width": 160,
+      "height": 40 
+    },
+    {
+      "type": "cairo",
+      "path": "/home/bane/.config/ironbar/cpu.lua",
+      "frequency": 1000,
+      "width": 160,
+      "height": 40 
+    },
+    {
+      "type": "cairo",
+      "path": "/home/bane/.config/ironbar/gpu.lua",
+      "frequency": 1000,
+      "width": 160,
+      "height": 40 
+    },
+    {
+      "type": "cairo",
+      "path": "/home/bane/.config/ironbar/ram.lua",
+      "frequency": 1000,
+      "width": 160,
+      "height": 40 
+    },
+    {
+      "type": "cairo",
+      "path": "/home/bane/.config/ironbar/dsk.lua",
+      "frequency": 1000,
+      "width": 160,
+      "height": 40 
+    }

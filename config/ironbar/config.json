@@ -40,7 +40,8 @@
       ]
     }
   ],
-  "center": [],
+  "center": [
+  ],
   "end": [
     {
       "name": "time",
@@ -58,6 +59,12 @@
       "name": "day",
       "type": "clock",
       "format": "%d",
+      "justify": "center"
+    },
+    {
+      "name": "weekday",
+      "type": "clock",
+      "format": "%a",
       "justify": "center"
     }
   ]

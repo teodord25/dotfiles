@@ -18,6 +18,10 @@
     padding: 0;
 }
 
+.background {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+}
+
 .clock {
     margin: 0;
     padding: 0;
@@ -28,11 +32,10 @@
 #time label,
 #day label {
     font-size: 6rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 
-#month label {
+#month label,
+#weekday label {
     font-size: 4rem;
 }
 
