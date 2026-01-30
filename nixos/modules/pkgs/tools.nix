@@ -24,6 +24,11 @@
 
     prettier
 
+    radeontop
+    sysstat
+    luajit
+    luajitPackages.lgi
+
     git
     neovim
     wget
