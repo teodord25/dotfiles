@@ -33,7 +33,3 @@ nmap('n', '<C-p>', ':cprev<CR>', {
 	noremap = true,
 	silent = true
 })
-
-map('n', '<C-s>', '`S', { desc = 'Jump to global mark S' })
-map('n', '<C-d>', '`D', { desc = 'Jump to global mark D' })
-map('n', '<C-f>', '`F', { desc = 'Jump to global mark F' })
