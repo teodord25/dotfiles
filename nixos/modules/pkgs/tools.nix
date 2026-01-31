@@ -24,6 +24,8 @@
 
     prettier
 
+    opencode
+
     radeontop
     sysstat
     luajit

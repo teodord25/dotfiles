@@ -3,5 +3,6 @@
     wine64
     mono
     steam-run
+    protonup-rs
   ];
 }
