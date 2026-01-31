@@ -24,7 +24,7 @@
 
     prettier
 
-    opencode
+    # opencode
 
     radeontop
     sysstat
