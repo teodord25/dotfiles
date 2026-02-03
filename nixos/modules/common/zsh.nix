@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # TODO: switch all non data heavy scripts to bash instead of nushell
   programs.zsh = {
     enable = true;

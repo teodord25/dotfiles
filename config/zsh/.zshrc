@@ -1,7 +1,7 @@
 eval "$(starship init zsh)"
 setopt vi
 
-alias rb="/home/bane/dotfiles/scripts/sh/rebuild.sh"
+alias rb="~/dotfiles/scripts/sh/rebuild.sh"
 alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
