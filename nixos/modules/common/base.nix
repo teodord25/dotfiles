@@ -2,6 +2,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  programs.ssh.startAgent = true;
+
   time.timeZone = "Europe/Belgrade";
   i18n.defaultLocale = "en_GB.UTF-8";
 
