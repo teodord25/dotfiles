@@ -234,11 +234,13 @@ return {
 	{
 		'nvim-treesitter/nvim-treesitter',
 		dependencies = {
-			{ "nushell/tree-sitter-nu" },
+			{ "nushell/tree-sitter-nu" }, -- TODO: this could be a nixpkgs thing
 		},
 		build = ':TSUpdate',
+		config = function()
+			require('config.treesitter')
+		end,
 	},
-
 	{ 'mbbill/undotree' },
 	{ 'airblade/vim-gitgutter' },
 	{
