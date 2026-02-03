@@ -26,7 +26,7 @@ in {
         "wheel"
         "docker"
       ];
-      shell = pkgs.nushell;
+      shell = pkgs.zsh;
     };
   };
 }

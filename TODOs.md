@@ -1,0 +1,2 @@
+- TODO: add ssh config and git config to ~/dotfiles and stow and idk
+- TODO: add tpm bootstrap to general setup command or exec from nix

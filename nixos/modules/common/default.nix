@@ -6,5 +6,6 @@
     ./nix-ld.nix
     ./nix-settings.nix
     ./users.nix
+    ./zsh.nix
   ];
 }

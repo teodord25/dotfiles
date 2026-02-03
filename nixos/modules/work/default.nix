@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./desktop.nix
+    ../personal/desktop.nix
   ];
 
   # work-specific configuration TBD
