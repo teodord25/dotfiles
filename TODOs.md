@@ -1,2 +1,3 @@
 - TODO: add ssh config and git config to ~/dotfiles and stow and idk
 - TODO: add tpm bootstrap to general setup command or exec from nix
+- TODO: add separate work/personal versioning in the commit message of rebuild
