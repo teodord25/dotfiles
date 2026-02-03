@@ -6,6 +6,9 @@
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
+    shellInit = ''
+      export ZDOTDIR="/home/teodor/.config/zsh"
+    '';
   };
 
   users.users.teodor.packages = with pkgs; [
