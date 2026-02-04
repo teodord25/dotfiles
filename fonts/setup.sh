@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FONT_DIR="$HOME/.local/share/fonts"
 

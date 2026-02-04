@@ -3,6 +3,19 @@
     ../personal/desktop.nix
   ];
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # VAAPI driver
+      intel-compute-runtime # OpenCL
+      vpl-gpu-rt # intel VPL GPU runtime
+    ];
+  };
+
+  boot.initrd.kernelModules = ["i915"]; # graphics driver
+  services.xserver.videoDrivers = ["modesetting"];
+
   # work-specific configuration TBD
   # jb-specific tools, VPN, corporate settings and so on
 
