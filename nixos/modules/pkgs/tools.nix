@@ -23,6 +23,7 @@
     imagemagick
 
     prettier
+    ruff
 
     # opencode
 
