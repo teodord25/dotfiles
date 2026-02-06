@@ -25,6 +25,8 @@
     prettier
     ruff
 
+    tridactyl-native
+
     # opencode
 
     radeontop
