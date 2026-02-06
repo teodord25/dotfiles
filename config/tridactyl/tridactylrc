@@ -1,4 +1,8 @@
 " TODO: look through the possible config options
+" TODO: figure out how to enable :restart
+"
+" TODO: add functionality to set some kind of mark when you unfocus a tab
+" and then have <C-o> take you there
 
 set configversion 2.0
 set smoothscroll true
