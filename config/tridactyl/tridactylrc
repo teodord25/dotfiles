@@ -35,4 +35,4 @@ autocmd DocStart ^http(s?)://mail.google.com tabopen about:blank
 set downloadpath ~/Downloads
 
 " Editor for text areas (requires native messenger)
-set editorcmd ghostty -e nvim
+set editorcmd ghostty --title=tridactyl-editor -e nvim
