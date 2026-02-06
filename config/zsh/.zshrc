@@ -7,9 +7,16 @@ alias gc="git commit"
 alias gs="git status"
 alias gp="git push"
 alias gl="git log"
+
 alias gw="git switch"
 alias gm="git merge"
 alias gb="git branch"
+
+alias gb="git branch"
+
+alias gsh="git stash"
+alias gsa="git stash apply"
+alias gsl="git stash clear"
 
 alias vi="nvim"
 alias nv="nvim"
@@ -17,5 +24,5 @@ alias nd="nix develop"
 alias td="rg "TODO:""
 
 alias t="tmux"
-alias n="nvim ."
+alias n="nvim"
 alias c="clear"
