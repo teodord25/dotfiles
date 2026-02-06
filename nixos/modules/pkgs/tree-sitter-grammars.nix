@@ -5,5 +5,6 @@
     tree-sitter-lua
     tree-sitter-typst
     tree-sitter-nu
+    tree-sitter-vim
   ];
 }

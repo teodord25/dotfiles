@@ -14,5 +14,7 @@
     llvmPackages_19.clang-unwrapped
     jdt-language-server
     bash-language-server
+
+    vim-language-server
   ];
 }
