@@ -1,0 +1,38 @@
+" TODO: look through the possible config options
+
+set configversion 2.0
+set smoothscroll true
+
+
+" TODO: what are these
+" set hintchars hjklasdfgyuiopqwertnmzxcvb
+
+" Search engines
+" set searchengine duckduckgo
+" set searchurls.g https://www.google.com/search?q=%s
+" set searchurls.gh https://github.com/search?q=%s
+" set searchurls.yt https://www.youtube.com/results?search_query=%s
+
+" Keybindings
+bind J tabnext
+bind K tabprev
+bind d scrollpage 0.5
+bind u scrollpage -0.5
+bind x tabclose
+bind X undo
+
+" Open links in new tab by default
+set newtab about:blank
+
+" Theme
+colors midnight
+
+" Disable on certain sites
+autocmd DocStart ^http(s?)://mail.google.com tabopen about:blank
+
+" Native messenger features (requires native messenger)
+" Set download location
+set downloadpath ~/Downloads
+
+" Editor for text areas (requires native messenger)
+set editorcmd ghostty -e nvim
