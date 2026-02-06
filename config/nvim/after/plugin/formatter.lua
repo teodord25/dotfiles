@@ -3,14 +3,12 @@ require("conform").setup({
     json = { "prettier" },
     python = { "ruff_format" },
   },
-
-  default_format_opts = {
-    lsp_format = "fallback", -- use LSP when formatter isnt set
-  },
-
   formatters = {
     ruff_format = {
-      prepend_args = { "--line-length", "80" },
+      args = { "format", "--line-length", "80", "--stdin-filename", "$FILENAME", "-" },
     },
+  },
+  default_format_opts = {
+    lsp_format = "fallback",
   },
 })
