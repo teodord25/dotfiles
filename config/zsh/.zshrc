@@ -8,6 +8,8 @@ alias gs="git status"
 alias gp="git push"
 alias gl="git log"
 
+alias gca="git commit --amend"
+
 alias gw="git switch"
 alias gm="git merge"
 alias gb="git branch"
