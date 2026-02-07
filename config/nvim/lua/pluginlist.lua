@@ -152,6 +152,7 @@ return {
 				PERF = { icon = " ", color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 				NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
 				TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+				WHAT = { icon = "‽", color = "error" },
 			},
 			gui_style = {
 				fg = "NONE",         -- The gui style to use for the fg highlight group.
