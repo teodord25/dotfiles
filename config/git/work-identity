@@ -1,0 +1,6 @@
+[user]
+    name = Teodor
+    email = teodor.duric@jetbrains.com
+
+[url "git@jetbrains.team:"]
+    insteadOf = https://git.jetbrains.team/

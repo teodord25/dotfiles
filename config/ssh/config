@@ -1,0 +1,9 @@
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_github
+
+Host *.jetbrains.team
+    HostName git.jetbrains.team
+    User git
+    IdentityFile ~/.ssh/id_ed25519_jetbrains

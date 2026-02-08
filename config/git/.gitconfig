@@ -1,5 +1,12 @@
-[user]
-	email = djuric.teodor25@gmail.com
-	name = teodord25
 [core]
-	editor = nvim
+    editor = nvim
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[user]
+    name = Teodor
+    email = djuric.teodor25@gmail.com
+
+[includeIf "gitdir:~/work/**"]
+    path = ~/.config/git/work-identity

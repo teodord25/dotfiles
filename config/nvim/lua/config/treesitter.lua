@@ -3,7 +3,11 @@
 -- each appropriate plugin declaration
 
 require('nvim-treesitter').setup({
-	ensure_installed = { 'vim', 'vimdoc', 'lua', 'nix', 'nu' },
+	ensure_installed = {
+		'ssh_config',
+		'git_config',
+		'vim', 'vimdoc', 'lua', 'nix', 'nu'
+	},
 	auto_install = false,
 	highlight = { enable = true },
 	indent = { enable = true },
