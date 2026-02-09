@@ -6,6 +6,8 @@
 
   services.libinput.enable = true;
 
+  boot.kernelModules = [ "typec_displayport" ];
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
