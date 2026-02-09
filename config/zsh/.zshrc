@@ -20,6 +20,8 @@ alias gsh="git stash"
 alias gsa="git stash apply"
 alias gsl="git stash clear"
 
+alias gds="git diff --staged"
+
 alias vi="nvim"
 alias nv="nvim"
 alias nd="nix develop"
