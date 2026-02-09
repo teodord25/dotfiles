@@ -25,6 +25,9 @@
     prettier
     ruff
 
+    entr
+    delta
+
     tridactyl-native
 
     # opencode
