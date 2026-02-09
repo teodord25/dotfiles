@@ -27,6 +27,7 @@
 
     entr
     delta
+    tmuxinator
 
     tridactyl-native
 
