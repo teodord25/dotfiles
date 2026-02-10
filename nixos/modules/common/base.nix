@@ -19,9 +19,9 @@
   # caps as ctrl / esc mapping
   services.kanata.enable = true;
   services.kanata.keyboards.default.config = ''
-    (defsrc caps)
+    (defsrc caps lctl)
     (defalias escctrl (tap-hold 100 100 esc lctrl))
-    (deflayer base @escctrl)
+    (deflayer base @escctrl lmet)
   '';
 
   imports = [
