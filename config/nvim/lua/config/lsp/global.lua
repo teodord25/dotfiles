@@ -10,7 +10,7 @@ local function set_global_keymaps(client, bufnr)
   map('n', 'gy', vim.lsp.buf.type_definition, "Go to type definition")
 
   map('n', 'K', vim.lsp.buf.hover, "Hover documentation")
-  map('n', 'grn', vim.lsp.buf.rename, "Rename symbol")
+  map('n', '<leader>rn', vim.lsp.buf.rename, "Rename symbol")
   map('n', 'gra', vim.lsp.buf.code_action, "Code actions")
   map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, "Code actions")
 
