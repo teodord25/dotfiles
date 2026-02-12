@@ -42,6 +42,7 @@
 
   # work-specific packages
   environment.systemPackages = with pkgs; [
+    jetbrains-toolbox
     # god forbid ms teams
     # slack
     # IDEs and so on
