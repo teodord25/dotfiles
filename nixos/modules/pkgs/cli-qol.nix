@@ -4,6 +4,9 @@
     bat
     stow
     carapace
+
+    fzf
+    zoxide
   ];
 }
 #   html-tidy
