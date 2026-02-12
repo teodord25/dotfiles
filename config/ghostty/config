@@ -60,3 +60,5 @@ keybind = alt+2=text:\x1b2
 keybind = alt+3=text:\x1b3
 keybind = alt+4=text:\x1b4
 keybind = alt+5=text:\x1b5
+
+font-size=11
