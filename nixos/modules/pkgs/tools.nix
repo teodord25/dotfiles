@@ -22,6 +22,8 @@
 
     imagemagick
 
+    dbeaver-bin
+
     prettier
     ruff
 
