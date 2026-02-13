@@ -18,8 +18,8 @@ set smoothscroll true
 " set searchurls.yt https://www.youtube.com/results?search_query=%s
 
 " Keybindings
-bind J tabnext
-bind K tabprev
+bind <C-j> tabnext
+bind <C-k> tabprev
 bind d scrollpage 0.5
 bind u scrollpage -0.5
 bind x tabclose
