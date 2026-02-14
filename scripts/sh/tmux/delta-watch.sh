@@ -12,4 +12,4 @@ if ! git rev-parse --git-dir &>/dev/null; then
   exit 1
 fi
 
-git ls-files | entr sh -c 'git diff | delta --paging=never'
+git ls-files | entr -cs 'git diff | delta --paging=never'
