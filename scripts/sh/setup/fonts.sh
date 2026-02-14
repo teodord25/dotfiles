@@ -6,7 +6,6 @@ DOTFILES_FONTS="$HOME/dotfiles/fonts"
 
 mkdir -p "$FONT_DIR"
 
-# check if already installed
 if ls "$FONT_DIR"/*.{ttf,otf} &>/dev/null; then
     echo "Fonts already installed, skipping..."
     exit 0
