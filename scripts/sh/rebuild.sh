@@ -50,9 +50,9 @@ fi
 gen=$(nixos-rebuild list-generations | awk '$NF == "True" {print $1}')
 
 if [[ -n "$commit_msg" ]]; then
-  msg="NixOS Generation ($gen) - $commit_msg"
+  msg="NixOS Generation ($1)($gen) - $commit_msg"
 else
-  msg="NixOS Generation ($gen)"
+  msg="NixOS Generation ($1)($gen)"
 fi
 
 if [ "$pre_committed" = true ]; then
