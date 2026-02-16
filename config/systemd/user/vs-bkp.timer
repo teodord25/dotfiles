@@ -1,0 +1,12 @@
+[Unit]
+Description=Backup vs world file every 24 hours
+Requires=vs-bkp.service
+
+[Timer]
+OnCalendar=daily
+OnBootSec=5min
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

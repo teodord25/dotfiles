@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup vs world file from Raspberry Pi
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/dotfiles/scripts/sh/vs-bkp.sh
+Restart=on-failure
+RestartSec=300
+StartLimitBurst=3
