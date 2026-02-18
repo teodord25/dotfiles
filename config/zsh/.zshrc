@@ -26,6 +26,8 @@ alias gsl="git stash clear"
 
 alias gds="git diff --staged"
 
+alias grs="git restore --staged"
+
 alias vi="nvim"
 alias nv="nvim"
 alias nd="nix develop"
