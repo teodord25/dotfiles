@@ -31,3 +31,7 @@ alias td="rg "TODO:""
 alias t="tmux"
 alias n="nvim"
 alias c="clear"
+
+alias dev="~/dotfiles/scripts/sh/tmux/dev.sh"
+
+export EDITOR="nvim"
