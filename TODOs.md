@@ -10,3 +10,7 @@
 
 - TODO: have shell prompt launch message with TODOs, metrics, recent stuff,
   team city, webhooks, github/space info idfk
+
+- TODO: make it so pytest in tests window in tmux actually updates the little tab 
+with OK! or FAIL! or something idfk
+
