@@ -1,5 +1,8 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+eval "$(zoxide init --cmd cd zsh)"
+
 setopt vi
 
 alias rb="~/dotfiles/scripts/sh/rebuild.sh"
