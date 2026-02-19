@@ -34,6 +34,8 @@ alias nv="nvim"
 alias nd="nix develop"
 alias td="rg "TODO:""
 
+alias ti="touch .git/index"
+
 alias t="tmux"
 alias n="nvim"
 alias c="clear"
