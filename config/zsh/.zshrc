@@ -24,6 +24,7 @@ alias gsh="git stash"
 alias gsa="git stash apply"
 alias gsl="git stash clear"
 
+alias gd="git diff"
 alias gds="git diff --staged"
 
 alias grs="git restore --staged"

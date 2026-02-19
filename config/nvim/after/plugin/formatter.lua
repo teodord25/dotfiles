@@ -1,7 +1,7 @@
 require("conform").setup({
   formatters_by_ft = {
     json = { "prettier" },
-    python = { "ruff_format" },
+    python = { "ruff_fix", "ruff_format" },
   },
   formatters = {
     ruff_format = {
