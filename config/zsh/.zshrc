@@ -29,6 +29,10 @@ alias gds="git diff --staged"
 
 alias grs="git restore --staged"
 
+function ggrep() {
+    git log --grep="$*"
+}
+
 alias vi="nvim"
 alias nv="nvim"
 alias nd="nix develop"
