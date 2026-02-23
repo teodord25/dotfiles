@@ -27,7 +27,7 @@ tmux resize-pane -t dev:main.1 -x 80
 tmux resize-pane -t dev:main.3 -x 64
 tmux set-hook -t dev client-resized \
   'if-shell "[ #{window_width} -ge 162 ]" \
-    "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 64"'
+    "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 63"'
 
 # show git delta left
 tmux send-keys -t dev:main.1 "$SCRIPTS/delta-watch.sh" C-m
@@ -52,7 +52,7 @@ tmux select-pane -t dev:main.2
 
 # reflow layout on PREFIX + r
 tmux bind-key -T prefix r \
-  "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 64"
+  "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 63"
 
 # attach immediately
 tmux attach-session -t dev
