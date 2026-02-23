@@ -50,5 +50,9 @@ tmux select-pane -t dev:main.2
   tmux send-keys -t dev:tests.1 "git ls-files | entr -rcs 'cd app && poetry run pytest'" C-m
 ) &
 
+# reflow layout on PREFIX + r
+tmux bind-key -T prefix r \
+  "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 64"
+
 # attach immediately
 tmux attach-session -t dev
