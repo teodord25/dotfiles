@@ -13,4 +13,6 @@
 
 - TODO: make it so pytest in tests window in tmux actually updates the little tab 
 with OK! or FAIL! or something idfk
+- TODO: make db tests also run in test window
+- TODO: add db tests to nix flake
 
