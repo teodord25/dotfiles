@@ -7,5 +7,6 @@
     fastfetch
     ironbar
     swww
+    bibata-cursors
   ];
 }
