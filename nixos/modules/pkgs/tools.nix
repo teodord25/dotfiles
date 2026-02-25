@@ -20,6 +20,8 @@
     mesa
     zathura
 
+    inlyne
+
     imagemagick
 
     dbeaver-bin
