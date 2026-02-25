@@ -7,6 +7,8 @@
 
     fzf
     zoxide
+
+    psmisc
   ];
 }
 #   html-tidy
