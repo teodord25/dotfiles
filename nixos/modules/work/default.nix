@@ -16,6 +16,8 @@
   boot.initrd.kernelModules = ["i915"]; # graphics driver
   services.xserver.videoDrivers = ["modesetting"];
 
+  services.cloudflare-warp.enable = true;
+
   # work-specific configuration TBD
   # jb-specific tools, VPN, corporate settings and so on
 
