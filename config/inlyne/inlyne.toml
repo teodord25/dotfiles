@@ -1,12 +1,13 @@
 # A different scale factor can be specified
 # Example:
-scale = 3.5
+scale = 2
 # Default: The window's scale factor (system dependent)
 
 # The Maximum page width can be specified in pixels
 # Example:
 # page-width = 800
 # Default: Unconstrained
+page-width = 1800
 
 # Force the use of a specific color theme
 # Example:
@@ -69,17 +70,9 @@ select-color = 0xcde8f0
 checkbox-color = 0x96ecae
 code-highlighter = "github"
 
-# Specify the main and monospace font families
 [font-options]
-# Font family for regular text. E.g.
-# Example:
-# regular-font = "Chalkduster"
-# Default: System dependent
-
-# Font family for monospace text such as code
-# Example:
-# monospace-font = "Monaco"
-# Default: System dependent
+regular-font = "JetBrainsMono Nerd Font"
+monospace-font = "JetBrainsMono Nerd Font Mono"
 
 # Custom keybinds for actions
 #
