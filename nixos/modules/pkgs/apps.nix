@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    mullvad
     distrobox
     newsboat
     woeusb # rufus
