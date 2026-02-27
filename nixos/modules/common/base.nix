@@ -16,6 +16,8 @@
   nixpkgs.config.allowUnfree = true;
   programs.gnupg.agent.enable = true;
 
+  services.mullvad-vpn.enable = true;
+
   # caps as ctrl / esc mapping
   services.kanata.enable = true;
   services.kanata.keyboards.default.config = ''
