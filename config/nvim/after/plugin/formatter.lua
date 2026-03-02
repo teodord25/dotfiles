@@ -5,7 +5,7 @@ require("conform").setup({
   },
   formatters = {
     ruff_format = {
-      args = { "format", "--line-length", "80", "--stdin-filename", "$FILENAME", "-" },
+      args = { "format", "--stdin-filename", "$FILENAME", "-" },
     },
   },
   default_format_opts = {
