@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # TODO: do i still need x11?
   services.xserver.enable = true;
 
@@ -41,6 +45,11 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
+
+  environment.sessionVariables.XDG_DATA_DIRS = lib.mkAfter [
+    "/var/lib/flatpak/exports/share"
+    "$HOME/.local/share/flatpak/exports/share"
+  ];
 
   imports = [
     ../pkgs/hypr.nix
