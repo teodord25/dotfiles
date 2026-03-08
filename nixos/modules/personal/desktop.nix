@@ -14,9 +14,28 @@
   };
   programs.xwayland.enable = true;
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  xdg.portal.config.common.default = "*";
+  services.flatpak.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config = {
+      common.default = [
+        "hyprland"
+        "gtk"
+      ];
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+      };
+    };
+  };
 
   # TODO: might not be needed anymore
   environment.sessionVariables = {
