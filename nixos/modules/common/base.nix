@@ -13,6 +13,23 @@
     variant = "";
   };
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+    wireplumber.extraConfig."51-disable-hfp" = {
+      "monitor.bluez.properties" = {
+        "bluez5.roles" = [
+          "a2dp_sink"
+          "a2dp_source"
+          "bap_sink"
+          "bap_source"
+        ];
+      };
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
   programs.gnupg.agent.enable = true;
 
