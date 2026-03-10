@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    tig
     python3Packages.pip
     cacert
     vscode-langservers-extracted
