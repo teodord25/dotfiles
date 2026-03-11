@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    taplo
     tig
     python3Packages.pip
     cacert
