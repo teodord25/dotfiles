@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # TODO: switch all non data heavy scripts to bash instead of nushell
   programs.zsh = {
     enable = true;
@@ -10,7 +14,7 @@
     '';
   };
 
-  users.users.teodor.packages = with pkgs; [
+  users.users.${config.main-user.userName}.packages = with pkgs; [
     starship
   ];
 

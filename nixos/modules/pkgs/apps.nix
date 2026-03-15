@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    anki-bin
     mullvad
     distrobox
     newsboat
