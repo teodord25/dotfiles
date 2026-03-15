@@ -18,6 +18,17 @@
   };
   programs.xwayland.enable = true;
 
+  environment.systemPackages = [pkgs.wlsunset];
+
+  systemd.user.services.wlsunset = {
+    description = "wlsunset";
+    wantedBy = ["graphical-session.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.wlsunset}/bin/wlsunset -l 45.9 -L 19.6 -t 2500 -T 6500";
+      Restart = "on-failure";
+    };
+  };
+
   services.flatpak.enable = true;
 
   xdg.portal = {
