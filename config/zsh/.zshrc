@@ -1,3 +1,5 @@
+export PATH="$HOME/.cargo/bin:$PATH"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
@@ -25,7 +27,10 @@ alias gsa="git stash apply"
 alias gsl="git stash clear"
 
 alias gd="git diff"
+alias gdd="git diff | delta"
+
 alias gds="git diff --staged"
+alias gdsd="git diff --staged | delta"
 
 alias grs="git restore --staged"
 
