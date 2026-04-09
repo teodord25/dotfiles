@@ -2,19 +2,27 @@
   imports = [
     ../personal/desktop.nix
   ];
-
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver # VAAPI driver
-      intel-compute-runtime # OpenCL
-      vpl-gpu-rt # intel VPL GPU runtime
+      intel-media-driver
+      intel-compute-runtime
+      vpl-gpu-rt
     ];
   };
-
-  boot.initrd.kernelModules = ["i915"]; # graphics driver
-  services.xserver.videoDrivers = ["modesetting"];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true; # RTX A2000 supports the open kernel module
+    prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true; # gives you `nvidia-offload` command
+      intelBusId = "PCI:0:2:0"; # check with: lspci | grep -E "VGA|3D"
+      nvidiaBusId = "PCI:1:0:0"; # check with: lspci | grep -E "VGA|3D"
+    };
+  };
+  boot.initrd.kernelModules = ["i915"];
+  services.xserver.videoDrivers = ["nvidia"];
 
   services.cloudflare-warp.enable = true;
 
