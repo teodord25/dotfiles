@@ -7,5 +7,6 @@
     ./nix-settings.nix
     ./users.nix
     ./zsh.nix
+    ../personal/gaming.nix
   ];
 }
