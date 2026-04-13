@@ -53,3 +53,5 @@ vim.o.scrolloff = 10
 
 -- highlight on search
 vim.o.hlsearch = true
+
+vim.o.modeline = false
