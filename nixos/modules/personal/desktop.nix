@@ -6,7 +6,7 @@
   # TODO: do i still need x11?
   services.xserver.enable = true;
 
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
 
   services.libinput.enable = true;
 
