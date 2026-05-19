@@ -2,6 +2,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.xserver = {
+    displayManager = {
+      startx.enable = true;
+    };
+  };
+
   programs.ssh = {
     startAgent = true;
     extraConfig = ''
