@@ -11,6 +11,7 @@ alias rb="~/dotfiles/scripts/sh/rebuild.sh"
 alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
+alias gu="git branch -vv | grep -E 'ahead|^[^[]*$' | grep -v '^$'"
 alias gp="git push"
 alias gl="git log"
 
