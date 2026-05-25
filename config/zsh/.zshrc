@@ -53,3 +53,6 @@ alias c="clear"
 alias dev="~/dotfiles/scripts/sh/tmux/dev.sh"
 
 export EDITOR="nvim"
+
+
+alias shell-bevy='nix-shell $HOME/dotfiles/shells/bevy.nix'
