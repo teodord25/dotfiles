@@ -10,3 +10,5 @@ vim.lsp.enable("nil_ls")
 
 vim.lsp.enable("cssls")
 vim.lsp.enable("bashls")
+
+vim.lsp.enable("taplo")
