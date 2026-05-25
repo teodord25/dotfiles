@@ -10,3 +10,5 @@
 
 [includeIf "gitdir:~/work/**"]
     path = ~/.config/git/work-identity
+[pull]
+	rebase = true
