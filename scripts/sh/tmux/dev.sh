@@ -24,10 +24,10 @@ tmux new-session -d -s dev -n main
 tmux split-window -h -t dev:main
 tmux split-window -h -t dev:main.2
 tmux resize-pane -t dev:main.1 -x 80
-tmux resize-pane -t dev:main.3 -x 64
+tmux resize-pane -t dev:main.3 -x 56
 tmux set-hook -t dev client-resized \
   'if-shell "[ #{window_width} -ge 162 ]" \
-    "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 63"'
+    "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 56"'
 
 # show git delta left
 tmux send-keys -t dev:main.1 "$SCRIPTS/delta-watch.sh" C-m
@@ -37,8 +37,12 @@ tmux new-window -t dev -n server
 tmux send-keys -t dev:server.1 "nix develop '$FLAKE_URL'" C-m
 
 # init tests window
-tmux new-window -t dev -n tests
-tmux send-keys -t dev:tests.1 "nix develop '$FLAKE_URL'" C-m
+tmux new-window -t dev -n unit-tests
+tmux send-keys -t dev:unit-tests.1 "nix develop '$FLAKE_URL'" C-m
+
+# init dbtests window
+tmux new-window -t dev -n db-tests
+tmux send-keys -t dev:db-tests.1 "nix develop '$FLAKE_URL'" C-m
 
 # select the main window and pane
 tmux select-window -t dev:main
@@ -46,13 +50,14 @@ tmux select-pane -t dev:main.2
 
 # run delayed commands in background
 (
-  tmux send-keys -t dev:server.1 "dev" C-m
-  tmux send-keys -t dev:tests.1 "git ls-files | entr -rcs 'cd app && poetry run pytest'" C-m
+  tmux send-keys -t dev:server.1 "db-start && dev" C-m
+  tmux send-keys -t dev:unit-tests.1 "git ls-files | entr -r $SCRIPTS/tests.sh" C-m
+  tmux send-keys -t dev:db-tests.1 "git ls-files | entr -r $SCRIPTS/tests-db.sh" C-m
 ) &
 
 # reflow layout on PREFIX + r
 tmux bind-key -T prefix r \
-  "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 63"
+  "resize-pane -t dev:main.1 -x 80 ; resize-pane -t dev:main.3 -x 56"
 
 # attach immediately
 tmux attach-session -t dev
