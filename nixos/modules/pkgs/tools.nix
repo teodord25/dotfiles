@@ -1,5 +1,26 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    ntfs3g
+    bottom
+    unrar
+    vulkan-tools
+    vulkan-loader
+    mesa
+    imagemagick
+    tridactyl-native
+    radeontop
+    sysstat
+    git
+    neovim
+    wget
+    starship
+    mpv
+    gcc
+    yazi
+    ripgrep
+    tmux
+    p7zip
+
     taplo
     tig
     python3Packages.pip
@@ -12,19 +33,11 @@
 
     dnsutils
     flyctl
-    ntfs3g
     qemu
     virt-manager # qemu wrapper
-    bottom
-    unrar
-    vulkan-tools
-    vulkan-loader
-    mesa
     zathura
 
     inlyne
-
-    imagemagick
 
     dbeaver-bin
 
@@ -35,25 +48,12 @@
     delta
     tmuxinator
 
-    tridactyl-native
 
     # opencode
 
-    radeontop
-    sysstat
     luajit
     luajitPackages.lgi
 
-    git
-    neovim
-    wget
     nushell
-    starship
-    mpv
-    gcc
-    yazi
-    ripgrep
-    tmux
-    p7zip
   ];
 }
