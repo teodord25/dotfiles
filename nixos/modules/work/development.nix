@@ -8,5 +8,6 @@
     ../pkgs/lang.nix
     ../pkgs/tree-sitter-grammars.nix
     ../pkgs/lang-servers.nix
+    ../pkgs/dev-tools.nix
   ];
 }

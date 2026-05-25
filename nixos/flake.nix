@@ -95,5 +95,30 @@
         )
       ];
     };
+
+    nixosConfigurations.gaming = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+
+      modules = [
+        ./hosts/gaming/configuration.nix
+        ./modules/common
+        ./modules/gaming
+
+        (
+          {pkgs, ...}: {
+            nixpkgs.overlays = [
+              inputs.ghostty.overlays.default
+            ];
+
+            environment.systemPackages = with pkgs; [
+              ghostty
+              alejandra
+              inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+            ];
+          }
+        )
+      ];
+    };
+
   };
 }

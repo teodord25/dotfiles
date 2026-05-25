@@ -24,6 +24,7 @@
   imports = [
     ../personal/desktop.nix
     ../pkgs/gaming-tools.nix
+    ./development.nix
   ];
   hardware.graphics = {
     enable = true;

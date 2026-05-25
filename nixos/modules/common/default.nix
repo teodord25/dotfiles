@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./base.nix
-    ./development.nix
+    ./desktop.nix
     ./networking.nix
     ./nix-ld.nix
     ./nix-settings.nix
