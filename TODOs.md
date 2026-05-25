@@ -16,3 +16,4 @@ with OK! or FAIL! or something idfk
 - TODO: make db tests also run in test window
 - TODO: add db tests to nix flake
 
+- TODO: try to fix datagrip to work on this setup
