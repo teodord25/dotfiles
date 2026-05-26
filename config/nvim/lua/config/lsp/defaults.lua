@@ -12,3 +12,5 @@ vim.lsp.enable("cssls")
 vim.lsp.enable("bashls")
 
 vim.lsp.enable("taplo")
+
+vim.lsp.enable("ruff")
