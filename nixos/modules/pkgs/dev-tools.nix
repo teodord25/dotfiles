@@ -27,7 +27,6 @@
     delta
     tmuxinator
 
-
     # opencode
 
     luajit

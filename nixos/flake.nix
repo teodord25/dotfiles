@@ -33,6 +33,9 @@
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    claude-code-nix.url = "github:sadjow/claude-code-nix";
+    # follows excluded on purpose
   };
 
   outputs = {
@@ -54,6 +57,7 @@
             nixpkgs.overlays = [
               inputs.ghostty.overlays.default
               inputs.rust-overlay.overlays.default
+              inputs.claude-code-nix.overlays.default
             ];
 
             environment.systemPackages = with pkgs; [
@@ -119,6 +123,5 @@
         )
       ];
     };
-
   };
 }
