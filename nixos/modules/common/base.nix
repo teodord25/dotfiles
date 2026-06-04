@@ -2,6 +2,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.gcr-ssh-agent.enable = false;
+  security.pam.services.login.enableGnomeKeyring = true;
+
   services.xserver = {
     displayManager = {
       startx.enable = true;
