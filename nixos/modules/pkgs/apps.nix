@@ -8,7 +8,6 @@
     firefox
     qbittorrent
     discord
-    kdePackages.kwallet
     pavucontrol
     wtype
     thunderbird
