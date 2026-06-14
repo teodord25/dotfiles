@@ -19,12 +19,15 @@
       ];
   };
 
+  programs.steam.extraPackages = with pkgs; [mangohud];
+
   programs.gamemode.enable = true;
 
   imports = [
     ../personal/desktop.nix
     ../pkgs/gaming-tools.nix
     ./development.nix
+    ../virt/virt.nix
   ];
   hardware.graphics = {
     enable = true;

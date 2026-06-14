@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     docker-compose
     claude-code
+    mangohud
   ];
 
   imports = [
