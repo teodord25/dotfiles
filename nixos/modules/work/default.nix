@@ -52,6 +52,7 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   services.cloudflare-warp.enable = true;
+  services.thermald.enable = true;
 
   # work-specific configuration TBD
   # jb-specific tools, VPN, corporate settings and so on
