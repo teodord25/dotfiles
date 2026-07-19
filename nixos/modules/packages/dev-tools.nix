@@ -27,8 +27,6 @@
     delta
     tmuxinator
 
-    # opencode
-
     luajit
     luajitPackages.lgi
 

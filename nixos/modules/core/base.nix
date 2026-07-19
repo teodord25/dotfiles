@@ -58,11 +58,6 @@
     (deflayer base @escctrl lmet)
   '';
 
-  imports = [
-    ../pkgs/cli-qol.nix
-    ../pkgs/tools.nix
-  ];
-
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans

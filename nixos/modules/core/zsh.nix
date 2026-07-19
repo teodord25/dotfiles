@@ -10,7 +10,7 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellInit = ''
-      export ZDOTDIR="/home/teodor/.config/zsh"
+      export ZDOTDIR="/home/${config.main-user.userName}/.config/zsh"
     '';
   };
 
@@ -18,5 +18,5 @@
     starship
   ];
 
-  environment.variables.ZDOTDIR = "/home/teodor/.config/zsh";
+  environment.variables.ZDOTDIR = "/home/${config.main-user.userName}/.config/zsh";
 }

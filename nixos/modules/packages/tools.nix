@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    ghostty # from inputs.ghostty overlay (see modules/core/overlays.nix)
     ntfs3g
     bottom
     unrar

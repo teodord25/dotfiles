@@ -3,13 +3,12 @@
   environment.systemPackages = with pkgs; [
     docker-compose
     claude-code
-    mangohud
   ];
 
   imports = [
-    ../pkgs/lang.nix
-    ../pkgs/tree-sitter-grammars.nix
-    ../pkgs/lang-servers.nix
-    ../pkgs/dev-tools.nix
+    ../packages/lang.nix
+    ../packages/tree-sitter-grammars.nix
+    ../packages/lang-servers.nix
+    ../packages/dev-tools.nix
   ];
 }

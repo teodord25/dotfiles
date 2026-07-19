@@ -24,11 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ghostty = {
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,86 +37,22 @@
     self,
     nixpkgs,
     ...
-  } @ inputs: {
-    # work system config
-    nixosConfigurations.work = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-
-      modules = [
-        ./hosts/work/configuration.nix
-        ./modules/common
-        ./modules/work
-
-        (
-          {pkgs, ...}: {
-            nixpkgs.overlays = [
-              inputs.ghostty.overlays.default
-              inputs.rust-overlay.overlays.default
-              inputs.claude-code-nix.overlays.default
-            ];
-
-            environment.systemPackages = with pkgs; [
-              rust-bin.stable.latest.default
-              ghostty
-              inputs.alejandra.packages.${pkgs.stdenv.hostPlatform.system}.default
-              inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-            ];
-          }
-        )
-      ];
-    };
-
-    # personal system config
-    nixosConfigurations.personal = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-
-      modules = [
-        ./hosts/personal/configuration.nix
-        ./modules/common
-        ./modules/personal
-
-        (
-          {pkgs, ...}: {
-            nixpkgs.overlays = [
-              inputs.templ.overlays.default
-              inputs.ghostty.overlays.default
-              inputs.rust-overlay.overlays.default
-            ];
-
-            environment.systemPackages = with pkgs; [
-              rust-bin.stable.latest.default
-              templ
-              ghostty
-              alejandra
-              inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
-            ];
-          }
-        )
-      ];
-    };
-
-    nixosConfigurations.gaming = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-
-      modules = [
-        ./hosts/gaming/configuration.nix
-        ./modules/common
-        ./modules/gaming
-
-        (
-          {pkgs, ...}: {
-            nixpkgs.overlays = [
-              inputs.ghostty.overlays.default
-            ];
-
-            environment.systemPackages = with pkgs; [
-              ghostty
-              alejandra
-              inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
-            ];
-          }
-        )
-      ];
+  } @ inputs: let
+    # One host = its own entrypoint (./hosts/<name>) plus the shared core.
+    # Everything else (overlays, package sets, per-host profiles) is imported
+    # from those two roots, so adding a host is a single line below.
+    mkHost = name:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/${name}
+          ./modules/core
+        ];
+      };
+  in {
+    nixosConfigurations = {
+      work = mkHost "work";
+      personal = mkHost "personal";
     };
   };
 }
