@@ -1,4 +1,12 @@
 nixos/output.txt
 nixos/result
+nixos/*.tar
 
 config/zsh/.zcompdump*
+
+# machine-local: created by scripts/sh/setup/config.sh
+config/hypr/host.conf
+
+# systemd enablement symlinks — never commit these
+config/systemd/user/*.wants/
+config/systemd/user/wlsunset.service

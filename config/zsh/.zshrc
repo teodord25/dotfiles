@@ -2,8 +2,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-
 eval "$(zoxide init --cmd cd zsh)"
 
 setopt vi
@@ -20,8 +18,6 @@ alias gca="git commit --amend"
 
 alias gw="git switch"
 alias gm="git merge"
-alias gb="git branch"
-
 alias gb="git branch"
 
 alias gsh="git stash"
@@ -43,7 +39,7 @@ function ggrep() {
 alias vi="nvim"
 alias nv="nvim"
 alias nd="nix develop"
-alias td="rg "TODO:""
+alias td='rg "TODO:"'
 
 alias ti="touch .git/index"
 

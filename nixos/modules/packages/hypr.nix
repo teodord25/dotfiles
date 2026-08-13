@@ -8,5 +8,7 @@
     ironbar
     swww
     bibata-cursors
+    playerctl # media keys (hyprland binds)
+    brightnessctl # brightness keys (laptop)
   ];
 }

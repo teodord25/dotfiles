@@ -51,8 +51,8 @@
       };
   in {
     nixosConfigurations = {
-      work = mkHost "work";
-      personal = mkHost "personal";
+      work = mkHost "work"; # JetBrains laptop (Intel + Nvidia)
+      gaming = mkHost "gaming"; # desktop PC (AMD + AMD), tuned for gaming
     };
   };
 }

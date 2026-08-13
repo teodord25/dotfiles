@@ -4,6 +4,7 @@
     bat
     stow
     carapace
+    jq
 
     fzf
     zoxide
@@ -14,7 +15,6 @@
 #   html-tidy
 #   xh
 #   difftastic
-#   zoxide
 #   xcp
 #   dysk
 #   dust
@@ -29,4 +29,3 @@
 #   dog
 #   fselect
 #   htmlq
-

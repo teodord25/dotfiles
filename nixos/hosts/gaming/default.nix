@@ -5,17 +5,18 @@
     ../../modules/profiles/cpu-amd.nix
     ../../modules/profiles/gpu-amd.nix
     ../../modules/profiles/gaming.nix
+    ../../modules/profiles/performance.nix
     ../../modules/profiles/printer.nix
     ../../modules/profiles/vpn.nix
     ../../modules/profiles/rust.nix
   ];
 
-  networking.hostName = "teodor-personal-nixos";
+  networking.hostName = "teodor-gaming-nixos";
 
   main-user.enable = true;
   main-user.userName = "bane";
 
-  # personal-only tooling
+  # host-only tooling
   environment.systemPackages = [pkgs.templ]; # from inputs.templ overlay
 
   system.stateVersion = "24.05";

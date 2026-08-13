@@ -2,13 +2,13 @@
 set -uo pipefail
 
 if [[ $# -eq 0 ]]; then
-  echo "Usage: $0 {personal|work}"
+  echo "Usage: $0 {work|gaming}"
   exit 2
 fi
 
-if [[ "$1" != "personal" && "$1" != "work" ]]; then
-  echo "Usage: $0 {personal|work}"
-  echo "  personal|work: Which dotfiles profile to use"
+if [[ "$1" != "work" && "$1" != "gaming" ]]; then
+  echo "Usage: $0 {work|gaming}"
+  echo "  work|gaming: which host to build"
   exit 2
 fi
 

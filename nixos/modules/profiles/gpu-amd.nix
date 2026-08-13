@@ -1,18 +1,21 @@
 {pkgs, ...}: {
-  # AMD dGPU. hardware.graphics.{enable,enable32Bit} is set in profiles/desktop.nix.
-  boot.initrd.kernelModules = ["amdgpu"];
+  # AMD dGPU on the default open stack (amdgpu + mesa/RADV) — no extra
+  # driver packages needed for GL or Vulkan.
+  # hardware.graphics.{enable,enable32Bit} is set in profiles/desktop.nix.
+  boot.initrd.kernelModules = ["amdgpu"]; # early KMS
   services.xserver.videoDrivers = ["modesetting"];
 
-  hardware.graphics.extraPackages = with pkgs; [
-    vulkan-validation-layers
-    libglvnd
-    mesa
-  ];
+  # NOTE: the old VK_ICD_FILENAMES / VK_LOADER_LAYERS_DISABLE /
+  # LIBGL_DRIVERS_PATH env-var pins were workarounds from the previous
+  # machine. On a clean all-AMD box they are unnecessary (and disabling
+  # the Valve layers kills the Steam overlay). Re-add only if something
+  # actually misbehaves.
 
-  environment.sessionVariables = {
-    __EGL_VENDOR_LIBRARY_DIRS = "/run/opengl-driver/share/glvnd/egl_vendor.d";
-    LIBGL_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
-    VK_LOADER_LAYERS_DISABLE = "VK_LAYER_VALVE_steam_overlay:VK_LAYER_VALVE_steam_fossilize";
+  # GPU control: fan curves, power limit, per-level clocks
+  environment.systemPackages = [pkgs.lact];
+  systemd.services.lactd = {
+    description = "AMDGPU control daemon";
+    wantedBy = ["multi-user.target"];
+    serviceConfig.ExecStart = "${pkgs.lact}/bin/lact daemon";
   };
-  environment.variables.VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
 }

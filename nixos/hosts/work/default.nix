@@ -4,7 +4,6 @@
 
     ../../modules/profiles/cpu-intel.nix
     ../../modules/profiles/gpu-nvidia.nix
-    ../../modules/profiles/gaming.nix # delete when the PC build is done
     ../../modules/profiles/development.nix
     ../../modules/profiles/virtualisation.nix
     ../../modules/profiles/rust.nix
@@ -23,7 +22,6 @@
   environment.systemPackages = with pkgs; [
     jetbrains-toolbox
     ungoogled-chromium
-    jq
     # slack
   ];
 
