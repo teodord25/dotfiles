@@ -31,5 +31,6 @@
     luajitPackages.lgi
 
     nushell
+    jetbrains.rider
   ];
 }

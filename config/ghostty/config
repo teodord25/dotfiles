@@ -61,4 +61,9 @@ keybind = alt+3=text:\x1b3
 keybind = alt+4=text:\x1b4
 keybind = alt+5=text:\x1b5
 
+keybind = alt+k=scroll_page_lines:-3
+keybind = alt+j=scroll_page_lines:3
+keybind = alt+ctrl+u=scroll_page_fractional:-0.5
+keybind = alt+ctrl+d=scroll_page_fractional:0.5
+
 font-size=10
