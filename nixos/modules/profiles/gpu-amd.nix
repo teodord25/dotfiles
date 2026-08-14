@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   # AMD dGPU on the default open stack (amdgpu + mesa/RADV) — no extra
   # driver packages needed for GL or Vulkan.
   # hardware.graphics.{enable,enable32Bit} is set in profiles/desktop.nix.
@@ -12,10 +12,7 @@
   # actually misbehaves.
 
   # GPU control: fan curves, power limit, per-level clocks
-  environment.systemPackages = [pkgs.lact];
-  systemd.services.lactd = {
-    description = "AMDGPU control daemon";
-    wantedBy = ["multi-user.target"];
-    serviceConfig.ExecStart = "${pkgs.lact}/bin/lact daemon";
-  };
+  # overdrive is required or amdgpu refuses clock/power changes
+  services.lact.enable = true;
+  hardware.amdgpu.overdrive.enable = true;
 }

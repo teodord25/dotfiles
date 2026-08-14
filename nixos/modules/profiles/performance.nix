@@ -17,4 +17,8 @@
   # Optional extra few %: disable CPU vulnerability mitigations.
   # Reasonable on a single-user gaming box, your call:
   # boot.kernelParams = ["mitigations=off"];
+
+  # sched_ext: gaming-tuned scheduler, big win for frametime consistency
+  services.scx.enable = true;
+  services.scx.scheduler = "scx_lavd";
 }
