@@ -9,6 +9,7 @@
     ../../modules/profiles/printer.nix
     ../../modules/profiles/vpn.nix
     ../../modules/profiles/rust.nix
+    ../../modules/profiles/tailnet-host.nix
   ];
 
   networking.hostName = "teodor-gaming-nixos";

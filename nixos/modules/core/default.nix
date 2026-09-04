@@ -10,6 +10,8 @@
     ./users.nix
     ./zsh.nix
 
+    ./tailscale.nix
+
     # every host currently runs the Hyprland desktop
     ../profiles/desktop.nix
 
