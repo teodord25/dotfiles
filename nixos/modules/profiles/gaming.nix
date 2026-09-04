@@ -47,5 +47,9 @@
     wine64
     mono
     steam-run
+    vintagestory
   ];
+
+  services.hardware.openrgb.enable = true;
+  services.hardware.openrgb.motherboard = "amd";
 }
