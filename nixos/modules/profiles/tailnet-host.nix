@@ -13,6 +13,6 @@
   networking.firewall.trustedInterfaces = ["tailscale0"];
 
   users.users.${config.main-user.userName}.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAA... teodor@teodor-work-nixos"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+VmFxyawooyex2USximOy27KmYAktZaiu5p9mbLhz3 teodor@teodor-work-nixos"
   ];
 }
