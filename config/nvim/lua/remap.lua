@@ -7,6 +7,15 @@ map('n', '[d'       , vim.diagnostic.goto_prev , { desc = 'Go to previous [D]iag
 map('n', ']d'       , vim.diagnostic.goto_next , { desc = 'Go to next [D]iagnostic message'     })
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages'    })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list'     })
+
+map('n', '<leader>dd', function()
+    vim.diagnostic.enable(false)
+end, { desc = 'Disable diagnostics' })
+
+map('n', '<leader>ed', function()
+    vim.diagnostic.enable(true)
+end, { desc = 'Enable diagnostics' })
+
 map('n', '<C-h>'    , '<C-w><C-h>'             , { desc = 'Move focus to the left window'       })
 map('n', '<C-l>'    , '<C-w><C-l>'             , { desc = 'Move focus to the right window'      })
 map('n', '<C-j>'    , '<C-w><C-j>'             , { desc = 'Move focus to the lower window'      })

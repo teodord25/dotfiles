@@ -17,3 +17,14 @@ local builtin = require 'telescope.builtin'
 map('n', '<leader>sn', function()
     builtin.find_files { cwd = vim.fn.stdpath 'config' }
 end, { desc = '[S]earch [N]eovim files' })
+
+map('n', '<leader>sd', function()
+    local dir = vim.fn.input('Grep dir: ', vim.fn.getcwd() .. '/', 'dir')
+    if dir ~= '' then
+        builtin.live_grep { search_dirs = { dir } }
+    end
+end, { desc = '[S]earch in [D]irectory' })
+
+map('n', '<leader>s.', function()
+    builtin.live_grep { search_dirs = { vim.fn.expand '%:p:h' } }
+end, { desc = '[S]earch in current file’s directory' })
