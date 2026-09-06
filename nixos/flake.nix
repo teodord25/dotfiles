@@ -35,7 +35,7 @@
     inputs.diane = {
       url = "git+ssh://git@github.com/teodord25/diane.git";
       inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
   };
 
   outputs = {
