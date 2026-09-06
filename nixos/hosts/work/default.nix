@@ -9,6 +9,8 @@
     ../../modules/profiles/rust.nix
   ];
 
+  environment.variables.DIANE_LLM_URL = "http://teodor-gaming-nixos:8080/v1/chat/completions";
+
   networking.hostName = "teodor-work-nixos";
 
   main-user.enable = true;

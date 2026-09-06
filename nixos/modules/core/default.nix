@@ -21,5 +21,6 @@
     ../packages/hypr.nix
     ../packages/apps.nix
     ../packages/flake-apps.nix
+    ../packages/diane.nix
   ];
 }
