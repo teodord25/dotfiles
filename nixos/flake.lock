@@ -41,6 +41,26 @@
         "type": "github"
       }
     },
+    "diane": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788641892,
+        "narHash": "sha256-8QNQcDYeSkl1DYy1axuFA6hPDRe1+lXN89KFj4vdH/k=",
+        "owner": "teodord25",
+        "repo": "diane",
+        "rev": "80e3523637912de8dab6c222f21e6bcd3195c659",
+        "type": "github"
+      },
+      "original": {
+        "owner": "teodord25",
+        "repo": "diane",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -253,6 +273,7 @@
       "inputs": {
         "alejandra": "alejandra",
         "claude-code-nix": "claude-code-nix",
+        "diane": "diane",
         "ghostty": "ghostty",
         "nixpkgs": "nixpkgs_2",
         "rust-overlay": "rust-overlay",

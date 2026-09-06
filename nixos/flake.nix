@@ -33,7 +33,7 @@
     # follows excluded on purpose
 
     diane = {
-      url = "git+ssh://git@github.com/teodord25/diane.git";
+      url = "github:teodord25/diane";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
