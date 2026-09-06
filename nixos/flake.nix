@@ -32,7 +32,7 @@
     claude-code-nix.url = "github:sadjow/claude-code-nix";
     # follows excluded on purpose
 
-    inputs.diane = {
+    diane = {
       url = "git+ssh://git@github.com/teodord25/diane.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
