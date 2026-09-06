@@ -7,3 +7,14 @@ Host *.jetbrains.team
     HostName git.jetbrains.team
     User git
     IdentityFile ~/.ssh/id_ed25519_jetbrains
+
+Host gaming
+  HostName 100.106.5.81
+  User bane
+  IdentityFile ~/.ssh/anton
+  IdentitiesOnly yes
+
+Host vault.github.com
+  HostName github.com
+  IdentityFile ~/.ssh/vault-deploy-key
+  IdentitiesOnly yes
