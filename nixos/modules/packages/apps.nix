@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   environment.systemPackages = with pkgs; [
     anki-bin
     mullvad
@@ -11,5 +11,9 @@
     pavucontrol
     wtype
     thunderbird
+    obsidian
   ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "obsidian" ];
 }
