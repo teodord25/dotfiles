@@ -32,5 +32,7 @@
 
     nushell
     jetbrains.rider
+
+    jetbrains.pycharm
   ];
 }

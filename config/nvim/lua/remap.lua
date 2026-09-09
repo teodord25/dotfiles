@@ -42,3 +42,11 @@ nmap('n', '<C-p>', ':cprev<CR>', {
 	noremap = true,
 	silent = true
 })
+
+vim.keymap.set("n", "<leader>yj", function()
+  local root = vim.fs.root(0, ".git") or vim.uv.cwd()
+  local rel = vim.api.nvim_buf_get_name(0):gsub("^" .. vim.pesc(root) .. "/", "")
+  local url = ("jetbrains://pycharm/navigate/reference?project=%s&path=%s:%d:%d")
+    :format(vim.fn.fnamemodify(root, ":t"), rel, vim.fn.line("."), vim.fn.col(".") - 1)
+  vim.fn.setreg("+", url)
+end, { desc = "Copy PyCharm deep link" })
