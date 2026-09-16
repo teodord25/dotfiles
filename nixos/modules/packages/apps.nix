@@ -12,6 +12,7 @@
     wtype
     thunderbird
     obsidian
+    element-desktop
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
