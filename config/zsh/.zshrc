@@ -53,3 +53,9 @@ export EDITOR="nvim"
 
 
 alias shell-bevy='nix-shell $HOME/dotfiles/shells/bevy.nix'
+
+diane-pick() {
+  fd -e md -e txt . "${1:-.}" \
+    | fzf -m --preview 'bat --color=always {}' \
+    | xargs -r -I{} diane drop --file {}
+}
