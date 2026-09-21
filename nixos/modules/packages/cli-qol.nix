@@ -7,6 +7,7 @@
     jq
 
     fzf
+    fd
     zoxide
 
     psmisc
