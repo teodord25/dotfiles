@@ -13,6 +13,8 @@
     thunderbird
     obsidian
     element-desktop
+
+    pi-coding-agent
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
