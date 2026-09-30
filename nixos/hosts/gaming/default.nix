@@ -10,7 +10,6 @@
     ../../modules/profiles/vpn.nix
     ../../modules/profiles/rust.nix
     ../../modules/profiles/tailnet-host.nix
-    ../../modules/profiles/anton.nix
   ];
 
   networking.hostName = "teodor-gaming-nixos";
