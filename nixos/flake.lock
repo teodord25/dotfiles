@@ -22,6 +22,22 @@
         "type": "github"
       }
     },
+    "betterfox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788713351,
+        "narHash": "sha256-mIP/WcXUcGrJsWCJzR4zqPOmt0BbbpTZVaN/MbIwBbw=",
+        "owner": "yokoffing",
+        "repo": "Betterfox",
+        "rev": "067172a4b0dc90e78e5b8b94d9abfe6430c6a7be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yokoffing",
+        "repo": "Betterfox",
+        "type": "github"
+      }
+    },
     "claude-code-nix": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -48,11 +64,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790269737,
-        "narHash": "sha256-eV0ZsjoUD27jAp9/jeZlH3by0jyI7afeSjGJZ4miSsU=",
+        "lastModified": 1790782628,
+        "narHash": "sha256-pr5ejOCJLsD3LKdvgKjpLfHPCOimEaISjUlYluZB4aI=",
         "owner": "teodord25",
         "repo": "diane",
-        "rev": "153fa54514bd3c0050f7fa1cfcd45c94beee1cfd",
+        "rev": "f29a658686a0cff8e3004205437c1bd58552e639",
         "type": "github"
       },
       "original": {
@@ -272,6 +288,7 @@
     "root": {
       "inputs": {
         "alejandra": "alejandra",
+        "betterfox": "betterfox",
         "claude-code-nix": "claude-code-nix",
         "diane": "diane",
         "ghostty": "ghostty",
