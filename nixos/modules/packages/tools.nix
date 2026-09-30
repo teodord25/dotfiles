@@ -21,5 +21,6 @@
     ripgrep
     tmux
     p7zip
+    satty
   ];
 }
