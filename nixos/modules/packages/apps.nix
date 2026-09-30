@@ -5,6 +5,7 @@
     distrobox
     newsboat
     woeusb # rufus
+    firefox # WORK browser (default profile); personal one is profiles/firefox.nix
     qbittorrent
     discord
     pavucontrol

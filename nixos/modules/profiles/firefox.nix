@@ -3,7 +3,17 @@
   inputs,
   ...
 }: let
-  # Betterfox as *defaults*: a sane baseline that anything below can override.
+  # Two browsers, one engine, zero shared config:
+  #
+  #   firefox           plain nixpkgs Firefox, default profile: WORK. Untouched.
+  #   firefox-personal  the build below, own profile dir: PERSONAL.
+  #
+  # Everything personal (policies, prefs, extensions) is baked into this
+  # package rather than set via programs.firefox. That module writes
+  # /etc/firefox/policies/policies.json, which every nixpkgs Firefox reads,
+  # so it would have leaked into the work browser too.
+
+  # Betterfox as *defaults*: a sane baseline that the locked prefs below override.
   # Its user.js is user_pref(...) lines; autoconfig wants defaultPref(...).
   betterfox = pkgs.runCommand "betterfox.cfg" {} ''
     sed 's/^\s*user_pref(/defaultPref(/' ${inputs.betterfox}/user.js > $out
@@ -14,20 +24,15 @@
     installation_mode = "force_installed";
     install_url = amo slug;
   };
-in {
-  programs.firefox = {
-    enable = true;
 
-    # Tridactyl's native messenger: needed for tridactylrc loading, editorcmd,
-    # and the tabdump -> diane keybind (config/tridactyl/tabdump.js).
-    nativeMessagingHosts.packages = [pkgs.tridactyl-native];
+  personal = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+    # Tridactyl's native messenger: rc loading, editorcmd, tabdump -> diane.
+    nativeMessagingHosts = [pkgs.tridactyl-native];
 
-    # The module concatenates these files, then appends autoConfig below,
+    # The wrapper concatenates these files, then appends extraPrefs,
     # so the locked invariants always come after (and win over) Betterfox.
-    autoConfigFiles = [betterfox];
-
-    # Invariants: locked so about:config drift can't silently win.
-    autoConfig = ''
+    extraPrefsFiles = [betterfox];
+    extraPrefs = ''
       // fresh slate on every start; crash recovery stays as a safety net
       lockPref("browser.startup.page", 0);
       lockPref("browser.sessionstore.resume_from_crash", true);
@@ -48,7 +53,7 @@ in {
       lockPref("signon.rememberSignons", false);
     '';
 
-    policies = {
+    extraPolicies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       DontCheckDefaultBrowser = true;
@@ -60,4 +65,24 @@ in {
       };
     };
   };
+
+  # The wrapped package's own binary is also called `firefox`, so it is NOT put
+  # on PATH (it would collide with the work one). This launcher is the only
+  # way in: separate profile dir outside profiles.ini, separate Wayland app_id.
+  launcher = pkgs.writeShellScriptBin "firefox-personal" ''
+    dir="$HOME/.mozilla/firefox-personal"
+    mkdir -p "$dir"
+    exec ${personal}/bin/firefox --profile "$dir" --name firefox-personal "$@"
+  '';
+
+  desktop = pkgs.makeDesktopItem {
+    name = "firefox-personal";
+    desktopName = "Firefox (personal)";
+    exec = "firefox-personal %U";
+    icon = "firefox";
+    startupWMClass = "firefox-personal";
+    categories = ["Network" "WebBrowser"];
+  };
+in {
+  environment.systemPackages = [launcher desktop];
 }
