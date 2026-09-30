@@ -5,7 +5,6 @@
     distrobox
     newsboat
     woeusb # rufus
-    firefox
     qbittorrent
     discord
     pavucontrol

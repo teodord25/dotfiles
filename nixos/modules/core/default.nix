@@ -14,6 +14,7 @@
 
     # every host currently runs the Hyprland desktop
     ../profiles/desktop.nix
+    ../profiles/firefox.nix
 
     # package sets shared by all hosts
     ../packages/cli-qol.nix

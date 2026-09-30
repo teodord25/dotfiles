@@ -25,8 +25,15 @@ bind u scrollpage -0.5
 bind x tabclose
 bind X undo
 
-" Open links in new tab by default
-set newtab about:blank
+" Dump every open tab into diane, then quit — only if the drop succeeded.
+" Logic lives in tabdump.js next to this file.
+command tabdump jsb -r tabdump.js
+bind ZD tabdump
+
+" New tab = diane's capture textbox (served locally, see nixos/modules/packages/diane.nix).
+" ?newtab keeps focus off the textbox so Tridactyl binds work; `gi` to type a note.
+" Must be a real http page: Tridactyl can't run on about: pages (ZD etc. would do nothing).
+set newtab http://127.0.0.1:7777/?newtab
 
 " Theme
 colors midnight

@@ -32,6 +32,11 @@
     claude-code-nix.url = "github:sadjow/claude-code-nix";
     # follows excluded on purpose
 
+    betterfox = {
+      url = "github:yokoffing/Betterfox";
+      flake = false; # just user.js, consumed by modules/profiles/firefox.nix
+    };
+
     diane = {
       url = "github:teodord25/diane";
       inputs.nixpkgs.follows = "nixpkgs";

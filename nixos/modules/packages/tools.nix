@@ -8,7 +8,7 @@
     vulkan-loader
     mesa
     imagemagick
-    tridactyl-native
+    tridactyl-native # still needed by Zen via scripts/sh/setup/tridactyl.sh; drop with Zen (Firefox gets it from profiles/firefox.nix)
     radeontop
     sysstat
     git
