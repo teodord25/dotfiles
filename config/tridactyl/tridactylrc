@@ -25,10 +25,14 @@ bind u scrollpage -0.5
 bind x tabclose
 bind X undo
 
-" Dump every open tab into diane, then quit — only if the drop succeeded.
+" Every quit dumps all open tabs into diane, and only quits if the drop succeeded.
 " Logic lives in tabdump.js next to this file.
+" Throwaway browsing: private window (never dumped). Emergency: Ctrl+Q.
 command tabdump jsb -r tabdump.js
-bind ZD tabdump
+command wq  tabdump
+command wqa tabdump
+command qa  tabdump
+bind ZZ tabdump
 
 " New tab = diane's capture textbox (served locally, see nixos/modules/packages/diane.nix).
 " ?newtab keeps focus off the textbox so Tridactyl binds work; `gi` to type a note.
