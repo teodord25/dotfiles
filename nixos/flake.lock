@@ -64,11 +64,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790782628,
-        "narHash": "sha256-pr5ejOCJLsD3LKdvgKjpLfHPCOimEaISjUlYluZB4aI=",
+        "lastModified": 1790853795,
+        "narHash": "sha256-UM2YqVGfgMatPhIFKhd7qeV2jYPR7jzTXnQRL1/YHP0=",
         "owner": "teodord25",
         "repo": "diane",
-        "rev": "f29a658686a0cff8e3004205437c1bd58552e639",
+        "rev": "a48e5dc3ec92d467dbf0e44589a319ff4c62ec7d",
         "type": "github"
       },
       "original": {
