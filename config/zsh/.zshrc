@@ -59,3 +59,49 @@ diane-pick() {
     | fzf -m --preview 'bat --color=always {}' \
     | xargs -r -I{} diane drop --file {}
 }
+
+
+NEXT_FILE=~/.next
+TODO_FILE=~/.todo
+
+# next "x"  -> add a mid-flight item ("work on this tmr")
+# next      -> edit the next list (delete lines when done)
+next() {
+  if (( $# )); then
+    print -r -- "$*" >> $NEXT_FILE
+  else
+    ${EDITOR:-nvim} $NEXT_FILE
+  fi
+}
+
+# todo      -> open the backlog
+# todo "x"  -> append to the backlog without opening it
+todo() {
+  if (( $# )); then
+    touch $TODO_FILE
+    local tmp=$(mktemp "$TODO_FILE.XXXXXX") || return 1
+    { print -r -- "[$(date '+%Y-%m-%d %H:%M')] $*"; cat $TODO_FILE } > $tmp \
+      && mv $tmp $TODO_FILE
+  else
+    ${EDITOR:-nvim} $TODO_FILE
+  fi
+}
+
+# print the next list on every new shell
+if [[ -s $NEXT_FILE ]]; then
+  print -P "%F{yellow}next:%f"
+  sed 's/^/  /' $NEXT_FILE
+fi
+
+# right prompt: next count (yellow, red above 3) + backlog count (grey)
+_work_prompt() {
+  local n=$(grep -c . $NEXT_FILE 2>/dev/null)
+  local t=$(grep -c . $TODO_FILE 2>/dev/null)
+  local p=""
+  if   (( n > 3 )); then p="%F{red}▸ $n%f"
+  elif (( n > 0 )); then p="%F{yellow}▸ $n%f"; fi
+  (( t > 0 )) && p+="${p:+  }%F{8}$t todos in todos file bro...%f"
+  RPROMPT=$p
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _work_prompt
