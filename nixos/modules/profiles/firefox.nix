@@ -64,6 +64,7 @@
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = force "bitwarden-password-manager";
         "myallychou@gmail.com" = force "youtube-recommended-videos";                 # Unhook
         "{17c4514d-71fa-4633-8c07-1fe0b354c885}" = force "hide-youtube-thumbnails";  # domdomegg
+        "addon@darkreader.org" = force "darkreader";
       };
     };
   };
