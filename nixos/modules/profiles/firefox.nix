@@ -78,6 +78,14 @@
     exec ${personal}/bin/firefox --profile "$dir" --name firefox-personal "$@"
   '';
 
+  # Link-handling types the personal browser claims as default.
+  webMimeTypes = [
+    "text/html"
+    "application/xhtml+xml"
+    "x-scheme-handler/http"
+    "x-scheme-handler/https"
+  ];
+
   desktop = pkgs.makeDesktopItem {
     name = "firefox-personal";
     desktopName = "Firefox (personal)";
@@ -85,7 +93,13 @@
     icon = "firefox";
     startupWMClass = "firefox-personal";
     categories = ["Network" "WebBrowser"];
+    mimeTypes = webMimeTypes;
   };
 in {
   environment.systemPackages = [launcher desktop];
+
+  # Links from anywhere (xdg-open, portals, terminals) go to the personal browser.
+  # Note: ~/.config/mimeapps.list overrides this if it has entries for these types.
+  xdg.mime.defaultApplications =
+    pkgs.lib.genAttrs webMimeTypes (_: "firefox-personal.desktop");
 }
