@@ -105,3 +105,14 @@ _work_prompt() {
 }
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _work_prompt
+
+
+capsctrl() {
+  local svc=kanata-default.service
+  sudo systemctl stop $svc
+  {
+    sudo kanata -c ~/.config/kanata/plain.kbd
+  } always {
+    sudo systemctl start $svc
+  }
+}
