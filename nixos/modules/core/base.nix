@@ -67,6 +67,7 @@
     noto-fonts-color-emoji
     roboto
     source-sans-pro
+    source-serif # Source Serif 4: tab titles + URL dropdown in personal Firefox
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only

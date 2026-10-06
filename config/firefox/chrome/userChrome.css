@@ -1,0 +1,187 @@
+/* Personal Firefox — "Manuscript"
+ * neutral gray ground, deep red accent, serif tab titles, mono URLs, square corners.
+ *
+ * Stowed to ~/.config/firefox/chrome/ and linked into the profile by the
+ * firefox-personal launcher. Edit, then restart Firefox. No rebuild needed.
+ *
+ * Strategy: theme through Firefox's own CSS variables first (these survive
+ * updates), and touch DOM selectors only where no variable exists. If an
+ * update breaks something, open the Browser Toolbox (ctrl+alt+shift+i) and
+ * fix the one selector.
+ */
+
+:root {
+  /* palette */
+  --d-ground: #0E0E0E;
+  --d-panel: #151515;
+  --d-line: #262626;
+  --d-sel: #1D1D1D;
+  --d-hover: #181818;
+  --d-ink: #D6D6D6;
+  --d-hi: #ECECEC;
+  --d-dim: #8A8A8A;
+  --d-deep: #9A0000; /* pure red: rules, fills, bars */
+  --d-red: #E84848;  /* same hue, lifted so it reads as small text (~5:1) */
+
+  /* type */
+  --d-serif: "Source Serif 4", serif;
+  --d-mono: "JetBrains Mono", "JetBrainsMono Nerd Font", monospace;
+
+  /* --- Firefox's own variables --- */
+  --lwt-accent-color: var(--d-panel) !important;
+  --toolbox-bgcolor: var(--d-panel) !important;
+  --toolbar-bgcolor: var(--d-panel) !important;
+  --toolbar-color: var(--d-ink) !important;
+  --chrome-content-separator-color: var(--d-line) !important;
+
+  --toolbar-field-background-color: var(--d-ground) !important;
+  --toolbar-field-focus-background-color: var(--d-ground) !important;
+  --toolbar-field-color: var(--d-hi) !important;
+  --toolbar-field-focus-color: var(--d-hi) !important;
+  --toolbar-field-border-color: var(--d-line) !important;
+  --toolbar-field-focus-border-color: var(--d-red) !important;
+
+  --sidebar-background-color: var(--d-panel) !important;
+  --sidebar-text-color: var(--d-ink) !important;
+  --sidebar-border-color: var(--d-line) !important;
+
+  --tab-selected-bgcolor: var(--d-sel) !important;
+  --tab-selected-textcolor: var(--d-hi) !important;
+  --tab-hover-background-color: var(--d-hover) !important;
+  --tab-selected-shadow: none !important;
+
+  --arrowpanel-background: var(--d-panel) !important;
+  --arrowpanel-color: var(--d-ink) !important;
+  --arrowpanel-border-color: var(--d-line) !important;
+  --panel-separator-color: var(--d-line) !important;
+  --focus-outline-color: var(--d-red) !important;
+
+  --urlbarView-highlight-background: var(--d-sel) !important;
+  --urlbarView-highlight-color: var(--d-hi) !important;
+  --urlbarView-hover-background: var(--d-hover) !important;
+
+  /* square everything */
+  --border-radius-small: 0 !important;
+  --border-radius-medium: 0 !important;
+  --toolbarbutton-border-radius: 0 !important;
+  --tab-border-radius: 0 !important;
+  --arrowpanel-border-radius: 0 !important;
+}
+
+/* ---------- toolbar ---------- */
+
+#nav-bar {
+  border-bottom: 1px solid var(--d-line) !important;
+  box-shadow: none !important;
+}
+
+/* ---------- URL bar ---------- */
+
+#urlbar-background {
+  border: 1px solid var(--d-line) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+#urlbar:is([focused], [open]) > #urlbar-background {
+  border-color: var(--d-red) !important;
+}
+#urlbar-input {
+  font-family: var(--d-mono) !important;
+  font-size: 13px !important;
+}
+
+/* suggestions: serif title, mono URL, matched text in red */
+.urlbarView-row-inner {
+  border-radius: 0 !important;
+}
+.urlbarView-title {
+  font-family: var(--d-serif) !important;
+  font-size: 15px !important;
+}
+.urlbarView-url {
+  font-family: var(--d-mono) !important;
+  font-size: 12px !important;
+  color: var(--d-dim) !important;
+}
+.urlbarView-title strong,
+.urlbarView-url strong {
+  color: var(--d-red) !important;
+  font-weight: inherit !important;
+}
+
+/* ---------- vertical tabs ---------- */
+
+#sidebar-main {
+  border-inline-end: 1px solid var(--d-line) !important;
+}
+
+.tabbrowser-tab {
+  min-height: 36px !important;
+  padding-block: 0 !important;
+}
+.tabbrowser-tab .tab-background {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  margin-block: 1px !important;
+}
+
+.tab-label {
+  font-family: var(--d-serif) !important;
+  font-size: 15px !important;
+  color: var(--d-ink) !important;
+}
+.tabbrowser-tab[selected] .tab-label {
+  color: var(--d-hi) !important;
+  font-weight: 600 !important;
+}
+
+/* unloaded: dim italic */
+.tabbrowser-tab[pending] .tab-label {
+  color: var(--d-dim) !important;
+  font-style: italic !important;
+}
+
+/* title changed in the background */
+.tabbrowser-tab:is([attention], [titlechanged]):not([selected]) .tab-label {
+  color: var(--d-red) !important;
+}
+
+/* the pilcrow: a fixed 14px gutter on every tab, ¶ on the active one */
+.tabbrowser-tab:not([pinned]) .tab-content::before {
+  content: "";
+  flex-shrink: 0;
+  width: 14px;
+  margin-inline-end: 6px;
+  text-align: center;
+  font-family: var(--d-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--d-red);
+}
+.tabbrowser-tab[selected]:not([pinned]) .tab-content::before {
+  content: "¶";
+}
+
+/* audio indicators in the accent */
+.tab-audio-button,
+.tab-icon-overlay {
+  fill: var(--d-red) !important;
+}
+
+/* OPTIONAL: no favicons on normal tabs, like the mockup. Pinned tabs keep
+ * theirs. Leave this off if you ever use the collapsed (icon-only) sidebar,
+ * since collapsed tabs would then be blank. */
+/*
+.tabbrowser-tab:not([pinned]) .tab-icon-stack {
+  display: none !important;
+}
+*/
+
+/* ---------- menus and panels ---------- */
+
+menupopup,
+panel {
+  --panel-border-radius: 0 !important;
+  --panel-shadow: none !important;
+}

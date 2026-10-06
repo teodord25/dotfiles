@@ -46,8 +46,13 @@
       lockPref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
       lockPref("layout.css.prefers-color-scheme.content-override", 0);
 
-      // lets userChrome.css work later
+      // userChrome.css (lives in config/firefox/chrome, linked in by the launcher)
       lockPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+      // Browser Toolbox (ctrl+alt+shift+i) for inspecting the chrome when a
+      // Firefox update breaks a selector in userChrome.css
+      defaultPref("devtools.chrome.enabled", true);
+      defaultPref("devtools.debugger.remote-enabled", true);
 
       // Bitwarden owns passwords
       lockPref("signon.rememberSignons", false);
@@ -75,6 +80,9 @@
   launcher = pkgs.writeShellScriptBin "firefox-personal" ''
     dir="$HOME/.mozilla/firefox-personal"
     mkdir -p "$dir"
+    # userChrome.css is a stowed dotfile, so CSS edits only need a Firefox
+    # restart, not a rebuild. Never clobbers a real chrome/ dir.
+    [ -e "$dir/chrome" ] || ln -s "$HOME/.config/firefox/chrome" "$dir/chrome"
     exec ${personal}/bin/firefox --profile "$dir" --name firefox-personal "$@"
   '';
 
