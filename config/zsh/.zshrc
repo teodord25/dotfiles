@@ -109,9 +109,10 @@ add-zsh-hook precmd _work_prompt
 
 capsctrl() {
   local svc=kanata-default.service
+  local bin=$(systemctl cat $svc | grep -oE '/nix/store/[^ ]+/bin/kanata' | head -1)
   sudo systemctl stop $svc
   {
-    sudo kanata -c ~/.config/kanata/plain.kbd
+    sudo $bin -c ~/.config/kanata/plain.kbd
   } always {
     sudo systemctl start $svc
   }
