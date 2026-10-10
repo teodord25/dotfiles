@@ -49,6 +49,10 @@
       // userChrome.css (lives in config/firefox/chrome, linked in by the launcher)
       lockPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
+      // default page background in dark mode (about:blank, plain-text pages,
+      // anything that sets no background). Firefox's own is a blue-grey #1C1B22.
+      defaultPref("browser.display.background_color.dark", "#0E0E0E");
+
       // Browser Toolbox (ctrl+alt+shift+i) for inspecting the chrome when a
       // Firefox update breaks a selector in userChrome.css
       defaultPref("devtools.chrome.enabled", true);

@@ -4,10 +4,12 @@
  * Stowed to ~/.config/firefox/chrome/ and linked into the profile by the
  * firefox-personal launcher. Edit, then restart Firefox. No rebuild needed.
  *
- * Strategy: theme through Firefox's own CSS variables first (these survive
- * updates), and touch DOM selectors only where no variable exists. If an
- * update breaks something, open the Browser Toolbox (ctrl+alt+shift+i) and
- * fix the one selector.
+ * Checked against Firefox 152.0.6 source (FIREFOX_152_0_6_RELEASE), the
+ * version in the pinned nixpkgs. Every variable below is declared on :root
+ * in that release, so a :root override with !important always wins.
+ *
+ * If a Firefox update breaks something: Browser Toolbox (ctrl+alt+shift+i),
+ * inspect the element, look for the variable it reads now.
  */
 
 :root {
@@ -27,45 +29,74 @@
   --d-serif: "Source Serif 4", serif;
   --d-mono: "JetBrains Mono", "JetBrainsMono Nerd Font", monospace;
 
-  /* --- Firefox's own variables --- */
-  --lwt-accent-color: var(--d-panel) !important;
-  --toolbox-bgcolor: var(--d-panel) !important;
-  --toolbar-bgcolor: var(--d-panel) !important;
-  --toolbar-color: var(--d-ink) !important;
+  /* --- window frame: titlebar, tab sidebar, toolbars --- */
+  /* toolbox is what the built-in dark theme paints #1C1B22 */
+  --toolbox-background-color: var(--d-panel) !important;
+  --toolbox-background-color-inactive: var(--d-panel) !important;
+  --toolbox-text-color: var(--d-ink) !important;
+  --toolbox-text-color-inactive: var(--d-dim) !important;
+  --toolbar-background-color: var(--d-panel) !important;
+  --toolbar-text-color: var(--d-ink) !important;
+  --toolbarbutton-icon-fill: var(--d-ink) !important;
+  --toolbarbutton-icon-fill-attention: var(--d-red) !important;
   --chrome-content-separator-color: var(--d-line) !important;
+  --tabs-navbar-separator-color: var(--d-line) !important;
 
-  --toolbar-field-background-color: var(--d-ground) !important;
-  --toolbar-field-focus-background-color: var(--d-ground) !important;
-  --toolbar-field-color: var(--d-hi) !important;
-  --toolbar-field-focus-color: var(--d-hi) !important;
-  --toolbar-field-border-color: var(--d-line) !important;
-  --toolbar-field-focus-border-color: var(--d-red) !important;
+  /* behind pages while they load, and the gap around them */
+  --tabpanel-background-color: var(--d-ground) !important;
 
+  /* sidebar panels (bookmarks, history) */
   --sidebar-background-color: var(--d-panel) !important;
   --sidebar-text-color: var(--d-ink) !important;
   --sidebar-border-color: var(--d-line) !important;
 
-  --tab-selected-bgcolor: var(--d-sel) !important;
+  /* --- URL bar --- */
+  --toolbar-field-background-color: var(--d-ground) !important;
+  --toolbar-field-background-color-focus: var(--d-ground) !important;
+  --toolbar-field-text-color: var(--d-hi) !important;
+  --toolbar-field-text-color-focus: var(--d-hi) !important;
+  --toolbar-field-border-color: var(--d-line) !important;
+  --toolbar-field-border-color-focus: var(--d-red) !important;
+
+  /* --- tabs --- */
+  --tab-background-color-selected: var(--d-sel) !important;
+  --tab-background-color-hover: var(--d-hover) !important;
   --tab-selected-textcolor: var(--d-hi) !important;
-  --tab-hover-background-color: var(--d-hover) !important;
   --tab-selected-shadow: none !important;
+  --tab-selected-outline-color: transparent !important;
+  --tab-hover-outline-color: transparent !important;
+  --tab-attention-dot-color: var(--d-red) !important;
 
-  --arrowpanel-background: var(--d-panel) !important;
-  --arrowpanel-color: var(--d-ink) !important;
-  --arrowpanel-border-color: var(--d-line) !important;
+  /* --- menus, popups, the URL dropdown --- */
+  --panel-background-color: var(--d-panel) !important;
+  --panel-text-color: var(--d-ink) !important;
+  --panel-border-color: var(--d-line) !important;
   --panel-separator-color: var(--d-line) !important;
+  --panel-box-shadow: none !important;
+  --urlbarview-background-color-selected: var(--d-sel) !important;
+  --urlbarview-text-color-selected: var(--d-hi) !important;
+  --urlbarview-background-color-hover: var(--d-hover) !important;
+  --urlbarview-separator-color: var(--d-line) !important;
+  --urlbarView-secondary-text-color: var(--d-dim) !important;
+
+  /* --- accents --- */
   --focus-outline-color: var(--d-red) !important;
+  --color-accent-primary: var(--d-red) !important;
 
-  --urlbarView-highlight-background: var(--d-sel) !important;
-  --urlbarView-highlight-color: var(--d-hi) !important;
-  --urlbarView-hover-background: var(--d-hover) !important;
-
-  /* square everything */
+  /* --- square everything --- */
   --border-radius-small: 0 !important;
   --border-radius-medium: 0 !important;
   --toolbarbutton-border-radius: 0 !important;
   --tab-border-radius: 0 !important;
-  --arrowpanel-border-radius: 0 !important;
+  --urlbar-border-radius: 0 !important;
+  --urlbarview-border-radius: 0 !important;
+  --panel-border-radius: 0 !important;
+}
+
+/* fallback for the tabpanel variable: the area pages are drawn into */
+#tabbrowser-tabpanels,
+#tabbrowser-tabbox {
+  background-color: var(--d-ground) !important;
 }
 
 /* ---------- toolbar ---------- */
@@ -76,16 +107,13 @@
 }
 
 /* ---------- URL bar ---------- */
+/* 152: #urlbar is <moz-urlbar>; background and input are classes now */
 
-#urlbar-background {
-  border: 1px solid var(--d-line) !important;
+#urlbar > .urlbar-background {
   box-shadow: none !important;
   outline: none !important;
 }
-#urlbar:is([focused], [open]) > #urlbar-background {
-  border-color: var(--d-red) !important;
-}
-#urlbar-input {
+#urlbar .urlbar-input {
   font-family: var(--d-mono) !important;
   font-size: 13px !important;
 }
@@ -163,8 +191,10 @@
   content: "¶";
 }
 
-/* audio indicators in the accent */
-.tab-audio-button,
+/* audio indicators in the accent (152: the audio button is a <moz-button>) */
+.tab-audio-button {
+  --button-icon-fill: var(--d-red) !important;
+}
 .tab-icon-overlay {
   fill: var(--d-red) !important;
 }
@@ -177,11 +207,3 @@
   display: none !important;
 }
 */
-
-/* ---------- menus and panels ---------- */
-
-menupopup,
-panel {
-  --panel-border-radius: 0 !important;
-  --panel-shadow: none !important;
-}

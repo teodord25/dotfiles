@@ -1,0 +1,38 @@
+/* Personal Firefox — page-side half of the Manuscript theme.
+ *
+ * userChrome.css can't reach inside pages. Firefox's own about: pages
+ * (preferences, add-ons, error pages, the default new tab) and about:blank
+ * draw their own dark backgrounds; this repaints them to the same neutral
+ * gray as the chrome.
+ *
+ * Token names checked against Firefox 152.0.6 (design-system tokens).
+ */
+
+@-moz-document url-prefix("about:") {
+  :root {
+    --background-color-canvas: #0E0E0E !important;
+    --background-color-box: #151515 !important;
+    --newtab-background-color: #0E0E0E !important;
+    --newtab-background-color-secondary: #151515 !important;
+    --border-color: #262626 !important;
+    --card-border-color: #262626 !important;
+    --color-accent-primary: #E84848 !important;
+    --color-accent-primary-hover: #EE6464 !important;
+    --color-accent-primary-active: #D83A3A !important;
+    --button-background-color-primary: #9A0000 !important;
+    --button-background-color-primary-hover: #AE0000 !important;
+    --button-background-color-primary-active: #860000 !important;
+    --button-text-color-primary: #ECECEC !important;
+    --link-color: #E84848 !important;
+    --focus-outline-color: #E84848 !important;
+  }
+  body {
+    background-color: #0E0E0E !important;
+  }
+}
+
+@-moz-document url("about:blank") {
+  html, body {
+    background-color: #0E0E0E !important;
+  }
+}
