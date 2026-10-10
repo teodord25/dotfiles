@@ -25,6 +25,9 @@ in {
       ExecStart = "${diane}/bin/diane serve";
       Environment = [
         "DIANE_VAULT=%h/vault"
+        # web fonts for the new-tab page: Firefox's fingerprinting protection
+        # hides installed fonts from pages, so diane serves the files itself
+        "DIANE_FONT_DIRS=${pkgs.source-serif}/share/fonts:${pkgs.jetbrains-mono}/share/fonts:%h/.local/share/fonts"
         "SSH_AUTH_SOCK=%t/ssh-agent" # programs.ssh.startAgent's socket
       ];
       Restart = "on-failure";
